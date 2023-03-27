@@ -8,27 +8,37 @@ class SocialMediaButton extends StatelessWidget {
     Key? key,
     required this.iconName,
     required this.onPress,
+    required this.text,
   }) : super(key: key);
   final String iconName;
+  final String text;
   final VoidCallback onPress;
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onPress,
       child: Container(
-        height: 80,
-        width: 80,
+        height: 50,
+        width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           color: Colors.white,
         ),
-        child: Center(
-          child: SvgPicture.asset(
-            iconName,
-            width: 40.0,
-            height: 40.0,
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              iconName,
+              width: 20.0,
+              height: 20.0,
+            ),
+            SizedBox(
+              width: 15.0,
+            ),
+            Text(text,),
+          ],
         ),
+
       ),
     );
   }

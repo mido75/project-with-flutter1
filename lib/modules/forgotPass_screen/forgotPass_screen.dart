@@ -1,13 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/shared/components/components.dart';
 
-class ForgotPassScreen extends StatefulWidget {
-
-  @override
-  State<ForgotPassScreen> createState() => _ForgotPassScreenState();
-}
-
-class _ForgotPassScreenState extends State<ForgotPassScreen> {
+class ForgotPassScreen extends GetWidget<AuthViewModel> {
   var emailcontroller = TextEditingController();
   var formkey = GlobalKey<FormState>();
 
@@ -72,7 +69,9 @@ class _ForgotPassScreenState extends State<ForgotPassScreen> {
                       ),
                     ),
                     child: MaterialButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        controller.passwordReset(controlEmail: emailcontroller.text.toString(), context: context);
+                      },
                       height: 40.0,
                       child: Text(
                         'Send Message',

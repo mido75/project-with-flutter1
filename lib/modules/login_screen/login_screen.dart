@@ -1,23 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/modules/forgotPass_screen/forgotPass_screen.dart';
+import 'package:untitled/modules/register_screen/register_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 
-class LoginScreen extends StatefulWidget {
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
+class LoginScreen extends GetWidget<AuthViewModel> {
 
-class _LoginScreenState extends State<LoginScreen> {
   var emailcontroller = TextEditingController();
   var passcontroller = TextEditingController();
-  var formkey = GlobalKey<FormState>();
+  var _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Form(
-          key: formkey,
+          key: _formKey,
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -56,8 +57,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     controller: emailcontroller,
                     keyboardType: TextInputType.emailAddress,
+                    onSaved: (value){
+                      controller.email= value!;
+                    },
+                    validator: (value){
+                      if (value == null) {
+                        print("ERROR");
+                      }
+                    },
                     decoration: InputDecoration(
-
                       border:OutlineInputBorder(),
                       labelText: 'E-mail',
                     //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -72,6 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   TextFormField(
                     controller: passcontroller,
                     keyboardType: TextInputType.visiblePassword,
+                    onSaved: (value){
+                      controller.password = value!;
+                    },
+                    validator: (value){
+                      if (value == null) {
+                        print("ERROR");
+                      }
+                    },
                     decoration: InputDecoration(
                       border:OutlineInputBorder(),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -88,7 +104,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     alignment: Alignment.topRight,
                     child: InkWell(
                       child: const Text('Forgot your password?'),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(ForgotPassScreen());
+                      },
                     ),
                   ),
                   SizedBox(
@@ -103,7 +121,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     child: MaterialButton(
-                      onPressed: (){},
+                      onPressed: (){
+                        _formKey.currentState!.save();
+                        if (_formKey.currentState!.validate()) {
+                          controller.signInWithEmailAndPassword();
+                        }
+                      },
                       height: 40.0,
                       child: Text(
                         'LOGIN',
@@ -142,34 +165,53 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 20,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SocialMediaButton(
-                        iconName: AppAssets.facebookIcon,
-                        onPress: () {},
-                      ),
-                      SizedBox(width: 16.0),
-                      SocialMediaButton(
-                        iconName: AppAssets.googleIcon,
-                        onPress: () {},
-                      ),
-                    ],
+                  SocialMediaButton(
+                    text: 'sign in with facebook',
+                    iconName: AppAssets.facebookIcon,
+                    onPress: () {
+                      controller.facebookSignInMethod();
+                    },
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  SocialMediaButton(
+                    text: 'sign in with google',
+                    iconName: AppAssets.googleIcon,
+                    onPress: () {
+                      controller.googleSignInMethod();
+                    },
+                  ),
+                  SizedBox(height: 15,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:
                     [
                       Text('Don\'t have an account?',),
-                      TextButton(
-                          onPressed: (){},
+                      /*TextButton(
+                          onPressed: (){
+                          //  Get.to(RegisterScreen());
+                          },
                           child: Text(
                             'sign up',
                             style: TextStyle(color: Color(0xff0CC095)),
                           ),
+                      ),
+
+                       */
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(RegisterScreen());
+                        },
+                        child: Text(
+                           "Sign Up",
+                          style : TextStyle(
+                            fontSize: 15,
+                            color: Color(0xff0CC095),
+                          ),
+                        ),
                       ),
                     ],
                   ),

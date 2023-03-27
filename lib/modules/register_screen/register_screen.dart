@@ -1,30 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 
-class RegisterScreen extends StatefulWidget {
 
-  @override
-  State<RegisterScreen> createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
+class RegisterScreen extends GetWidget<AuthViewModel> {
   var emailcontroller = TextEditingController();
   var passcontroller = TextEditingController();
-  var formkey = GlobalKey<FormState>();
+  var phonecontroller = TextEditingController();
+  var usercontroller = TextEditingController();
+  var passComcontroller = TextEditingController();
+  var _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Form(
-          key: formkey,
+          key: _formKey,
           child: SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:
-                [
+                children: [
                   Text(
                     'Welcome , ',
                     style: TextStyle(
@@ -54,10 +54,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 30,
                   ),
                   TextFormField(
-                    controller: emailcontroller,
+                    controller: usercontroller,
                     keyboardType: TextInputType.text,
+                    onSaved: (value){
+                      controller.name= value!;
+                    },
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       labelText: 'UserName',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -71,9 +74,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextFormField(
                     controller: emailcontroller,
                     keyboardType: TextInputType.emailAddress,
+                    onSaved: (value){
+                      controller.email=value!;
+                    },
                     decoration: InputDecoration(
-
-                      border:OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       labelText: 'E-mail',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -85,11 +90,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 30,
                   ),
                   TextFormField(
-                    controller: emailcontroller,
+                    controller: phonecontroller,
                     keyboardType: TextInputType.number,
+                    onSaved: (value){
+                      controller.phone=value!;
+                    },
                     decoration: InputDecoration(
-
-                      border:OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       labelText: 'PhoneNumber',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -103,8 +110,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   TextFormField(
                     controller: passcontroller,
                     keyboardType: TextInputType.visiblePassword,
+                    onSaved: (value){
+                      controller.password=value!;
+                    },
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
                       prefixIcon: Icon(
@@ -116,10 +126,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 30,
                   ),
                   TextFormField(
-                    controller: passcontroller,
+                    controller: passComcontroller,
                     keyboardType: TextInputType.visiblePassword,
+                    onSaved: (value){
+                      controller.passwordCon=value!;
+                    },
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Confirm Password',
                       prefixIcon: Icon(
@@ -139,7 +152,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     child: MaterialButton(
-                      onPressed: (){},
+                      onPressed: () {
+                        _formKey.currentState!.save();
+
+                        if (_formKey.currentState!.validate()) {
+                          controller.createAccountWithEmailAndPassword();
+                        }
+                      },
                       height: 40.0,
                       child: Text(
                         'Sign Up',
@@ -149,17 +168,25 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 30,),
+                  SizedBox(
+                    height: 30,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:
-                    [
-                      Text('have an account?',),
-                      TextButton(
-                        onPressed: (){},
+                    children: [
+                      Text(
+                        'have an account?',
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(LoginScreen());
+                        },
                         child: Text(
-                          'sign in',
-                          style: TextStyle(color: Color(0xff0CC095)),
+                          "Sign In",
+                          style: TextStyle(
+                            fontSize: 15,
+                            color: Color(0xff0CC095),
+                          ),
                         ),
                       ),
                     ],

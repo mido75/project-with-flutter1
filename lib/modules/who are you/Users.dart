@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 
 class Users extends StatelessWidget {
@@ -47,7 +49,9 @@ class Users extends StatelessWidget {
                   ),
                 ),
                 child: MaterialButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Get.to(LoginScreen());
+                  },
                   height: 40.0,
                   child: Text(
                     'User',
