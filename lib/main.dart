@@ -3,10 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
 import 'package:untitled/helper/building.dart';
+import 'package:untitled/layout/shop_layout.dart';
 import 'package:untitled/modules/begin/begin_screen.dart';
+import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/forgotPass_screen/forgotPass_screen.dart';
+import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/register_screen/register_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
+import 'package:untitled/shared/styles/theme.dart';
 
 import 'modules/login_screen/login_screen.dart';
 
@@ -23,10 +27,14 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       initialBinding: Binding(),
       debugShowCheckedModeBanner: false,
+      theme: lighttheme,
+      /*
       theme: ThemeData(
         primaryColor: Color(0xff0CC095),
       ),
-      home: BeginScreen(),
+
+       */
+      home: ShopLayout(),
     );
   }
 }

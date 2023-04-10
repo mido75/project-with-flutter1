@@ -5,8 +5,11 @@ import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 
-/*
-class ControlViewModel extends GetxController {
+
+class controlViewModel extends GetxController {
+
+
+
   int _navigatorValue = 0;
 
   get navigatorValue => _navigatorValue;
@@ -23,11 +26,15 @@ class ControlViewModel extends GetxController {
         }
       case 1:
         {
+          currentScreen = HomeScreen();
+
           // currentScreen = CartView();
           break;
         }
       case 2:
         {
+          currentScreen = HomeScreen();
+
           // currentScreen = ProfileView();
           break;
         }
@@ -36,9 +43,9 @@ class ControlViewModel extends GetxController {
   }
 
 }
- */
 
-class controlView extends GetWidget<AuthViewModel>{
+/*
+class controlViewModel extends GetWidget<AuthViewModel>{
   @override
   Widget build(BuildContext context){
     return Obx((){
@@ -48,3 +55,5 @@ class controlView extends GetWidget<AuthViewModel>{
     });
   }
 }
+
+ */
