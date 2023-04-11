@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:untitled/core/service/firestore_user.dart';
 import 'package:untitled/models/user_model.dart';
+import 'package:untitled/modules/begin/begin_screen.dart';
+import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 
@@ -23,7 +25,6 @@ class AuthViewModel extends GetxController {
 
   @override
   void onInit() {
-    changeScreen();
     // TODO: implement onInit
     super.onInit();
     _user.bindStream(_auth.authStateChanges());
@@ -80,11 +81,10 @@ class AuthViewModel extends GetxController {
     });
   }
 
-
   void signInWithEmailAndPassword() async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Get.offAll(HomeScreen());
+      Get.offAll(ControlView());
     } catch (e) {
       print(e.toString());
       Get.snackbar(
@@ -103,7 +103,7 @@ class AuthViewModel extends GetxController {
             saveUser(user);
       });
 
-      Get.offAll(HomeScreen());
+      Get.offAll(ControlView());
     } catch (e) {
       print(e.toString());
       Get.snackbar(
@@ -127,11 +127,6 @@ class AuthViewModel extends GetxController {
     ));
   }
 
-  changeScreen(){
-    Future.delayed(const Duration(seconds: 4),(){
-      Get.to(() => Users());
-    });
-  }
 
   Future passwordReset({required controlEmail , required context }) async{
     try {
@@ -149,6 +144,11 @@ class AuthViewModel extends GetxController {
     }
   }
 
+  changeScreen(){
+    Future.delayed(const Duration(seconds: 4),(){
+      Get.to(() => BeginScreen());
+    });
+  }
 
 
 }

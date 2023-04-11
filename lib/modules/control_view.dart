@@ -3,14 +3,15 @@ import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
+import 'package:untitled/modules/who%20are%20you/Users.dart';
 
 class ControlView extends GetWidget<AuthViewModel> {
   @override
   Widget build(BuildContext context) {
     return Obx(() {
       return (Get.find<AuthViewModel>().user == null)
-          ? LoginScreen()
-          : GetBuilder<controlViewModel>(
+          ? Users()
+          : GetBuilder<ControlViewModel>(
               builder: (controller) => Scaffold(
                 body: controller.currentScreen,
                 bottomNavigationBar: bottomNavigationBar(),
@@ -20,60 +21,50 @@ class ControlView extends GetWidget<AuthViewModel> {
   }
 
   Widget bottomNavigationBar() {
-    return GetBuilder<controlViewModel>(
-      init: controlViewModel(),
+    return GetBuilder<ControlViewModel>(
+      init: ControlViewModel(),
       builder: (controller) => BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: Text("Explore"),
-              ),
-              label: '',
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Image.asset(
-                  'imagies/Icon_Explore.png',
-                  fit: BoxFit.contain,
-                  width: 20,
-                ),
-              )),
+            icon: Icon(
+              Icons.home,
+              color: Color(0xff0CC095),
+            ),
+            label: 'Home',
+          ),
           BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: Text("Cart"),
-              ),
-              label: '',
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Image.asset(
-                  'imagies/Icon_Cart.png',
-                  fit: BoxFit.contain,
-                  width: 20,
-                ),
-              )),
+            icon: Icon(
+              Icons.apps,
+              color: Color(0xff0CC095),
+            ),
+            label: 'Categories',
+          ),
           BottomNavigationBarItem(
-              activeIcon: Padding(
-                padding: const EdgeInsets.only(top: 25.0),
-                child: Text("Account"),
-              ),
-              label: '',
-              icon: Padding(
-                padding: const EdgeInsets.only(top: 20),
-                child: Image.asset(
-                  'imagies/Icon_User.png',
-                  fit: BoxFit.contain,
-                  width: 20,
-                ),
-              )),
+            icon: Icon(
+              Icons.card_travel,
+              color: Color(0xff0CC095),
+            ),
+            label: 'card',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.favorite,
+              color: Color(0xff0CC095),
+            ),
+            label: 'Favorites',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.settings,
+              color: Color(0xff0CC095),
+            ),
+            label: 'Settings',
+          ),
         ],
         currentIndex: controller.navigatorValue,
         onTap: (index) {
           controller.changeSelectedValue(index);
         },
-        elevation: 0,
-        selectedItemColor: Colors.black,
-        backgroundColor: Colors.grey.shade50,
       ),
     );
   }

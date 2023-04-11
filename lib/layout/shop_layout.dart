@@ -8,7 +8,7 @@ import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/setting_screen/setting_screen.dart';
 
 import '../core/viewModel/home_view_model.dart';
-
+/*
 class ShopLayout extends StatelessWidget {
 
   var controller = Get.put(HomeViewModel());
@@ -58,3 +58,6 @@ class ShopLayout extends StatelessWidget {
     ) ;
   }
 }
+
+
+ */

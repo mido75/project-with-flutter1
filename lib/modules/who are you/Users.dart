@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 
