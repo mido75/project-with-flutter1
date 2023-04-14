@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
                 controller: searchController,
                 keyboardType: TextInputType.text,
                 style: TextStyle(
-                  color: Colors.grey.shade200,
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(

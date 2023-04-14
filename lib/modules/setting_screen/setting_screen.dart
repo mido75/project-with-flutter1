@@ -11,7 +11,7 @@ class SettingScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           MaterialButton(
-            child: Text('log out'),
+            child: Text('log out',),
             onPressed: (){
               _auth.signOut();
               Get.offAll(Users());

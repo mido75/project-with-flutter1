@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:untitled/modules/card/card.dart';
+import 'package:untitled/modules/cart_screen/cart.dart';
 import 'package:untitled/modules/cateogries_screen/cateogries_screen.dart';
-import 'package:untitled/modules/favorite_screen/favorites_screen.dart';
 import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/setting_screen/setting_screen.dart';
+
+import '../../modules/favourites/favorites_screen.dart';
 
 class ControlViewModel extends GetxController {
 
@@ -26,20 +27,15 @@ class ControlViewModel extends GetxController {
         }
       case 1:
         {
-          _currentScreen =  CateogriesScreen();
+          _currentScreen = CartScreen();
           break;
         }
       case 2:
         {
-          _currentScreen = CardScreen();
-          break;
-        }
-      case 3:
-        {
           _currentScreen = FavoriteScreen();
           break;
         }
-      case 4:
+      case 3:
         {
           _currentScreen = SettingScreen();
           break;

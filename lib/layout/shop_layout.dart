@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
-import 'package:untitled/modules/card/card.dart';
+import 'package:untitled/modules/cart_screen/cart.dart';
 import 'package:untitled/modules/cateogries_screen/cateogries_screen.dart';
-import 'package:untitled/modules/favorite_screen/favorites_screen.dart';
 import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/setting_screen/setting_screen.dart';
-
 import '../core/viewModel/home_view_model.dart';
 /*
 class ShopLayout extends StatelessWidget {

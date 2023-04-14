@@ -34,17 +34,10 @@ class ControlView extends GetWidget<AuthViewModel> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.apps,
-              color: Color(0xff0CC095),
-            ),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
               Icons.card_travel,
               color: Color(0xff0CC095),
             ),
-            label: 'card',
+            label: 'cart',
           ),
           BottomNavigationBarItem(
             icon: Icon(
