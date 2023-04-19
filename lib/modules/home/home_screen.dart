@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
+import '../cateogries_screen/cateogries_screen.dart';
+import '../product_screen/product_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   var searchController = TextEditingController();
@@ -87,24 +88,29 @@ class HomeScreen extends StatelessWidget {
                         physics: BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
-                          return Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: defualtColor,
-                                width: 2.0,
-                                style: BorderStyle.solid,
+                          return GestureDetector(
+                            onTap: (){
+                              Get.to(CateogriesScreen());
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: defualtColor,
+                                  width: 2.0,
+                                  style: BorderStyle.solid,
+                                ),
                               ),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Text('Blogs'),
-                                  SizedBox(
-                                    width: 40.0,
-                                  ),
-                                  Image.asset('imagies/Ellipse5.png'),
-                                ],
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Text('Blogs'),
+                                    SizedBox(
+                                      width: 40.0,
+                                    ),
+                                    Image.asset('imagies/Ellipse5.png'),
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -140,7 +146,11 @@ class HomeScreen extends StatelessWidget {
                   mainAxisSpacing: 1.0,
                   crossAxisSpacing: 1.0,
                   childAspectRatio: 1/1.50,
-                  children: List.generate( 12 ,(index) => GridProduct(context),
+                  children: List.generate( 12 ,(index) => GestureDetector(
+                    onTap: (){
+                      Get.to(ProductScreen());
+                    },
+                      child: GridProduct(context)),
                   ),
                 ),
               ),

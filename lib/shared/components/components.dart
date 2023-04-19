@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SocialMediaButton extends StatelessWidget {
   const SocialMediaButton({
     Key? key,
-    required this.iconName,
+     required this.iconName,
     required this.onPress,
     required this.text,
   }) : super(key: key);
