@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/models/setting_model.dart';
+import 'package:untitled/modules/edit_profile/edit_profile.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -72,7 +73,9 @@ class SettingScreen extends StatelessWidget {
                       trailing: Icon(Icons.navigate_next,
                       color: Colors.black,),
                     ),
-                    onPressed: (){},
+                    onPressed: (){
+                      Get.to(EditProfileScreen());
+                    },
                   ),
                 ),
                 Container(
@@ -98,14 +101,3 @@ class SettingScreen extends StatelessWidget {
   }
 }
 
-/*
-
-MaterialButton(
-                        child: Text('log out',),
-                        onPressed: (){
-                          print(controller.userModel.name);
-                          controller.signOut();
-                          Get.offAll(Users());
-                        },
-                      )
- */
