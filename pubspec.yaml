@@ -48,6 +48,8 @@ dependencies:
   cloud_firestore: ^4.4.5
   sqflite: ^2.2.6
   path: ^1.8.2
+  shared_preferences: ^2.1.0
+
 
 
 
@@ -82,6 +84,9 @@ flutter:
     - assets/facebook-svgrepo-com.svg
     - imagies/269969424_655870578924985_1432197706298581466_nn.png
     - imagies/Ellipse5.png
+    - imagies/aa.jpg
+    - imagies/icons8-edit-profile-24.png
+    - imagies/icons8-log-out-25.png
 
 
 

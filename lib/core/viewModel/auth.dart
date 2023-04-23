@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +9,7 @@ import 'package:flutter_login_facebook/flutter_login_facebook.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:untitled/core/service/firestore_user.dart';
+import 'package:untitled/helper/local_storage_data.dart';
 import 'package:untitled/models/user_model.dart';
 import 'package:untitled/modules/begin/begin_screen.dart';
 import 'package:untitled/modules/control_view.dart';
@@ -17,6 +20,7 @@ class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
   FirebaseAuth _auth = FirebaseAuth.instance;
   //FacebookLogin _facebookLogin = FacebookLogin();
+  final LocalStorageData localStorageData =Get.find();
 
   late String email, password, name , passwordCon , phone;
 
@@ -83,7 +87,11 @@ class AuthViewModel extends GetxController {
 
   void signInWithEmailAndPassword() async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      await _auth.signInWithEmailAndPassword(email: email, password: password).then((value) async{
+        await FireStoreUser().getCurrentUser(value.user!.uid).then((value){
+          setUser(UserModel.fromJson(value.data() as Map<dynamic,dynamic>));
+        });
+      });
       Get.offAll(ControlView());
     } catch (e) {
       print(e.toString());
@@ -118,14 +126,17 @@ class AuthViewModel extends GetxController {
 
   void saveUser(UserCredential user) async {
 
-    await FireStoreUser().addUserToFireStore(UserModel(
+    UserModel userModel = UserModel(
       userId: user.user!.uid,
       email: user.user!.email,
       phone: phone,
       name: name == null ? user.user!.displayName : name,
       pic: '',
-    ));
+    );
+    await FireStoreUser().addUserToFireStore(userModel);
+    setUser(userModel);
   }
+
 
 
   Future passwordReset({required controlEmail , required context }) async{
@@ -150,5 +161,8 @@ class AuthViewModel extends GetxController {
     });
   }
 
+  void setUser(UserModel userModel) async{
+    await localStorageData.setUser(userModel);
+  }
 
 }

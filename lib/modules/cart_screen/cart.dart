@@ -33,10 +33,6 @@ List<int> prices =<int> [
     return Scaffold(
      body: Column(
        children: [
-         Padding(
-           padding: const EdgeInsets.only(top: 30,),
-           child: Text("My Shopping Cart", style: TextStyle(fontSize: 25,fontWeight: FontWeight.w600, color: Color(0xff0CC095),),),
-         ),
        Expanded(
          child: Container(
            child: ListView.separated(itemBuilder: (context,index){
