@@ -5,6 +5,7 @@ import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/modules/forgotPass_screen/forgotPass_screen.dart';
 import 'package:untitled/modules/register_screen/register_screen.dart';
 import 'package:untitled/shared/components/components.dart';
+import 'package:untitled/shared/styles/color.dart';
 
 
 class LoginScreen extends GetWidget<AuthViewModel> {
@@ -67,6 +68,9 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border:OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       labelText: 'E-mail',
                     //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -90,6 +94,9 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border:OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
                       prefixIcon: Icon(

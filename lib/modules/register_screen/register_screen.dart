@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/shared/components/components.dart';
+import 'package:untitled/shared/styles/color.dart';
 
 
 class RegisterScreen extends GetWidget<AuthViewModel> {
@@ -61,6 +62,9 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       labelText: 'UserName',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -79,6 +83,9 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       labelText: 'E-mail',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -97,6 +104,9 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       labelText: 'PhoneNumber',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
@@ -115,6 +125,9 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
                       prefixIcon: Icon(
@@ -133,6 +146,9 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                      ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Confirm Password',
                       prefixIcon: Icon(
