@@ -32,7 +32,7 @@ class SettingScreen extends StatelessWidget {
                             Radius.circular(100),
                           ),
                           image: DecorationImage(
-                            image: controller.userModel == null ? AssetImage('imagies/aa.jpg') : controller.userModel.pic == 'de' ? AssetImage('imagies/aa.jpg') : AssetImage('imagies/aa.jpg'),
+                            image: controller.userModel == null ? AssetImage('imagies/aa.jpg') : controller.userModel?.pic == 'de' ? AssetImage('imagies/aa.jpg') : AssetImage('imagies/aa.jpg'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -42,7 +42,7 @@ class SettingScreen extends StatelessWidget {
                         children:
                         [
                           Text(
-                            '${controller.userModel.name}',
+                            '${controller.userModel?.name}',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -52,7 +52,7 @@ class SettingScreen extends StatelessWidget {
                             height: 1.0,
                           ),
                           Text(
-                            '${controller.userModel.email}',
+                            '${controller.userModel?.email}',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 12,

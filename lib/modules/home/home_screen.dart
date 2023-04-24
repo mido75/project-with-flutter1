@@ -89,9 +89,9 @@ class HomeScreen extends StatelessWidget {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) {
                           return GestureDetector(
-                            onTap: (){
+                            onTap:(){
                               Get.to(CateogriesScreen());
-                            },
+                            } ,
                             child: Container(
                               decoration: BoxDecoration(
                                 border: Border.all(
@@ -150,7 +150,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: (){
                       Get.to(ProductScreen());
                     },
-                      child: GridProduct(context)),
+                      child:GridProduct(context)),
                   ),
                 ),
               ),

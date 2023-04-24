@@ -17,8 +17,8 @@ class SettingModel extends GetxController {
 
   final LocalStorageData localStorageData =  Get.find();
 
-  UserModel get userModel => _userModel;
-  late UserModel _userModel;
+  UserModel? get userModel => _userModel;
+   UserModel? _userModel;
 
   Future<void>signOut() async {
     GoogleSignIn().signOut();
