@@ -54,6 +54,9 @@ class HomeScreen extends StatelessWidget {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: defualtColor,width: 2.0),
+                  ),
                   labelText: 'Search',
                   prefixIcon: Icon(
                     Icons.search,

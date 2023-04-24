@@ -96,6 +96,54 @@ class SettingScreen extends StatelessWidget {
                 Container(
                   child: MaterialButton(
                     child: ListTile(
+                      title: Text('Order History'),
+                      leading: Image.asset(
+                        'imagies/icons8-history-24.png',
+                      ),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: () {
+                    },
+                  ),
+                ),
+                Container(
+                  child: MaterialButton(
+                    child: ListTile(
+                      title: Text('Language'),
+                      leading: Image.asset(
+                        'imagies/icons8-globe-24.png',
+                      ),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: () {
+                    },
+                  ),
+                ),
+                Container(
+                  child: MaterialButton(
+                    child: ListTile(
+                      title: Text('Location'),
+                      leading: Image.asset(
+                        'imagies/icons8-location-24.png',
+                      ),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: () {
+                    },
+                  ),
+                ),
+                Container(
+                  child: MaterialButton(
+                    child: ListTile(
                       title: Text('Log Out'),
                       leading: Image.asset(
                         'imagies/icons8-log-out-25.png',
