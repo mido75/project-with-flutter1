@@ -49,6 +49,7 @@ dependencies:
   sqflite: ^2.2.6
   path: ^1.8.2
   shared_preferences: ^2.1.0
+  flutter_localization: ^0.1.10
 
 
 
@@ -90,6 +91,7 @@ flutter:
     - imagies/icons8-history-24.png
     - imagies/icons8-globe-24.png
     - imagies/icons8-location-24.png
+    - assets/language/
 
 
 
