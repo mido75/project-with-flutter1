@@ -51,6 +51,8 @@ dependencies:
   shared_preferences: ^2.1.0
   flutter_localization: ^0.1.10
   conditional_builder_null_safety: ^0.0.6
+  image_picker: ^0.8.7+4
+
 
 
 
@@ -94,6 +96,7 @@ flutter:
     - imagies/icons8-globe-24.png
     - imagies/icons8-location-24.png
     - assets/language/
+    - imagies/icons8-camera-50.png
 
 
 
