@@ -9,7 +9,7 @@ class Binding extends Bindings {
   void dependencies() {
     Get.lazyPut(() => AuthViewModel());
     Get.lazyPut(() => ControlViewModel());
-    //Get.lazyPut(() => ());
+    Get.lazyPut(() => HomeViewModel());
     Get.lazyPut(() => LocalStorageData());
   }
 }

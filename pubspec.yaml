@@ -50,6 +50,8 @@ dependencies:
   path: ^1.8.2
   shared_preferences: ^2.1.0
   flutter_localization: ^0.1.10
+  conditional_builder_null_safety: ^0.0.6
+
 
 
 
