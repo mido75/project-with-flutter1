@@ -9,6 +9,6 @@ final String columnPrice ='price';
 const CACHED_USER_DATA = 'CACHED_USER_DATA';
 
 
-
+int trader = 0;
 
 

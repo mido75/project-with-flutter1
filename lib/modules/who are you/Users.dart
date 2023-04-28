@@ -4,6 +4,7 @@ import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/modules_trader/login_screen_t/login_screen_t.dart';
 import 'package:untitled/shared/components/components.dart';
+import 'package:untitled/shared/constants/constants.dart';
 
 class Users extends StatelessWidget {
 
@@ -52,6 +53,7 @@ class Users extends StatelessWidget {
                 ),
                 child: MaterialButton(
                   onPressed: (){
+                    trader =0;
                     Get.to(LoginScreen());
                   },
                   height: 40.0,
@@ -76,6 +78,7 @@ class Users extends StatelessWidget {
                 ),
                 child: MaterialButton(
                   onPressed: (){
+                    trader = 1;
                     Get.to(LoginScreen_T());
                   },
                   height: 40.0,

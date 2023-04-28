@@ -23,8 +23,8 @@ HomeViewModel(){
   _loading.value=true;
     await  HomeService().getCategory().then((value){
       for(int i = 0; i < value.length;i++){
-        _categoryModel?.add(CategoryModel.fromJson(value[i].data() as Map<dynamic, dynamic>));
-        print(_categoryModel?.length);
+        _categoryModel!.add(CategoryModel.fromJson(value[i].data!() as Map<dynamic, dynamic>));
+        print(_categoryModel!.length);
         _loading.value=false;
 
       }

@@ -5,7 +5,8 @@ class CategoryModel {
 
   CategoryModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
-      return;
+      print('no data');
+      return ;
     }
     name = map['name'];
     image = map['image'];

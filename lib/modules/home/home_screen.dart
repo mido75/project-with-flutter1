@@ -9,10 +9,12 @@ import '../product_screen/product_screen.dart';
 class HomeScreen extends StatelessWidget {
   var searchController = TextEditingController();
 
-  FirebaseAuth _auth = FirebaseAuth.instance;
+ // FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
+        init:HomeViewModel(),
       builder: (controller) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white10,
@@ -109,11 +111,12 @@ class HomeScreen extends StatelessWidget {
                                   padding: const EdgeInsets.all(8.0),
                                   child: Row(
                                     children: [
-                                      Text('${controller.categoryModel?[index]?.name}'),
+                                      Text('${controller.categoryModel![index].name}'),
                                       SizedBox(
                                         width: 40.0,
                                       ),
-                                      Image.network('${controller.categoryModel?[index]?.image}'),
+                                      Image(image: NetworkImage('${controller.categoryModel![index].image}'),),
+                                    //  Image.network('${controller.categoryModel![index].image}'),
                                     ],
                                   ),
                                 ),
@@ -181,7 +184,7 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Image(
                     image: NetworkImage(
-                        'https://images.unsplash.com/photo-1564091880021-bb02f2b2928d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGNsb2NrfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60'),
+                        'https://images.unsplash.com/photo-1564091880021-bb02f2b2928d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8d2FsbCUyMGNsb2NrfGVufDB8fDB8fA%3D%3D&w=1000&q=80'),
                     width: double.infinity,
                     height: 150.0,
                   ),

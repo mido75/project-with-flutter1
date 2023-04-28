@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/core_trader/viewModel_trader/auth_trader.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
 import 'package:untitled/modules_trader/login_screen_t/login_screen_t.dart';
 import 'package:untitled/shared/components/components.dart';

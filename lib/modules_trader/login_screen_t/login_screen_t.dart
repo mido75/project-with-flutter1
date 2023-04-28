@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/core_trader/viewModel_trader/auth_trader.dart';
 import 'package:untitled/modules/forgotPass_screen/forgotPass_screen.dart';
 import 'package:untitled/modules/register_screen/register_screen.dart';
 import 'package:untitled/modules_trader/forgetpass_screen_t/forgetpass_screen_t.dart';
