@@ -1,6 +1,8 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/parser.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/models/cart_product_model.dart';
@@ -11,7 +13,23 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<CartViewModel>(
       init: CartViewModel(),
-      builder:(controller) => Scaffold(
+      builder:(controller) =>controller.cartProductModel.length == 0 
+          ? Center(
+            child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset('imagies/undraw_empty_cart_co35.svg',width: 150,height: 150,),
+                SizedBox(height: 20,),
+                Text(
+                  'Cart Empty',
+                  style: TextStyle(fontSize: 32,),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          )
+          : Scaffold(
        body: Padding(
          padding: const EdgeInsets.only(top: 30.0),
          child: Column(
