@@ -14,7 +14,17 @@ class ControlView extends GetWidget<AuthViewModel> {
   Widget build(BuildContext context) {
     return Obx(() {
       return (Get.find<AuthViewModel>().user == null)
-          ? Users()
+          ? LoginScreen()
+          : Users();
+    });
+  }
+/*
+class ControlView extends GetWidget<AuthViewModel> {
+  @override
+  Widget build(BuildContext context) {
+    return Obx(() {
+      return (Get.find<AuthViewModel>().user == null)
+          ? LoginScreen()
           : (trader == 0)
               ? GetBuilder<ControlViewModel>(
                   init: ControlViewModel(),
@@ -41,6 +51,8 @@ class ControlView extends GetWidget<AuthViewModel> {
     });
   }
 
+*/
+  /*
   Widget bottomNavigationBar() {
     return GetBuilder<ControlViewModel>(
       init: ControlViewModel(),
@@ -122,5 +134,5 @@ class ControlView extends GetWidget<AuthViewModel> {
       ),
     );
   }
-
+*/
 }

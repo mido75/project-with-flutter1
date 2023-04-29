@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/layout/shop_layout.dart';
+import 'package:untitled/layout/shop_layout_t.dart';
 import 'package:untitled/modules/control_view.dart';
+import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/login_screen/login_screen.dart';
+import 'package:untitled/modules_trader/home_screen_t/home_screen_t.dart';
 import 'package:untitled/modules_trader/login_screen_t/login_screen_t.dart';
 import 'package:untitled/shared/components/components.dart';
 import 'package:untitled/shared/constants/constants.dart';
@@ -54,7 +58,7 @@ class Users extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: (){
                     trader =0;
-                    Get.to(LoginScreen());
+                    Get.to(ShopLayout());
                   },
                   height: 40.0,
                   child: Text(
@@ -79,7 +83,7 @@ class Users extends StatelessWidget {
                 child: MaterialButton(
                   onPressed: (){
                     trader = 1;
-                    Get.to(LoginScreen_T());
+                    Get.to(ShopLayout_T());
                   },
                   height: 40.0,
                   child: Text(
