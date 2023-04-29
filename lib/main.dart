@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
 import 'package:untitled/helper/building.dart';
 import 'package:untitled/layout/shop_layout.dart';
@@ -18,6 +19,7 @@ import 'modules/login_screen/login_screen.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+ // Get.put(CartViewModel());
   runApp(MyApp());
 }
 

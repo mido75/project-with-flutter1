@@ -46,12 +46,14 @@ dependencies:
   flutter_login_facebook: ^1.7.0
   flutter_facebook_auth: ^5.0.8
   cloud_firestore: ^4.4.5
-  sqflite: ^2.2.6
+  sqflite: ^2.2.8
   path: ^1.8.2
   shared_preferences: ^2.1.0
   flutter_localization: ^0.1.10
   conditional_builder_null_safety: ^0.0.6
   image_picker: ^0.8.7+4
+
+
 
 
 

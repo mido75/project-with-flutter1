@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/cart_view_model.dart';
+import 'package:untitled/models/cart_product_model.dart';
 import 'package:untitled/shared/styles/color.dart';
 
 import '../../models/product_model.dart';
 
 class ProductScreen extends StatelessWidget {
-
   ProductModel model;
   ProductScreen({required this.model});
 
@@ -34,8 +36,10 @@ class ProductScreen extends StatelessWidget {
                       padding: EdgeInsets.all(18),
                       child: Column(
                         children: [
-                          Text('${model.name}',
-                            style: TextStyle(fontSize: 26,
+                          Text(
+                            '${model.name}',
+                            style: TextStyle(
+                              fontSize: 26,
                             ),
                           ),
                           SizedBox(
@@ -53,11 +57,14 @@ class ProductScreen extends StatelessWidget {
                                       color: Colors.grey,
                                     )),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Text('Size',
+                                    Text(
+                                      'Size',
                                     ),
-                                    Text('${model.sized}',
+                                    Text(
+                                      '${model.sized}',
                                     ),
                                   ],
                                 ),
@@ -71,9 +78,11 @@ class ProductScreen extends StatelessWidget {
                                       color: Colors.grey,
                                     )),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
-                                    Text('Color',
+                                    Text(
+                                      'Color',
                                     ),
                                     Container(
                                       width: 30,
@@ -93,15 +102,21 @@ class ProductScreen extends StatelessWidget {
                           SizedBox(
                             height: 15,
                           ),
-                          Text('Details',
-                           style: TextStyle( fontSize: 18,),
+                          Text(
+                            'Details',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                           SizedBox(
                             height: 20,
                           ),
-                          Text('${model.description}',
-                           style: TextStyle( fontSize: 18,
-                             height: 2.5,),
+                          Text(
+                            '${model.description}',
+                            style: TextStyle(
+                              fontSize: 18,
+                              height: 2.5,
+                            ),
                           )
                         ],
                       ),
@@ -109,41 +124,60 @@ class ProductScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20,right: 20,bottom: 15 ,top: 0),
+                  padding: const EdgeInsets.only(
+                      left: 20, right: 20, bottom: 15, top: 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         children: [
-                          Text("PRICE ",
-                            style: TextStyle(fontSize: 15,
-                              color: Colors.grey,),
+                          Text(
+                            "PRICE ",
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.grey,
+                            ),
                           ),
-                          Text('${model.price}',
-                            style: TextStyle(color: defualtColor,
-                                fontSize: 18,),
-                          )
+                          Text(
+                            '${model.price}\$',
+                            style: TextStyle(
+                              color: defualtColor,
+                              fontSize: 18,
+                            ),
+                          ),
                         ],
                       ),
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        width: 180,
-                        height: 80,
-                        child:MaterialButton(
-                          onPressed: () {},
-                          color: defualtColor,
-                          child: Text('Add'),
+                      GetBuilder<CartViewModel>(
+                        init: CartViewModel(),
+                        builder: (controller) => Container(
+                          padding: EdgeInsets.all(20),
+                          width: 180,
+                          height: 80,
+                          child: MaterialButton(
+                            onPressed: (){
+                              controller.addProduct(CartProductModel(
+                                name: model.name,
+                                image: model.image,
+                                price: model.price,
+                                quantity: 1,
+                                id: model.id,
+                              ),);
+                            },
+                            color: defualtColor,
+                            child: Text('Add'),
+                          ),
                         ),
                       ),
+
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
         ),
-        ),
+      ),
     );
   }
-
 }
+

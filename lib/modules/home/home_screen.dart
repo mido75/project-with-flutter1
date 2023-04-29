@@ -245,7 +245,7 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '${controller.productModel![index].price}',
+                          '${controller.productModel![index].price}\$',
                           style: TextStyle(
                             fontSize: 12.0,
                             color: defualtColor,

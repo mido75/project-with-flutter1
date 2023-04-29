@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductModel {
-  String? name, image, description, sized, price;
+  String? name, image, description, sized, price,id;
   //Color color;
 
   ProductModel(
@@ -11,6 +11,7 @@ class ProductModel {
          this.description,
          //required this.color,
          this.sized,
+        this.id,
          this.price});
 
   ProductModel.fromJson(Map<dynamic, dynamic> map) {
@@ -23,6 +24,7 @@ class ProductModel {
     description = map['description'];
     //color = HexColor.fromHex(map['color']);
     sized = map['sized'];
+    id = map['id'];
     price = map['price'];
   }
 
@@ -33,6 +35,7 @@ class ProductModel {
       'description': description,
       //'color': color,
       'sized': sized,
+      'id':id,
       'price': price,
     };
   }
