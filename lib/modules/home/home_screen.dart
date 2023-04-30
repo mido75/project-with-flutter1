@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
+import 'package:untitled/models/cart_product_model.dart';
 import 'package:untitled/models/fav_product_model.dart';
 import 'package:untitled/models/product_model.dart';
 import 'package:untitled/modules/search_screen/search_screen.dart';
@@ -281,6 +283,29 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                         ),
+                        GetBuilder<CartViewModel>(
+                          init: CartViewModel(),
+                          builder:(controller) => IconButton(
+                            onPressed: () {
+                              controller.addProduct(CartProductModel(
+                                name: model[index].name,
+                                image: model[index].image,
+                                price: model[index].price,
+                                quantity: 1,
+                                id: model[index].id,
+                              ),);
+                            },
+                            icon: CircleAvatar(
+                              radius: 15.0,
+                              backgroundColor: defualtColor,
+                              child: Icon(
+                                Icons.shopping_cart,
+                                size: 20.0,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -291,3 +316,5 @@ class HomeScreen extends StatelessWidget {
         ),
       );
 }
+
+//                        backgroundColor:ShopCubit.get(context).favorites[model.id]? defualtColor : Colors.grey,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
 import 'package:untitled/shared/styles/color.dart';
@@ -8,7 +9,23 @@ class FavoriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<FavViewModel>(
       init: FavViewModel(),
-      builder: (controller) => Scaffold(
+      builder: (controller) => controller.favProductModel.length == 0
+          ? Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset('imagies/undraw_wishlist_re_m7tv.svg',width: 150,height: 150,),
+            SizedBox(height: 20,),
+            Text(
+              'Wishlist Empty',
+              style: TextStyle(fontSize: 32,),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      )
+          :Scaffold(
         appBar: AppBar(
           backgroundColor: defualtColor,
           automaticallyImplyLeading: false,

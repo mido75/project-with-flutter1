@@ -164,7 +164,7 @@ class ProductScreen extends StatelessWidget {
                               ),);
                             },
                             color: defualtColor,
-                            child: Text('Add'),
+                            child: Text('Add',style: TextStyle(color: Colors.white),),
                           ),
                         ),
                       ),
