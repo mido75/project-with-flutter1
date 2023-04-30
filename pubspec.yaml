@@ -52,6 +52,8 @@ dependencies:
   flutter_localization: ^0.1.10
   conditional_builder_null_safety: ^0.0.6
   image_picker: ^0.8.7+4
+  firebase_storage: ^11.1.1
+
 
 
 

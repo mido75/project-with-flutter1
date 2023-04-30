@@ -38,4 +38,6 @@ class LocalStorageData extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
+
+
 }

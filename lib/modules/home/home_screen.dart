@@ -6,6 +6,7 @@ import 'package:untitled/core/viewModel/fav_view_model.dart';
 import 'package:untitled/models/cart_product_model.dart';
 import 'package:untitled/models/fav_product_model.dart';
 import 'package:untitled/models/product_model.dart';
+import 'package:untitled/modules/notifications_screen/notifications_screen.dart';
 import 'package:untitled/modules/search_screen/search_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 import '../../core/viewModel/home_view_model.dart';
@@ -21,7 +22,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(
-      init: HomeViewModel(),
+      init: Get.find<HomeViewModel>(),
       builder: (controller) => controller.loading.value
           ? Center(child: CircularProgressIndicator())
           : Scaffold(
@@ -43,7 +44,9 @@ class HomeScreen extends StatelessWidget {
                 ),
                 actions: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(NotificationsScreen());
+                      },
                       icon: Icon(
                         Icons.notifications,
                         color: defualtColor,
@@ -72,19 +75,19 @@ class HomeScreen extends StatelessWidget {
                                 BorderSide(color: defualtColor, width: 2.0),
                           ),
                           labelText: 'Search',
+                          /*
                           prefixIcon: IconButton(
                             onPressed: (){
-                              if(searchController.text.isNotEmpty)
-                              {
-                                Get.to(SearchScreen(
-                                  text: searchController.text,
-                                ));
-                              }
+
                             },
                             icon: Icon(Icons.search,),
                           ),
-
+                           */
+                          prefixIcon: Icon(Icons.search,),
                         ),
+                        onFieldSubmitted: (value){
+                          Get.to(SearchScreen(value));
+                        },
                       ),
                       SizedBox(
                         height: 20.0,

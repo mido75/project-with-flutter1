@@ -4,8 +4,11 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
+import 'package:untitled/core/viewModel/fav_view_model.dart';
+import 'package:untitled/core/viewModel/home_view_model.dart';
 import 'package:untitled/helper/building.dart';
 import 'package:untitled/layout/shop_layout.dart';
+import 'package:untitled/models/setting_model.dart';
 import 'package:untitled/modules/begin/begin_screen.dart';
 import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/forgotPass_screen/forgotPass_screen.dart';
@@ -19,7 +22,11 @@ import 'modules/login_screen/login_screen.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
- // Get.put(CartViewModel());
+  Get.put(CartViewModel());
+  Get.put(FavViewModel());
+  Get.put(HomeViewModel());
+  //Get.put(SettingModel());
+
   runApp(MyApp());
 }
 

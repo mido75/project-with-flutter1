@@ -7,6 +7,7 @@ import 'package:untitled/shared/styles/color.dart';
 import '../../models/product_model.dart';
 
 class ProductScreen extends StatelessWidget {
+
   ProductModel model;
   ProductScreen({required this.model});
 

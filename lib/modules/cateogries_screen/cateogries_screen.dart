@@ -32,9 +32,7 @@ class CateogriesScreen extends StatelessWidget {
               2,
                   (index) => GestureDetector(
                   onTap: () {
-                    Get.to(ProductScreen(
-                      model: controller.productModel![index],
-                    ));
+                    Get.to(ProductScreen(model: controller.productModel![index]));
                   },
                   child: GridProduct(context, index)),
             ),

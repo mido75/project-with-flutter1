@@ -8,7 +8,7 @@ class FavoriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<FavViewModel>(
-      init: FavViewModel(),
+      init: Get.find<FavViewModel>(),
       builder: (controller) => controller.favProductModel.length == 0
           ? Center(
         child: Column(

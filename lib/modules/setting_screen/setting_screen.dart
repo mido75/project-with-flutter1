@@ -5,6 +5,7 @@ import 'package:untitled/models/setting_model.dart';
 import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/edit_profile/edit_profile.dart';
 import 'package:untitled/modules/language_screen/language_screen.dart';
+import 'package:untitled/modules/order_history_screen/order_history_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -108,6 +109,7 @@ class SettingScreen extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      Get.to(OrderHistoryScreen());
                     },
                   ),
                 ),

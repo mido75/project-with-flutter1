@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CartViewModel>(
-      init: CartViewModel(),
+      init: Get.find<CartViewModel>(),
       builder:(controller) =>controller.cartProductModel.length == 0 
           ? Center(
             child: Column(
