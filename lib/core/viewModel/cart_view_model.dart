@@ -41,6 +41,12 @@ class CartViewModel extends GetxController
     update();
   }
 
+  deleteCartProduct(int index) async{
+    await dbHelper.delete(cartProductModel[index]);
+    _cartProductModel.removeAt(index);
+    update();
+  }
+
   getTotalPrice(){
     for(int i = 0 ; i < _cartProductModel.length;i++){
       _totalPrice += (double.parse(_cartProductModel[i].price.toString()) * _cartProductModel[i].quantity!.toInt());

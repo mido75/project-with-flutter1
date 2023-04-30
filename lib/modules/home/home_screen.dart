@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/fav_view_model.dart';
+import 'package:untitled/models/fav_product_model.dart';
+import 'package:untitled/models/product_model.dart';
 import 'package:untitled/modules/search_screen/search_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 import '../../core/viewModel/home_view_model.dart';
@@ -181,7 +184,7 @@ class HomeScreen extends StatelessWidget {
                                     model: controller.productModel![index],
                                   ));
                                 },
-                                child: GridProduct(context, index)),
+                                child: GridProduct(context, index,controller.productModel )),
                           ),
                         ),
                       ),
@@ -193,7 +196,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget GridProduct(context, index) => GetBuilder<HomeViewModel>(
+  Widget GridProduct(context, index , model) => GetBuilder<HomeViewModel>(
         //init: HomeViewModel(),
         builder: (controller) => Container(
           color: Colors.white,
@@ -255,15 +258,26 @@ class HomeScreen extends StatelessWidget {
                           width: 0.5,
                         ),
                         Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: CircleAvatar(
-                            radius: 15.0,
-                            backgroundColor: defualtColor,
-                            child: Icon(
-                              Icons.favorite_border,
-                              size: 20.0,
-                              color: Colors.white,
+                        GetBuilder<FavViewModel>(
+                          init: FavViewModel(),
+                          builder:(controller) => IconButton(
+                            onPressed: () {
+                              controller.addFavProduct(FavProductModel(
+                                name: model[index].name,
+                                image: model[index].image,
+                                price: model[index].price,
+                                description: model[index].description,
+                                id: model[index].id,
+                              ),);
+                            },
+                            icon: CircleAvatar(
+                              radius: 15.0,
+                              backgroundColor: defualtColor,
+                              child: Icon(
+                                Icons.favorite_border,
+                                size: 20.0,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

@@ -53,4 +53,9 @@ class CartDatabaseHelper{
     var dbClient = await database;
     await dbClient!.update(tableCartProduct, model.toJson(),where: '$columnId =?',whereArgs: [model.id]);
   }
+
+  delete(CartProductModel model) async{
+    var dbClient = await database;
+    await dbClient!.delete(tableCartProduct, where: '$columnId = ?' , whereArgs: [model.id]);
+  }
 }

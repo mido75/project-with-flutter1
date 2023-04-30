@@ -62,7 +62,12 @@ class CartScreen extends StatelessWidget {
                                        style: TextStyle(fontSize: 20,),
                                      ),
                                      Spacer(),
-                                     Icon(Icons.delete,color: Colors.red,)
+                                     GestureDetector(
+                                         child: Icon(Icons.delete,color: Colors.red,),
+                                       onTap: (){
+                                           controller.deleteCartProduct(index);
+                                       },
+                                     ),
                                    ],
                                  ),
                                  SizedBox(height: 20.0,),
