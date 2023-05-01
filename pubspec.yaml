@@ -53,6 +53,8 @@ dependencies:
   conditional_builder_null_safety: ^0.0.6
   image_picker: ^0.8.7+4
   firebase_storage: ^11.1.1
+  status_change: ^1.0.0
+
 
 
 
@@ -99,7 +101,7 @@ flutter:
     - imagies/icons8-history-24.png
     - imagies/icons8-globe-24.png
     - imagies/icons8-location-24.png
-    - assets/language/
+
     - imagies/icons8-camera-50.png
     - imagies/undraw_empty_cart_co35.svg
     - imagies/undraw_wishlist_re_m7tv.svg

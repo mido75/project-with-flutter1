@@ -6,6 +6,8 @@ import 'package:untitled/core/viewModel/home_view_model.dart';
 import 'package:untitled/helper/local_storage_data.dart';
 import 'package:untitled/models/setting_model.dart';
 
+import '../core/viewModel/checkout_view_model.dart';
+
 class Binding extends Bindings {
   @override
   void dependencies() {
@@ -15,5 +17,7 @@ class Binding extends Bindings {
     Get.lazyPut(() => LocalStorageData());
     Get.lazyPut(() => CartViewModel());
     Get.lazyPut(() => SettingModel());
+    Get.lazyPut(() => CheckOutViewModel());
+
   }
 }

@@ -5,7 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/parser.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
+import 'package:untitled/modules/checkout/checkout_view.dart';
+
 import 'package:untitled/models/cart_product_model.dart';
+
+import '../checkout/checkout_view.dart';
 
 class CartScreen extends StatelessWidget {
 
@@ -153,7 +157,9 @@ class CartScreen extends StatelessWidget {
                          )
                          ,
                          child: MaterialButton(
-                           onPressed: (){},
+                           onPressed: (){
+                             Get.to(CheckOutView());
+                           },
                            height: 40.0,
                            child: Text("Check Out",style: TextStyle(color: Colors.white),)
                            ,),
