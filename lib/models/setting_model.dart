@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:untitled/core/service/firestore_user.dart';
 import 'package:untitled/helper/local_storage_data.dart';
-import 'package:untitled/helper/local_storage_user.dart';
 import 'package:untitled/models/user_model.dart';
 
 class SettingModel extends GetxController {
@@ -17,6 +16,7 @@ class SettingModel extends GetxController {
     // TODO: implement onInit
     super.onInit();
     getCurrentUser();
+    getCurrentDataUser();
   }
 
   final LocalStorageData localStorageData =  Get.find();
@@ -49,8 +49,9 @@ class SettingModel extends GetxController {
   void getCurrentDataUser() async
   {
     _loading = true;
-    _currentUser = await LocalStorageUser.getUserData();
+    _currentUser = await LocalStorageData.getUserData();
     _loading = false;
+    print(_currentUser);
     update();
   }
   updateCurrentUser() async
@@ -64,10 +65,11 @@ class SettingModel extends GetxController {
           phone: phone,
       );
       await FirebaseAuth.instance.currentUser!.updateEmail(email!);
-      await FirebaseAuth.instance.currentUser!.updatePassword(password!);
+      await FirebaseAuth.instance.currentUser!.updateDisplayName(name!);
+      //await FirebaseAuth.instance.currentUser!.updatePhoneNumber(phone!);
       FireStoreUser().addUserToFireStore(_userModel);
-      await LocalStorageUser.setUserData(_userModel);
-      getCurrentUser();
+      await LocalStorageData.setUserData(_userModel);
+      getCurrentDataUser();
       Get.back();
     } catch (error) {
       String errorMessage =

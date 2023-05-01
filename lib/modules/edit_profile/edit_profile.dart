@@ -369,36 +369,33 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                 _isLoading
                     ? CircularProgressIndicator()
                     : TextButton(
-                  child: Text(
-                    'update',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
-                  onPressed: (){},
-                  /*
-                  onPressed: () async {
-                    if (_formKey.currentState!
-                        .validate()) {
-                      setState(() {
-                        _isLoading = true;
-                      });
-                      try {
-                        await controller.uploadImageToFirebase();
-                        Get.find<SettingModel>().picUrl = controller.picUrl;
-                      } catch (e) {
-                        Get.find<SettingModel>().picUrl = Get.find<SettingModel>().currentUser!.pic;
-                      }
-                      _formKey.currentState!.save();
-                      await Get.find<SettingModel>().updateCurrentUser();
-                      setState(() {
-                        _isLoading = false;
-                      });
-                    }
-                  },
-
-                   */
-                ),
+                        child: Text(
+                          'update',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        onPressed: () async {
+                          if (_formKey.currentState!.validate()) {
+                            setState(() {
+                              _isLoading = true;
+                            });
+                            try {
+                              await controller.uploadImageToFirebase();
+                              Get.find<SettingModel>().picUrl =
+                                  controller.picUrl;
+                            } catch (e) {
+                              Get.find<SettingModel>().picUrl =
+                                  Get.find<SettingModel>().currentUser!.pic;
+                            }
+                            _formKey.currentState!.save();
+                            await Get.find<SettingModel>().updateCurrentUser();
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          }
+                        },
+                      ),
                 SizedBox(
                   width: 15.0,
                 ),
@@ -453,21 +450,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             CircleAvatar(
                               radius: 63.0,
                               backgroundColor:
-                              Theme.of(context).scaffoldBackgroundColor,
+                                  Theme.of(context).scaffoldBackgroundColor,
                               child: CircleAvatar(
                                 radius: 60.0,
-                                backgroundImage: NetworkImage('https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
-                                foregroundImage: controller.imageFile != null ? FileImage(controller.imageFile!) : null,
+                                backgroundImage: NetworkImage(
+                                    'https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
+                                foregroundImage: controller.imageFile != null
+                                    ? FileImage(controller.imageFile!)
+                                    : null,
                               ),
                             ),
                             IconButton(
                               onPressed: () {
                                 Get.dialog(
                                   AlertDialog(
-                                    title:  Container(
+                                    title: Container(
                                       child: Text(
                                         'Choose option',
-                                        style: TextStyle(fontSize: 20,color: defualtColor,),
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          color: defualtColor,
+                                        ),
                                       ),
                                     ),
                                     content: Column(
@@ -507,7 +510,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               Get.back();
                                             }
                                           },
-                                          title:Container(
+                                          title: Container(
                                             child: Text(
                                               'Gallery',
                                             ),
@@ -554,7 +557,27 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 ),
                               ),
                               child: MaterialButton(
-                                onPressed: () {},
+                                /*
+                                onPressed: () async{
+                                  setState(() {
+                                    _isLoading = true;
+                                  });
+                                  try {
+                                    await controller.uploadImageToFirebase();
+                                    Get.find<SettingModel>().picUrl =
+                                        controller.picUrl;
+                                  } catch (e) {
+                                    Get.find<SettingModel>().picUrl =
+                                        Get.find<SettingModel>().currentUser!.pic;
+                                  }
+                                  await Get.find<SettingModel>().updateCurrentUser();
+                                  setState(() {
+                                    _isLoading = false;
+                                  });
+                                },
+
+                                 */
+                                onPressed: (){},
                                 height: 40.0,
                                 child: Text(
                                   'upload profile',
@@ -609,12 +632,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         borderSide: BorderSide(color: defualtColor, width: 2.0),
                       ),
                       labelText: 'Name',
-                      //hintText: Get.find<SettingModel>().currentUser!.name,
+                      hintText: Get.find<SettingModel>().currentUser!.name,
                       prefixIcon: Icon(
                         Icons.account_circle_outlined,
                       ),
                     ),
-                    validator : (value) {
+                    validator: (value) {
                       if (value!.isEmpty || value.length < 4)
                         return 'Please enter valid name.';
                     },
@@ -634,7 +657,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       focusedBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor, width: 2.0),
                       ),
-                      //hintText: Get.find<SettingModel>().currentUser!.email,
+                      hintText: Get.find<SettingModel>().currentUser!.email,
                       labelText: 'Email',
                       // hintText: hintText,
                       prefixIcon: Icon(
@@ -647,8 +670,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         return 'Please enter valid email address.';
                     },
                     onSaved: (value) {
-                      Get.find<SettingModel>().email =
-                          value;
+                      Get.find<SettingModel>().email = value;
                     },
                   ),
                   SizedBox(
@@ -669,13 +691,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       ),
                     ),
                     validator: (value) {
-                      if (value!.isEmpty ||
-                          value.length < 6)
-                        return 'Please enter valid password with at least 6 characters.';
+                      if (value!.isEmpty || value.length < 13)
+                        return 'Please enter valid password with at least 12 characters.';
                     },
                     onSaved: (value) {
-                      Get.find<SettingModel>()
-                          .password = value;
+                      Get.find<SettingModel>().phone = value;
                     },
                   ),
                 ],
@@ -686,5 +706,4 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       ),
     );
   }
-
 }
