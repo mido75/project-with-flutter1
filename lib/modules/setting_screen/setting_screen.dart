@@ -48,21 +48,17 @@ class SettingScreen extends StatelessWidget {
                               ),
                               alignment: AlignmentDirectional.topCenter,
                             ),
-                            GetBuilder<SelectImageViewModel>(
-                              init: SelectImageViewModel(),
-                              builder: (controller) => CircleAvatar(
+                            CircleAvatar(
                                 radius: 63.0,
                                 backgroundColor:
                                     Theme.of(context).scaffoldBackgroundColor,
                                 child: CircleAvatar(
                                   radius: 60.0,
-                                  backgroundImage: NetworkImage(
-                                      'https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
-                                  foregroundImage: controller.imageFile != null
-                                      ? FileImage(controller.imageFile!)
+                                  backgroundImage: NetworkImage('https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
+                                  foregroundImage: controller.currentUser!.pic != null
+                                      ? NetworkImage('${controller.currentUser!.pic}')
                                       : null,
                                 ),
-                              ),
                             ),
                           ],
                         ),

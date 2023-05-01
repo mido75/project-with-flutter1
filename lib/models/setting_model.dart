@@ -19,6 +19,15 @@ class SettingModel extends GetxController {
     getCurrentDataUser();
   }
 
+  String? name, email, password, picUrl,phone;
+
+  UserModel? _currentUser;
+  UserModel? get currentUser => _currentUser;
+
+  bool _loading = false;
+  bool get loading => _loading;
+
+
   final LocalStorageData localStorageData =  Get.find();
 
   UserModel? get userModel => _userModel;
@@ -38,13 +47,7 @@ class SettingModel extends GetxController {
     update();
   }
 
-  String? name, email, password, picUrl,phone;
 
-  UserModel? _currentUser;
-  UserModel? get currentUser => _currentUser;
-
-  bool _loading = false;
-  bool get loading => _loading;
 
   void getCurrentDataUser() async
   {
@@ -72,6 +75,7 @@ class SettingModel extends GetxController {
       getCurrentDataUser();
       Get.back();
     } catch (error) {
+      print(error.toString());
       String errorMessage =
       error.toString().substring(error.toString().indexOf(' ') + 1);
       Get.snackbar(

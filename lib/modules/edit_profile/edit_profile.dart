@@ -382,11 +382,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             });
                             try {
                               await controller.uploadImageToFirebase();
-                              Get.find<SettingModel>().picUrl =
-                                  controller.picUrl;
+                              Get.find<SettingModel>().picUrl = controller.picUrl;
                             } catch (e) {
-                              Get.find<SettingModel>().picUrl =
-                                  Get.find<SettingModel>().currentUser!.pic;
+                              print(e.toString());
+                              Get.find<SettingModel>().picUrl = Get.find<SettingModel>().currentUser!.pic;
                             }
                             _formKey.currentState!.save();
                             await Get.find<SettingModel>().updateCurrentUser();
@@ -557,7 +556,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 ),
                               ),
                               child: MaterialButton(
-                                /*
+
                                 onPressed: () async{
                                   setState(() {
                                     _isLoading = true;
@@ -576,8 +575,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   });
                                 },
 
-                                 */
-                                onPressed: (){},
+
+                              //  onPressed: (){},
                                 height: 40.0,
                                 child: Text(
                                   'upload profile',
