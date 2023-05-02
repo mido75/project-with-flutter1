@@ -19,7 +19,7 @@ class SettingModel extends GetxController {
     getCurrentDataUser();
   }
 
-  String? name, email, password, picUrl,phone;
+  String? name, email, password, picUrl,phone , coverUrl;
 
   UserModel? _currentUser;
   UserModel? get currentUser => _currentUser;
@@ -65,6 +65,7 @@ class SettingModel extends GetxController {
           email: email,
           name: name,
           pic: picUrl == null ? _currentUser!.pic : picUrl,
+          cover: coverUrl == null ? _currentUser!.cover : coverUrl,
           phone: phone,
       );
       await FirebaseAuth.instance.currentUser!.updateEmail(email!);

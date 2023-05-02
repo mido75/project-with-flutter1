@@ -387,6 +387,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               print(e.toString());
                               Get.find<SettingModel>().picUrl = Get.find<SettingModel>().currentUser!.pic;
                             }
+                            try{
+                              await controller.uploadCoverImageToFirebase();
+                              Get.find<SettingModel>().coverUrl = controller.coverUrl;
+                            }catch(e){
+                              print(e.toString());
+                              Get.find<SettingModel>().coverUrl = Get.find<SettingModel>().currentUser!.cover;
+                            }
                             _formKey.currentState!.save();
                             await Get.find<SettingModel>().updateCurrentUser();
                             setState(() {
@@ -416,7 +423,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 Container(
                                   height: 140.0,
                                   width: double.infinity,
-                                  decoration: BoxDecoration(
+                                  decoration: controller.imageCoverFile != null ?  BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(4.0),
+                                      topRight: Radius.circular(4.0),
+                                    ),
+                                    image: DecorationImage(
+                                      image: FileImage(controller.imageCoverFile!),
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ) :  BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(4.0),
                                       topRight: Radius.circular(4.0),
@@ -429,7 +445,70 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.dialog(
+                                      AlertDialog(
+                                        title: Container(
+                                          child: Text(
+                                            'Choose option',
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              color: defualtColor,
+                                            ),
+                                          ),
+                                        ),
+                                        content: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Divider(
+                                              height: 1,
+                                            ),
+                                            ListTile(
+                                              onTap: () async {
+                                                try {
+                                                  await controller.cameraCoverImage();
+                                                  Get.back();
+                                                } catch (error) {
+                                                  Get.back();
+                                                }
+                                              },
+                                              title: Container(
+                                                child: Text(
+                                                  'Camera',
+                                                ),
+                                              ),
+                                              leading: Icon(
+                                                Icons.camera,
+                                                color: defualtColor,
+                                              ),
+                                            ),
+                                            Divider(
+                                              height: 1,
+                                            ),
+                                            ListTile(
+                                              onTap: () async {
+                                                try {
+                                                  await controller.galleryCoverImage();
+                                                  Get.back();
+                                                } catch (error) {
+                                                  Get.back();
+                                                }
+                                              },
+                                              title: Container(
+                                                child: Text(
+                                                  'Gallery',
+                                                ),
+                                              ),
+                                              leading: Icon(
+                                                Icons.account_box,
+                                                color: defualtColor,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
                                   icon: CircleAvatar(
                                     backgroundColor: defualtColor,
                                     radius: 20.0,
@@ -604,7 +683,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 ),
                               ),
                               child: MaterialButton(
-                                onPressed: () {},
+                                onPressed: () async{
+                                  setState(() {
+                                    _isLoading = true;
+                                  });
+                                  try {
+                                    await controller.uploadCoverImageToFirebase();
+                                    Get.find<SettingModel>().coverUrl =
+                                        controller.coverUrl;
+                                  } catch (e) {
+                                    Get.find<SettingModel>().coverUrl =
+                                        Get.find<SettingModel>().currentUser!.cover;
+                                  }
+                                  await Get.find<SettingModel>().updateCurrentUser();
+                                  setState(() {
+                                    _isLoading = false;
+                                  });
+                                },
                                 height: 40.0,
                                 child: Text(
                                   'upload cover',

@@ -1,8 +1,8 @@
 class UserModel {
   String? userId;
-  String? email, name, pic,phone;
+  String? email, name, pic,phone,cover;
 
-  UserModel({required this.userId, required this.email, required this.name, required this.pic , required this.phone});
+  UserModel({required this.userId, required this.email, required this.name, required this.pic , required this.phone,required this.cover});
 
   UserModel.fromJson(Map<dynamic, dynamic> map) {
     if (map == null) {
@@ -12,6 +12,7 @@ class UserModel {
     email = map['email'];
     name = map['name'];
     pic = map['pic'];
+    cover = map['cover'];
     phone = map['phone'];
   }
 
@@ -21,6 +22,7 @@ class UserModel {
       'email': email,
       'name': name,
       'pic': pic,
+      'cover': cover,
       'phone':phone
     };
   }

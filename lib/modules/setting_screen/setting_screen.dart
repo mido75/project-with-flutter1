@@ -34,7 +34,16 @@ class SettingScreen extends StatelessWidget {
                               child: Container(
                                 height: 140.0,
                                 width: double.infinity,
-                                decoration: BoxDecoration(
+                                decoration: controller.currentUser!.cover != null ?  BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(4.0),
+                                    topRight: Radius.circular(4.0),
+                                  ),
+                                  image: DecorationImage(
+                                    image: NetworkImage('${controller.currentUser!.cover}'),
+                                    fit: BoxFit.cover,
+                                  ),
+                                ) : BoxDecoration(
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(4.0),
                                     topRight: Radius.circular(4.0),

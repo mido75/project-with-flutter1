@@ -11,6 +11,9 @@ class SelectImageViewModel extends GetxController {
   File? imageFile;
   String? picUrl;
 
+  File? imageCoverFile;
+  String? coverUrl;
+
   cameraImage() async {
 
     final _pickedFile = await ImagePicker().pickImage(
@@ -40,4 +43,35 @@ class SelectImageViewModel extends GetxController {
     picUrl = await (await _uploadTask).ref.getDownloadURL();
     print(picUrl.toString());
   }
+
+  cameraCoverImage() async {
+
+    final _pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+      maxHeight: 400,
+      maxWidth: 400,
+    );
+    imageCoverFile = File(_pickedFile!.path);
+    update();
+  }
+
+  galleryCoverImage() async {
+    final _pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxHeight: 400,
+      maxWidth: 400,
+    );
+    imageCoverFile = File(_pickedFile!.path);
+    update();
+  }
+
+  uploadCoverImageToFirebase() async {
+    String _fileName = basename(imageCoverFile!.path);
+    Reference _firebaseStorageRef = FirebaseStorage.instance.ref().child(
+        'coverPics/$_fileName');
+    UploadTask _uploadTask = _firebaseStorageRef.putFile(imageCoverFile!);
+    coverUrl = await (await _uploadTask).ref.getDownloadURL();
+    print(coverUrl.toString());
+  }
+
 }

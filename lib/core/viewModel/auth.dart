@@ -132,6 +132,7 @@ class AuthViewModel extends GetxController {
       phone: phone,
       name: name == null ? user.user!.displayName : name,
       pic: '',
+      cover: '',
     );
     await FireStoreUser().addUserToFireStore(userModel);
     setUser(userModel);
