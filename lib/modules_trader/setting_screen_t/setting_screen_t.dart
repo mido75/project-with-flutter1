@@ -6,13 +6,18 @@ import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/edit_profile/edit_profile.dart';
 import 'package:untitled/modules/language_screen/language_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
+import 'package:untitled/modules_trader/my_products_screen/my_products_screen.dart';
 
 class SettingScreen_T extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<SettingModel>(
       init: SettingModel(),
-      builder: (controller) => Scaffold(
+      builder: (controller) => controller.loading == true
+          ? Center(
+        child: CircularProgressIndicator(),
+      )
+          : Scaffold(
         body: Container(
           padding: EdgeInsets.only(top: 30),
           child: SingleChildScrollView(
@@ -28,7 +33,16 @@ class SettingScreen_T extends StatelessWidget {
                         child: Container(
                           height: 140.0,
                           width: double.infinity,
-                          decoration: BoxDecoration(
+                          decoration: controller.currentUser!.cover != null ?  BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(4.0),
+                              topRight: Radius.circular(4.0),
+                            ),
+                            image: DecorationImage(
+                              image: NetworkImage('${controller.currentUser!.cover}'),
+                              fit: BoxFit.cover,
+                            ),
+                          ) : BoxDecoration(
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(4.0),
                               topRight: Radius.circular(4.0),
@@ -48,9 +62,10 @@ class SettingScreen_T extends StatelessWidget {
                         Theme.of(context).scaffoldBackgroundColor,
                         child: CircleAvatar(
                           radius: 60.0,
-                          backgroundImage: NetworkImage(
-                            'https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg',
-                          ),
+                          backgroundImage: NetworkImage('https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
+                          foregroundImage: controller.currentUser!.pic != null
+                              ? NetworkImage('${controller.currentUser!.pic}')
+                              : null,
                         ),
                       ),
                     ],
@@ -60,7 +75,7 @@ class SettingScreen_T extends StatelessWidget {
                   height: 5.0,
                 ),
                 Text(
-                  '${controller.userModel?.name}',
+                  '${controller.currentUser!.name}',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 20,
@@ -70,7 +85,7 @@ class SettingScreen_T extends StatelessWidget {
                   height: 1.0,
                 ),
                 Text(
-                  '${controller.userModel?.email}',
+                  '${controller.currentUser!.email}',
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 12,
@@ -83,8 +98,8 @@ class SettingScreen_T extends StatelessWidget {
                   child: MaterialButton(
                     child: ListTile(
                       title: Text('Edit Profile'),
-                      leading:
-                      Image.asset('imagies/icons8-edit-profile-24.png'),
+                      leading: Image.asset(
+                          'imagies/icons8-edit-profile-24.png'),
                       trailing: Icon(
                         Icons.navigate_next,
                         color: Colors.black,
@@ -98,9 +113,9 @@ class SettingScreen_T extends StatelessWidget {
                 Container(
                   child: MaterialButton(
                     child: ListTile(
-                      title: Text('Order History'),
+                      title: Text('My Products'),
                       leading: Image.asset(
-                        'imagies/icons8-history-24.png',
+                        'imagies/icons8-shopping-cart-32.png',
                       ),
                       trailing: Icon(
                         Icons.navigate_next,
@@ -108,6 +123,7 @@ class SettingScreen_T extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      Get.to(MyProductsScreen());
                     },
                   ),
                 ),
@@ -140,8 +156,7 @@ class SettingScreen_T extends StatelessWidget {
                         color: Colors.black,
                       ),
                     ),
-                    onPressed: () {
-                    },
+                    onPressed: () {},
                   ),
                 ),
                 Container(
