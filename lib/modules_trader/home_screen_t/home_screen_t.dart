@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/modules/notifications_screen/notifications_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 
 class HomeScreen_T extends StatelessWidget {
@@ -24,7 +26,9 @@ class HomeScreen_T extends StatelessWidget {
         ),
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.to(NotificationsScreen());
+              },
               icon: Icon(
                 Icons.notifications,
                 color: defualtColor,
