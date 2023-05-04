@@ -159,159 +159,190 @@ class _ManageProductsState extends State<ManageProducts> {
 
 class _ManageProductsState extends State<ManageProducts> {
   final _store = Store();
-  List<ProductModel> products = [];
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  var Pid;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: _store.loadProducts(),
       builder: (context, snapshot) {
-        for (var doc in snapshot.data!.docs) {
-          var data = doc.data;
-          products.add(ProductModel(
-              id: doc.id,
-              price: doc.get('price'),
-              name: doc.get('name'),
-              description: doc.get('description'),
-              image: doc.get('image'),
-              category: doc.get('category')));
-        }
-        return snapshot.hasData == null
-            ? Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'imagies/undraw_empty_cart_co35.svg',
-                      width: 150,
-                      height: 150,
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text(
-                      'Products Empty',
-                      style: TextStyle(
-                        fontSize: 32,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ],
+        if(snapshot.hasData)
+        {
+          List<ProductModel> products = [];
+          for (var doc in snapshot.data!.docs) {
+            var data = doc.data;
+            Pid=doc.id;
+            print(doc.id);
+            products.add(ProductModel(
+                id: doc.id,
+                price: doc.data().toString().contains('price') ? doc.get('price') : '',
+                name: doc.data().toString().contains('name') ? doc.get('name') : '',
+                description: doc.data().toString().contains('description') ? doc.get('description') : '',
+                image: doc.data().toString().contains('image') ? doc.get('image') : '',
+                category: doc.data().toString().contains('category') ? doc.get('category') : ''));
+            _firestore.collection('my_products').doc(Pid).update({'id':Pid});
+          }
+          return products.length == null
+              ? Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'imagies/undraw_empty_cart_co35.svg',
+                  width: 150,
+                  height: 150,
                 ),
-              )
-            : Scaffold(
-                appBar: AppBar(
-                  backgroundColor: Colors.white,
-                  automaticallyImplyLeading: false,
-                  leading: IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.arrow_back_ios,
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Products Empty',
+                  style: TextStyle(
+                    fontSize: 32,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          )
+              : Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.white,
+              automaticallyImplyLeading: false,
+              leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black,
+                ),
+              ),
+              elevation: 0.0,
+              title: Padding(
+                padding: const EdgeInsets.only(left: 60),
+                child: Text(
+                  'Products',
+                  style: TextStyle(
                       color: Colors.black,
-                    ),
-                  ),
-                  elevation: 0.0,
-                  title: Padding(
-                    padding: const EdgeInsets.only(left: 60),
-                    child: Text(
-                      'Products',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
-                body: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: .8,
-                  ),
-                  itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    child: GestureDetector(
-                      onTapUp: (details) async {
-                        double dx = details.globalPosition.dx;
-                        double dy = details.globalPosition.dy;
-                        double dx2 = MediaQuery.of(context).size.width - dx;
-                        double dy2 = MediaQuery.of(context).size.width - dy;
+              ),
+            ),
+            body: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: .8,
+              ),
+              itemBuilder: (context, index) => Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                child: GestureDetector(
+                  onTapUp: (details) async {
+                    double dx = details.globalPosition.dx;
+                    double dy = details.globalPosition.dy;
+                    double dx2 = MediaQuery.of(context).size.width - dx;
+                    double dy2 = MediaQuery.of(context).size.width - dy;
 
-                        await showMenu(
-                            context: context,
-                            position: RelativeRect.fromLTRB(dx, dy, dx2, dy2),
-                            items: [
-                              MyPopupMenuItem(
-                                onClick: () {
-                                  Get.to(EditProductScreen(
-                                    model: products[index],
-                                  ));
-                                  /* Navigator.pushNamed(context, EditProduct.id,
+                    await showMenu(
+                        context: context,
+                        position: RelativeRect.fromLTRB(dx, dy, dx2, dy2),
+                        items: [
+                          MyPopupMenuItem(
+                            onClick: () {
+                              Get.to(EditProductScreen(
+                                model: products[index],
+                              ));
+                              /* Navigator.pushNamed(context, EditProduct.id,
                                   arguments: products[index]);
 
                               */
-                                },
-                                child: Text('Edit'),
+                            },
+                            child: Text('Edit'),
+                          ),
+                          MyPopupMenuItem(
+                            onClick: () {
+                              _store.deleteProduct(products[index].id);
+                              Navigator.pop(context);
+                            },
+                            child: Text('Delete'),
+                          ),
+                        ]);
+                  },
+                  child: Stack(
+                    children: <Widget>[
+                      Positioned.fill(
+                        child: Image.network(
+                          '${products[index].image}',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 0,
+                        child: Opacity(
+                          opacity: .6,
+                          child: Container(
+                            width: MediaQuery.of(context).size.width,
+                            height: 60,
+                            color: Colors.white,
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 5),
+                              child: Column(
+                                crossAxisAlignment:
+                                CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Text(
+                                    '${products[index].name}',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    '${products[index].description}',
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text('\$ ${products[index].price}')
+                                ],
                               ),
-                              MyPopupMenuItem(
-                                onClick: () {
-                                  _store.deleteProduct(products[index].id);
-                                  Navigator.pop(context);
-                                },
-                                child: Text('Delete'),
-                              ),
-                            ]);
-                      },
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned.fill(
-                            child: Image.network(
-                              '${products[index].image}',
-                              fit: BoxFit.fill,
                             ),
                           ),
-                          Positioned(
-                            bottom: 0,
-                            child: Opacity(
-                              opacity: .6,
-                              child: Container(
-                                width: MediaQuery.of(context).size.width,
-                                height: 60,
-                                color: Colors.white,
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 10, vertical: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        '${products[index].name}',
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text(
-                                        '${products[index].description}',
-                                        maxLines: 1,
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                      Text('\$ ${products[index].price}')
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                        ),
+                      )
+                    ],
                   ),
-                  itemCount: products.length,
                 ),
-              );
+              ),
+              itemCount: products.length,
+            ),
+          );
+        }
+        return Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                'imagies/undraw_empty_cart_co35.svg',
+                width: 150,
+                height: 150,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Products Empty',
+                style: TextStyle(
+                  fontSize: 32,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        );
       },
     );
   }

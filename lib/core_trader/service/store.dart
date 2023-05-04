@@ -12,7 +12,8 @@ class Store {
       'sized': product.sized,
       'image': product.image,
       'category': product.category,
-      'price': product.price
+      'price': product.price,
+      'id': ''
     });
     _firestore.collection('my_products').add({
       'name': product.name,
@@ -20,12 +21,17 @@ class Store {
       'sized': product.sized,
       'image': product.image,
       'category': product.category,
-      'price': product.price
+      'price': product.price,
+      'id':''
     });
   }
 
   Stream<QuerySnapshot> loadProducts() {
     return _firestore.collection('my_products').snapshots();
+  }
+
+  Stream<QuerySnapshot> loadHomeProducts() {
+    return _firestore.collection('products').snapshots();
   }
 
   /*

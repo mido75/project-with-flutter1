@@ -1,8 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
+import 'package:untitled/core_trader/service/store.dart';
 import 'package:untitled/models/cart_product_model.dart';
 import 'package:untitled/models/fav_product_model.dart';
 import 'package:untitled/models/product_model.dart';
@@ -17,65 +20,97 @@ import 'package:untitled/helper/building.dart';
 class HomeScreen extends StatelessWidget {
   var searchController = TextEditingController();
 
+  final _store = Store();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  var Pid;
+
   // FirebaseAuth _auth = FirebaseAuth.instance;
 //Get.find<HomeViewModel>()
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<HomeViewModel>(
-      init: Get.find<HomeViewModel>(),
-      builder: (controller) => controller.loading.value
-          ? Center(child: CircularProgressIndicator())
-          : Scaffold(
-              appBar: AppBar(
-                backgroundColor: Colors.white10,
-                elevation: 0.0,
-                leading: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Container(
-                    height: 80,
-                    width: 80,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(
-                              "imagies/269969424_655870578924985_1432197706298581466_nn.png"),
-                          fit: BoxFit.fill),
+    return StreamBuilder<QuerySnapshot>(
+        stream: _store.loadHomeProducts(),
+        builder: (context, snapshot) {
+          if(snapshot.hasData){
+            List<ProductModel> products = [];
+            for (var doc in snapshot.data!.docs) {
+              var data = doc.data;
+              Pid = doc.id;
+              print(doc.id);
+              products.add(ProductModel(
+                  id: doc.id,
+                  price: doc.data().toString().contains('price')
+                      ? doc.get('price')
+                      : '',
+                  name: doc.data().toString().contains('name')
+                      ? doc.get('name')
+                      : '',
+                  description: doc.data().toString().contains('description')
+                      ? doc.get('description')
+                      : '',
+                  image: doc.data().toString().contains('image')
+                      ? doc.get('image')
+                      : '',
+                  category: doc.data().toString().contains('category')
+                      ? doc.get('category')
+                      : ''));
+              _firestore.collection('products').doc(Pid).update({'id': Pid});
+            }
+            return GetBuilder<HomeViewModel>(
+              init: Get.find<HomeViewModel>(),
+              builder: (controller) => controller.loading.value
+                  ? Center(child: CircularProgressIndicator())
+                  : Scaffold(
+                appBar: AppBar(
+                  backgroundColor: Colors.white10,
+                  elevation: 0.0,
+                  leading: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      height: 80,
+                      width: 80,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage(
+                                "imagies/269969424_655870578924985_1432197706298581466_nn.png"),
+                            fit: BoxFit.fill),
+                      ),
                     ),
                   ),
+                  actions: [
+                    IconButton(
+                        onPressed: () {
+                          Get.to(NotificationsScreen());
+                        },
+                        icon: Icon(
+                          Icons.notifications,
+                          color: defualtColor,
+                        )),
+                  ],
                 ),
-                actions: [
-                  IconButton(
-                      onPressed: () {
-                        Get.to(NotificationsScreen());
-                      },
-                      icon: Icon(
-                        Icons.notifications,
-                        color: defualtColor,
-                      )),
-                ],
-              ),
-              body: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      TextFormField(
-                        controller: searchController,
-                        keyboardType: TextInputType.text,
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20),
+                body: SingleChildScrollView(
+                  physics: BouncingScrollPhysics(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TextFormField(
+                          controller: searchController,
+                          keyboardType: TextInputType.text,
+                          style: TextStyle(
+                            color: Colors.black,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide:
-                                BorderSide(color: defualtColor, width: 2.0),
-                          ),
-                          labelText: 'Search',
-                          /*
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: defualtColor, width: 2.0),
+                            ),
+                            labelText: 'Search',
+                            /*
                           prefixIcon: IconButton(
                             onPressed: (){
 
@@ -83,125 +118,137 @@ class HomeScreen extends StatelessWidget {
                             icon: Icon(Icons.search,),
                           ),
                            */
-                          prefixIcon: Icon(Icons.search,),
-                        ),
-                        onFieldSubmitted: (value){
-                          Get.to(SearchScreen(value));
-                        },
-                      ),
-                      SizedBox(
-                        height: 20.0,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10.0,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Categories',
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.w800,
-                              ),
+                            prefixIcon: Icon(
+                              Icons.search,
                             ),
-                            SizedBox(
-                              height: 10.0,
-                            ),
-                            Container(
-                              height: 80.0,
-                              width: double.infinity,
-                              child: ListView.separated(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                itemBuilder: (context, index) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      Get.to(CateogriesScreen(
-                                        model: controller.categoryModel![index],
-                                      ));
-                                    },
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        border: Border.all(
-                                          color: defualtColor,
-                                          width: 2.0,
-                                          style: BorderStyle.solid,
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                                '${controller.categoryModel![index].name}'),
-                                            SizedBox(
-                                              width: 40.0,
-                                            ),
-                                            Image(
-                                              image: NetworkImage(
-                                                  '${controller.categoryModel![index].image}'),
-                                            ),
-                                            //  Image.network('${controller.categoryModel![index].image}'),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  );
-                                },
-                                separatorBuilder: (context, index) => SizedBox(
-                                  width: 10.0,
+                          ),
+                          onFieldSubmitted: (value) {
+                            Get.to(SearchScreen(value));
+                          },
+                        ),
+                        SizedBox(
+                          height: 20.0,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10.0,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Categories',
+                                style: TextStyle(
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w800,
                                 ),
-                                itemCount: controller.categoryModel!.length,
                               ),
-                            ),
-                            SizedBox(
-                              height: 20.0,
-                            ),
-                            Text(
-                              'New Products',
-                              style: TextStyle(
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.w800,
+                              SizedBox(
+                                height: 10.0,
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10.0,
-                      ),
-                      Container(
-                        color: Colors.grey[300],
-                        child: GridView.count(
-                          physics: NeverScrollableScrollPhysics(),
-                          shrinkWrap: true,
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 1.0,
-                          crossAxisSpacing: 1.0,
-                          childAspectRatio: 1 / 1.50,
-                          children: List.generate(
-                            controller.productModel!.length,
-                            (index) => GestureDetector(
-                                onTap: () {
-                                  Get.to(ProductScreen(
-                                    model: controller.productModel![index],
-                                  ));
-                                },
-                                child: GridProduct(context, index,controller.productModel )),
+                              Container(
+                                height: 80.0,
+                                width: double.infinity,
+                                child: ListView.separated(
+                                  physics: BouncingScrollPhysics(),
+                                  scrollDirection: Axis.horizontal,
+                                  itemBuilder: (context, index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Get.to(CateogriesScreen(
+                                          model: controller
+                                              .categoryModel![index],
+                                        ));
+                                      },
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                            color: defualtColor,
+                                            width: 2.0,
+                                            style: BorderStyle.solid,
+                                          ),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                          const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                  '${controller.categoryModel![index].name}'),
+                                              SizedBox(
+                                                width: 40.0,
+                                              ),
+                                              Image(
+                                                image: NetworkImage(
+                                                    '${controller.categoryModel![index].image}'),
+                                              ),
+                                              //  Image.network('${controller.categoryModel![index].image}'),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  separatorBuilder: (context, index) =>
+                                      SizedBox(
+                                        width: 10.0,
+                                      ),
+                                  itemCount:
+                                  controller.categoryModel!.length,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20.0,
+                              ),
+                              Text(
+                                'New Products',
+                                style: TextStyle(
+                                  fontSize: 24.0,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(
+                          height: 10.0,
+                        ),
+                        Container(
+                          color: Colors.grey[300],
+                          child: GridView.count(
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            crossAxisCount: 2,
+                            mainAxisSpacing: 1.0,
+                            crossAxisSpacing: 1.0,
+                            childAspectRatio: 1 / 1.50,
+                            children: List.generate(
+                              products.length,
+                                  (index) => GestureDetector(
+                                onTap: () {
+                                  Get.to(ProductScreen(
+                                    model: products[index],
+                                  ));
+                                },
+                                child: GridProduct(context, index, products),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-    );
+            );
+          }
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
   }
 
-  Widget GridProduct(context, index , model) => GetBuilder<HomeViewModel>(
+  Widget GridProduct(context, index, model) => GetBuilder<HomeViewModel>(
         //init: HomeViewModel(),
         builder: (controller) => Container(
           color: Colors.white,
@@ -215,7 +262,7 @@ class HomeScreen extends StatelessWidget {
                   children: [
                     Image(
                       image: NetworkImage(
-                          '${controller.productModel![index].image}'),
+                          '${model[index].image}'),
                       width: double.infinity,
                       height: 150.0,
                     ),
@@ -232,7 +279,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      '${controller.productModel![index].name}',
+                      '${model[index].name}',
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -243,7 +290,7 @@ class HomeScreen extends StatelessWidget {
                       height: 1.0,
                     ),
                     Text(
-                      '${controller.productModel![index].description}',
+                      '${model[index].description}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
@@ -253,7 +300,7 @@ class HomeScreen extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          '${controller.productModel![index].price}\$',
+                          '${model[index].price}\$',
                           style: TextStyle(
                             fontSize: 12.0,
                             color: defualtColor,
@@ -265,15 +312,19 @@ class HomeScreen extends StatelessWidget {
                         Spacer(),
                         GetBuilder<FavViewModel>(
                           init: FavViewModel(),
-                          builder:(controller) => IconButton(
+                          builder: (controller) => IconButton(
                             onPressed: () {
-                              controller.addFavProduct(FavProductModel(
-                                name: model[index].name,
-                                image: model[index].image,
-                                price: model[index].price,
-                                description: model[index].description,
-                                id: model[index].id,
-                              ),);
+                              print(model[index].id);
+                              print('ffffffffffffffff');
+                              controller.addFavProduct(
+                                FavProductModel(
+                                  name: model[index].name,
+                                  image: model[index].image,
+                                  price: model[index].price,
+                                  description: model[index].description,
+                                  id: model[index].id,
+                                ),
+                              );
                             },
                             icon: CircleAvatar(
                               radius: 15.0,
@@ -288,15 +339,17 @@ class HomeScreen extends StatelessWidget {
                         ),
                         GetBuilder<CartViewModel>(
                           init: CartViewModel(),
-                          builder:(controller) => IconButton(
+                          builder: (controller) => IconButton(
                             onPressed: () {
-                              controller.addProduct(CartProductModel(
-                                name: model[index].name,
-                                image: model[index].image,
-                                price: model[index].price,
-                                quantity: 1,
-                                id: model[index].id,
-                              ),);
+                              controller.addProduct(
+                                CartProductModel(
+                                  name: model[index].name,
+                                  image: model[index].image,
+                                  price: model[index].price,
+                                  quantity: 1,
+                                  id: model[index].id,
+                                ),
+                              );
                             },
                             icon: CircleAvatar(
                               radius: 15.0,
@@ -319,5 +372,3 @@ class HomeScreen extends StatelessWidget {
         ),
       );
 }
-
-//                        backgroundColor:ShopCubit.get(context).favorites[model.id]? defualtColor : Colors.grey,

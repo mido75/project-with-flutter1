@@ -361,6 +361,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                   print(e.toString());
                                 }
                                 _store.addProduct(ProductModel(
+                                  id: '',
                                   name: prodectcontroller.text,
                                   description: descriptioncontroller.text,
                                   price: moneycontroller.text,
