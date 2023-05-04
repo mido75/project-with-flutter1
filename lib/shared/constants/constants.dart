@@ -35,3 +35,9 @@ enum Pages {
 
 
 const Pname = 'name';
+
+enum Delivery{
+  StandardDerlivery,
+  NextDayDelivery,
+  NominatedDelivery,
+}

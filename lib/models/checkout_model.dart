@@ -1,6 +1,5 @@
 class CheckoutModel {
-  late String street, city, state, country, phone, totalPrice, date;
-
+   String? street, city, state, country, phone, totalPrice, date;
   CheckoutModel({
     required this.street,
     required this.city,
