@@ -9,6 +9,12 @@ import '../service/home_service.dart';
 
 class HomeViewModel extends GetxController {
 
+  @override
+  void initstate()
+  {
+    getSellingProduct();
+  }
+
   ValueNotifier<bool> get loading => _loading;
   ValueNotifier<bool> _loading = ValueNotifier(false);
 

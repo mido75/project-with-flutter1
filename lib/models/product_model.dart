@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductModel {
-  String? name, image, description, sized, price,id;
+  String? name, image, description, sized, price,id,category;
   //Color color;
 
   ProductModel(
@@ -10,6 +10,7 @@ class ProductModel {
          this.image,
          this.description,
          //required this.color,
+        this.category,
          this.sized,
         this.id,
          this.price});
@@ -26,6 +27,8 @@ class ProductModel {
     sized = map['sized'];
     id = map['id'];
     price = map['price'];
+    category = map['category'];
+
   }
 
   toJson() {
@@ -37,6 +40,7 @@ class ProductModel {
       'sized': sized,
       'id':id,
       'price': price,
+      'category':category,
     };
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/core_trader/viewModel_trader/control_view_model_t.dart';
+import 'package:untitled/modules_trader/setting_screen_t/setting_screen_t.dart';
 
 import '../../shared/styles/color.dart';
 
@@ -12,7 +14,7 @@ class MyProductsScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         leading: IconButton(onPressed: (){
-          Get.back();
+          Get.to(ControlViewModel_T());
         },icon:Icon(Icons.arrow_back_ios,color: Colors.black,),),
         elevation: 0.0,
         title: Padding(

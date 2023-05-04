@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
   var searchController = TextEditingController();
 
   // FirebaseAuth _auth = FirebaseAuth.instance;
-
+//Get.find<HomeViewModel>()
   @override
   Widget build(BuildContext context) {
     return GetBuilder<HomeViewModel>(

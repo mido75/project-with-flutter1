@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 
 
-class BeginScreen extends GetWidget<AuthViewModel> {
+class BeginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
@@ -21,5 +22,10 @@ class BeginScreen extends GetWidget<AuthViewModel> {
         ),
       ),
     );
+  }
+  void goToNextView(){
+    Future.delayed(Duration(seconds: 3),(){
+      Get.to(()=>ControlView(),transition: Transition.fade);
+    });
   }
 }

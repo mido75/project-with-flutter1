@@ -2,6 +2,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:untitled/shared/styles/color.dart';
 
 class SocialMediaButton extends StatelessWidget {
   const SocialMediaButton({
@@ -60,6 +61,29 @@ class AppAssets {
   static const mastercardIcon =
       'https://upload.wikimedia.org/wikipedia/commons/0/04/Mastercard-logo.png';
 }
+
+class MyPopupMenuItem<T> extends PopupMenuItem<T> {
+  final Widget child;
+  final Function onClick;
+  MyPopupMenuItem({required this.child, required this.onClick})
+      : super(child: child);
+  @override
+  PopupMenuItemState<T, PopupMenuItem<T>> createState() {
+    return MyPopupMenuItemState();
+  }
+}
+
+class MyPopupMenuItemState<T, PopMenuItem>
+    extends PopupMenuItemState<T, MyPopupMenuItem<T>> {
+  @override
+  void handleTap() {
+    widget.onClick();
+  }
+}
+
+
+
+
 /*
 Widget defaultButton({
   double wid = double.infinity,

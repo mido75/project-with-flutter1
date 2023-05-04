@@ -6,6 +6,7 @@ import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/edit_profile/edit_profile.dart';
 import 'package:untitled/modules/language_screen/language_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
+import 'package:untitled/modules_trader/manager_products/manager_products.dart';
 import 'package:untitled/modules_trader/my_products_screen/my_products_screen.dart';
 
 class SettingScreen_T extends StatelessWidget {
@@ -123,7 +124,7 @@ class SettingScreen_T extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      Get.to(MyProductsScreen());
+                      Get.to(ManageProducts());
                     },
                   ),
                 ),

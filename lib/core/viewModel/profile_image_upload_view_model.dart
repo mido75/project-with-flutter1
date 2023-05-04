@@ -14,6 +14,9 @@ class SelectImageViewModel extends GetxController {
   File? imageCoverFile;
   String? coverUrl;
 
+  File? imageProductFile;
+  String? productUrl;
+
   cameraImage() async {
 
     final _pickedFile = await ImagePicker().pickImage(
@@ -72,6 +75,38 @@ class SelectImageViewModel extends GetxController {
     UploadTask _uploadTask = _firebaseStorageRef.putFile(imageCoverFile!);
     coverUrl = await (await _uploadTask).ref.getDownloadURL();
     print(coverUrl.toString());
+  }
+
+
+
+  cameraImageProduct() async {
+
+    final _pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.camera,
+      maxHeight: 400,
+      maxWidth: 400,
+    );
+    imageProductFile = File(_pickedFile!.path);
+    update();
+  }
+
+  galleryImageProduct() async {
+    final _pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+      maxHeight: 400,
+      maxWidth: 400,
+    );
+    imageProductFile = File(_pickedFile!.path);
+    update();
+  }
+
+  uploadImageProductToFirebase() async {
+    String _fileName = basename(imageProductFile!.path);
+    Reference _firebaseStorageRef = FirebaseStorage.instance.ref().child(
+        'productPics/$_fileName');
+    UploadTask _uploadTask = _firebaseStorageRef.putFile(imageProductFile!);
+    productUrl = await (await _uploadTask).ref.getDownloadURL();
+    print(productUrl.toString());
   }
 
 }

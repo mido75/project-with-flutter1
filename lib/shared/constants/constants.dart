@@ -33,3 +33,5 @@ enum Pages {
   summary,
 }
 
+
+const Pname = 'name';
