@@ -56,16 +56,23 @@ dependencies:
   status_change: ^1.0.0
   http: ^0.13.5
   intl: ^0.17.0
+  flutter_native_splash: ^2.2.17
+  flutter_launcher_icons: ^0.12.0
 
 
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: "assets/th.png"
+  android_gravity: fill
+  android: true
+  ios: true
+  web: false
 
 
-
-
-
-
-
-
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/th.png"
 
 dev_dependencies:
   flutter_test:
@@ -108,6 +115,9 @@ flutter:
     - imagies/undraw_wishlist_re_m7tv.svg
     - imagies/undraw_Image_upload_re_w7pm.png
     - imagies/icons8-shopping-cart-32.png
+    - imagies/shooting-star-and-moon-phone-wallpaper-background.jpg
+    - imagies/269969424_655870578924985_1432197706298581466_n.jpg
+    - assets/th.png
 
 
 

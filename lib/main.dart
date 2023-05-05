@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
@@ -23,6 +24,11 @@ import 'modules/login_screen/login_screen.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  Future.delayed(Duration(seconds: 1)).then((value) => {
+    FlutterNativeSplash.remove()
+  });
+
   Get.put(CartViewModel());
   Get.put(FavViewModel());
   Get.put(HomeViewModel());
@@ -41,7 +47,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: lighttheme,
       home: Scaffold(
-        body: ControlView(),
+        body: BeginScreen(),
       ),
     );
   }
