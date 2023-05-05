@@ -1,7 +1,8 @@
 class CheckoutModel {
-   String? street, city, state, country, phone, totalPrice, date;
+   String? street1, city, state, country, phone, totalPrice, date,street2;
   CheckoutModel({
-    required this.street,
+    required this.street1,
+    required this.street2,
     required this.city,
     required this.state,
     required this.country,
@@ -11,7 +12,8 @@ class CheckoutModel {
   });
 
   CheckoutModel.fromJson(Map<dynamic, dynamic> map) {
-    street = map['street'];
+    street1 = map['street1'];
+    street2 = map['street2'];
     city = map['city'];
     state = map['state'];
     country = map['country'];
@@ -22,7 +24,8 @@ class CheckoutModel {
 
   toJson() {
     return {
-      'street': street,
+      'street1': street1,
+      'street2': street2,
       'city': city,
       'state': state,
       'country': country,

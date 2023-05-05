@@ -1,8 +1,13 @@
 import 'dart:ui';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:intl/intl.dart';
+import 'package:untitled/core/service/database/firestore_checkout.dart';
+import 'package:untitled/core/viewModel/cart_view_model.dart';
+import 'package:untitled/models/checkout_model.dart';
 import 'package:untitled/modules/control_view.dart';
 import '../../shared/constants/constants.dart';
 import '../../shared/styles/color.dart';
@@ -11,6 +16,7 @@ class CheckOutViewModel extends GetxController{
   //Get.lazyPut(() => CheckOutViewModel());
   CheckOutViewModel() {
     Get.lazyPut<CheckOutViewModel>(() => this);
+    _getCheckoutsFromFireStore();
   }
 
   int get index =>_index ;
@@ -18,7 +24,14 @@ class CheckOutViewModel extends GetxController{
   Pages get pages =>_pages;
   Pages _pages = Pages.deliveryTime;
 
-  String? street1, street2 ,city ,state ,country;
+  String? street1, street2 ,city ,state ,country , phone ,totalPrice;
+
+  List<CheckoutModel> _checkouts = [];
+  List<CheckoutModel> get checkouts => _checkouts;
+
+  bool _isLoading = false;
+  bool get isLoading => _isLoading;
+
   GlobalKey<FormState> formState =GlobalKey();
 
   void channgeIndex(int i){
@@ -54,6 +67,39 @@ class CheckOutViewModel extends GetxController{
     } else {
       return defualtColor;
     }
+  }
+
+
+  _getCheckoutsFromFireStore() async {
+    _isLoading = true;
+    _checkouts = [];
+    List<QueryDocumentSnapshot> _checkoutsSnapshot =
+    await FirestoreCheckout().getOrdersFromFirestore();
+    _checkoutsSnapshot.forEach((order) {
+      _checkouts
+          .add(CheckoutModel.fromJson(order.data() as Map<String, dynamic>));
+    });
+    _isLoading = false;
+    update();
+  }
+
+  addCheckoutToFireStore() async {
+    print(street2);
+    print('fffffffffffffffff');
+    await FirestoreCheckout().addOrderToFirestore(CheckoutModel(
+      street1: street1!,
+      street2: street2!,
+      city: city!,
+      state: state!,
+      country: country!,
+      phone: phone!,
+      totalPrice: Get.find<CartViewModel>().totalPrice.toString(),
+      date: DateFormat.yMMMd().add_jm().format(DateTime.now()),
+    ));
+    totalPrice = Get.find<CartViewModel>().totalPrice.toString();
+    Get.find<CartViewModel>().removeAllProducts();
+    Get.back();
+    _getCheckoutsFromFireStore();
   }
 
 

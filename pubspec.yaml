@@ -55,7 +55,7 @@ dependencies:
   firebase_storage: ^11.1.1
   status_change: ^1.0.0
   http: ^0.13.5
-
+  intl: ^0.17.0
 
 
 

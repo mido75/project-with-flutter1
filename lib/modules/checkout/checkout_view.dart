@@ -5,35 +5,38 @@ import 'package:status_change/status_change.dart';
 import 'package:untitled/models/checkout_model.dart';
 import 'package:untitled/modules/checkout/add_address_widget.dart';
 import 'package:untitled/modules/checkout/summary_widget.dart';
+import 'package:untitled/shared/components/custom_text.dart';
 import '../../core/viewModel/checkout_view_model.dart';
 import '../../shared/constants/constants.dart';
 import 'delevery_time_widget.dart';
 import '../../shared/styles/color.dart';
 
-
-
 class CheckOutView extends StatelessWidget {
-  
-  final _processes = [
-    'Delivery',
-    'Address',
-    'Summery'
-  ];
-
-  // final _content = [
-  // ];
+  final _processes = ['Delivery', 'Address', 'Summery'];
 
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CheckOutViewModel>(
       init: Get.put(CheckOutViewModel()),
-      builder:(controller)=>Scaffold(
+      builder: (controller) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          automaticallyImplyLeading: false,
+          title: Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Center(
+                child: Text(
+              'Check Out',
+              style: TextStyle(
+                fontSize: 30,
+                color: defualtColor,
+              ),
+            )),
+          ),
+        ),
         body: Column(
           children: [
-            Padding(
-              padding:  EdgeInsets.only(top:25.0),
-              child: Center(child: Text('Check Out',style: TextStyle(fontSize: 30, color: defualtColor,),)),
-            ),
             // Expanded(
             //   child: StatusChange.tileBuilder(
             //     theme: StatusChangeThemeData(
@@ -116,35 +119,41 @@ class CheckOutView extends StatelessWidget {
             //     ),
             //   ),
             // ),
-            controller.pages == Pages.deliveryTime ? DeliveryTime() :
-    controller.pages == Pages.addAddress ? AddAddress() : CheckOutSummary(),
+            controller.pages == Pages.deliveryTime
+                ? DeliveryTime()
+                : controller.pages == Pages.addAddress
+                    ? AddAddress()
+                    : CheckOutSummary(),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Expanded(
-                  child: controller.index==0 ? Container() :Align(
-                    alignment: Alignment.bottomLeft,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      width: 150,
-                      height: 80,
-                      padding: EdgeInsets.all(15.0),
-                      child: MaterialButton(
-                        onPressed: (){
-                          controller.channgeIndex(controller.index - 1);
-                        },
-                        child: Text('BACK',
-                          style: TextStyle(
-                            //fontWeight: FontWeight.bold,
-                            color: defualtColor,
+                  child: controller.index == 0
+                      ? Container()
+                      : Align(
+                          alignment: Alignment.bottomLeft,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            width: 150,
+                            height: 80,
+                            padding: EdgeInsets.all(15.0),
+                            child: MaterialButton(
+                              onPressed: () {
+                                controller.channgeIndex(controller.index - 1);
+                              },
+                              child: Text(
+                                'BACK',
+                                style: TextStyle(
+                                  //fontWeight: FontWeight.bold,
+                                  color: defualtColor,
+                                ),
+                              ),
+                              color: Colors.white,
+                            ),
                           ),
                         ),
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
                 ),
                 Expanded(
                   child: Align(
@@ -157,10 +166,57 @@ class CheckOutView extends StatelessWidget {
                       height: 80,
                       padding: EdgeInsets.all(15.0),
                       child: MaterialButton(
-                        onPressed: (){
-                        controller.channgeIndex(controller.index + 1);
-                      },
-                        child: Text('NEXT',
+                        onPressed: () async {
+                          controller.channgeIndex(controller.index + 1);
+                          if(controller.index == 2){
+                            print('dddddddddddddddddddddddd');
+                            if (controller.formState.currentState!.validate()) {
+                              controller.formState.currentState!.save();
+                              await controller.addCheckoutToFireStore();
+                              Get.dialog(
+                                AlertDialog(
+                                  content: SingleChildScrollView(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          Icons.check_circle_outline_outlined,
+                                          color: defualtColor,
+                                          size: 200,
+                                        ),
+                                        Container(
+                                          alignment: Alignment.center,
+                                          child: Text('Order Submitted',
+                                            style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: defualtColor),),
+                                        ),
+                                        SizedBox(
+                                          height: 40,
+                                        ),
+                                        ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            padding: EdgeInsets.symmetric(vertical: 16),
+                                          ),
+                                          onPressed: (){Get.back();},
+                                          child: CustomText(
+                                            text: 'done',
+                                            fontSize: 14,
+                                            color: Colors.white,
+                                            alignment: Alignment.center, maxLine: 1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                barrierDismissible: false,
+                              );
+                            }
+                          }
+
+                        },
+                        child: Text(
+                          'NEXT',
                           style: TextStyle(
                             //fontWeight: FontWeight.bold,
                             color: Colors.white,
@@ -173,7 +229,6 @@ class CheckOutView extends StatelessWidget {
                 ),
               ],
             ),
-
           ],
         ),
         // floatingActionButton: FloatingActionButton(

@@ -70,6 +70,7 @@ class CartScreen extends StatelessWidget {
                                          child: Icon(Icons.delete,color: Colors.red,),
                                        onTap: (){
                                            controller.deleteCartProduct(index);
+                                           controller.decreaseQuantity(index);
                                        },
                                      ),
                                    ],

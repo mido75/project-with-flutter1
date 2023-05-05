@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
+import 'package:untitled/core/viewModel/checkout_view_model.dart';
 import 'package:untitled/core/viewModel/control_view_model.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
 import 'package:untitled/core/viewModel/home_view_model.dart';
@@ -25,6 +26,7 @@ void main() async{
   Get.put(CartViewModel());
   Get.put(FavViewModel());
   Get.put(HomeViewModel());
+  Get.put(CheckOutViewModel());
   //Get.put(SettingModel());
 
   runApp(MyApp());

@@ -47,12 +47,23 @@ class CartViewModel extends GetxController
     update();
   }
 
+  removeAllProducts() async {
+    await dbHelper.deleteAllProducts();
+    getAllProduct();
+  }
+
   getTotalPrice(){
+    _totalPrice = 0;
+    /*
     for(int i = 0 ; i < _cartProductModel.length;i++){
       _totalPrice += (double.parse(_cartProductModel[i].price.toString()) * _cartProductModel[i].quantity!.toInt());
       update();
     }
 
+     */
+    _cartProductModel.forEach((cartProduct) {
+      _totalPrice += (double.parse(cartProduct.price.toString()) * cartProduct.quantity!.toInt());
+    });
   }
 
   increaseQuantity(int index)async{

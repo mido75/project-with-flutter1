@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:untitled/shared/components/custom_text.dart';
 
 import '../../core/viewModel/checkout_view_model.dart';
 import '../../shared/components/custom_text_formfiled.dart';
@@ -29,82 +30,190 @@ class AddAddress extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  CustomTextFormField(
-                    onSave:(value){
-                      controller.street1 = value;
-                    } ,
-                    validator: (String value){
-                      if(value.isEmpty){
-                        return 'you must write your street';
-                      }
-                    },
-                    text: 'Street 1',
-                    hint: '21, Alex Davidson Avenue',
+                  Container(
+                    child: Column(
+                      children: [
+                        CustomText(
+                          text: 'Street 1',
+                          fontSize: 14,
+                          color: Colors.grey.shade900, maxLine: 2,
+                        ),
+                        TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return 'you must write your street 1';
+                            }
+                          },
+                          onSaved: (value){
+                            controller.street1 = value;
+                          },
+                          decoration: InputDecoration(
+                            hintText: '21, Alex Davidson Avenue',
+                            hintStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            fillColor: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-
                   SizedBox(height: 10,),
-
-                  CustomTextFormField(
-                    onSave: (value){
-                      controller.street2 = value;
-                    },
-                    validator: (String value){
-                      if(value.isEmpty){
-                        return 'you must write your street 2';
-                      }
-                    },
-                    text: 'Street 2',
-                    hint: 'Opposite Omegatron , Vicent Quarters',
+                  Container(
+                    child: Column(
+                      children: [
+                        CustomText(
+                          text: 'Street 2',
+                          fontSize: 14,
+                          color: Colors.grey.shade900, maxLine: 2,
+                        ),
+                        TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return 'you must write your street 2';
+                            }
+                          },
+                          onSaved: (value){
+                            controller.street2 = value;
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Opposite Omegatron , Vicent Quarters',
+                            hintStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            fillColor: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-
                   SizedBox(height: 10,),
-
-                  CustomTextFormField(
-                    onSave: (value){
-                      controller.city = value;
-                    },
-                    validator: (String value){
-                      if(value.isEmpty){
-                        return 'you must write your city';
-                      }
-                    },
-                    text: 'City',
-                    hint: 'Victoria Island',
+                  Container(
+                    child: Column(
+                      children: [
+                        CustomText(
+                          text: 'City',
+                          fontSize: 14,
+                          color: Colors.grey.shade900, maxLine: 2,
+                        ),
+                        TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return 'you must write your city';
+                            }
+                          },
+                          onSaved: (value){
+                            controller.city = value;
+                          },
+                          decoration: InputDecoration(
+                            hintText: 'Victoria Island',
+                            hintStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            fillColor: Colors.white,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
-
                   SizedBox(height: 10,),
-
                   Container(
                     width: Get.width,
                     child: Row(
                       children: [
                         Expanded(child: Padding(
                           padding:EdgeInsets.only(right: 20,),
-                          child: CustomTextFormField(text: 'State', hint: 'Logos State',
-                            onSave: (value){
-                              controller.state = value;
-                            },
-                            validator: (String value){
-                              if(value.isEmpty){
-                                return 'you must write your state';
-                              }
-                            },
+                          child: Container(
+                            child: Column(
+                              children: [
+                                CustomText(
+                                  text: 'State',
+                                  fontSize: 14,
+                                  color: Colors.grey.shade900, maxLine: 2,
+                                ),
+                                TextFormField(
+                                  validator: (value){
+                                    if(value!.isEmpty){
+                                      return 'you must write your state';
+                                    }
+                                  },
+                                  onSaved: (value){
+                                    controller.state = value;
+                                  },
+                                  decoration: InputDecoration(
+                                    hintText: 'Logos State',
+                                    hintStyle: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    fillColor: Colors.white,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                         )),
                         Expanded(child: Padding(
                           padding:  EdgeInsets.only(left: 20,),
-                          child: CustomTextFormField(text: 'Country', hint: 'Nigeria',
-                            onSave: (value){
-                              controller.country = value;
-                            },
-                            validator: (String value){
-                              if(value.isEmpty){
-                                return 'you must write your country';
-                              }
-                            },
+                          child: Container(
+                            child: Column(
+                              children: [
+                                CustomText(
+                                  text: 'Country',
+                                  fontSize: 14,
+                                  color: Colors.grey.shade900, maxLine: 2,
+                                ),
+                                TextFormField(
+                                  validator: (value){
+                                    if(value!.isEmpty){
+                                      return 'you must write your country';
+                                    }
+                                  },
+                                  onSaved: (value){
+                                    controller.country = value;
+                                  },
+                                  decoration: InputDecoration(
+                                    hintText: 'Nigeria',
+                                    hintStyle: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    fillColor: Colors.white,
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
+
                         )),
 
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Container(
+                    child: Column(
+                      children: [
+                        CustomText(
+                          text: 'phone',
+                          fontSize: 14,
+                          color: Colors.grey.shade900, maxLine: 2,
+                        ),
+                        TextFormField(
+                          validator: (value){
+                            if(value!.isEmpty){
+                              return 'you must write your phone';
+                            }
+                          },
+                          onSaved: (value){
+                            controller.phone = value;
+                          },
+                          decoration: InputDecoration(
+                            hintText: '+20105146324',
+                            hintStyle: TextStyle(
+                              color: Colors.black,
+                            ),
+                            fillColor: Colors.white,
+                          ),
+                        )
                       ],
                     ),
                   ),
