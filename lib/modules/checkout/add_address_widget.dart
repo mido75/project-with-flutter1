@@ -7,7 +7,6 @@ import '../../core/viewModel/checkout_view_model.dart';
 import '../../shared/components/custom_text_formfiled.dart';
 
 class AddAddress extends StatelessWidget {
-  const AddAddress({super.key});
 
   @override
   Widget build(BuildContext context) {

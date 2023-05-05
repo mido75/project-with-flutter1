@@ -607,8 +607,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 backgroundColor: defualtColor,
                                 radius: 20.0,
                                 child: Icon(
-                                  color: Colors.white,
                                   Icons.camera,
+                                  color: Colors.white,
                                   size: 16.0,
                                 ),
                               ),

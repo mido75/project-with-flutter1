@@ -1,9 +1,14 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:untitled/models/product_model.dart';
 
 class Store {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final CollectionReference _myProductCollection = FirebaseFirestore.instance
+      .collection('Users')
+      .doc(FirebaseAuth.instance.currentUser!.uid)
+      .collection('my_products');
 
   addProduct(ProductModel product) {
     _firestore.collection('products').add({
@@ -15,7 +20,8 @@ class Store {
       'price': product.price,
       'id': ''
     });
-    _firestore.collection('my_products').add({
+
+    _myProductCollection.add({
       'name': product.name,
       'description': product.description,
       'sized': product.sized,
@@ -27,7 +33,7 @@ class Store {
   }
 
   Stream<QuerySnapshot> loadProducts() {
-    return _firestore.collection('my_products').snapshots();
+    return _myProductCollection.snapshots();
   }
 
   Stream<QuerySnapshot> loadHomeProducts() {
