@@ -155,9 +155,13 @@ class HomeScreen extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return GestureDetector(
                                       onTap: () {
+                                        CateogriesScreen(
+                                          categoryName: 'load',
+                                          products: controller.productModel!.toList(),
+                                        );
                                         Get.to(CateogriesScreen(
-                                          model: controller
-                                              .categoryModel![index],
+                                          products: controller.productModel!.where((product) => product.category == controller.categoryModel![index].name!.toLowerCase()).toList(),
+                                          categoryName: '${controller.categoryModel![index].name}',
                                         ));
                                       },
                                       child: Container(
