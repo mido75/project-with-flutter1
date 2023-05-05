@@ -61,7 +61,7 @@ class CartDatabaseHelper{
 
   deleteAllProducts() async {
     Database? _db = await database;
-    await _db!.delete('cartProducts');
+    await _db!.delete('CartProduct');
   }
 
 }

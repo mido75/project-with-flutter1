@@ -9,6 +9,7 @@ import 'package:untitled/core/service/database/firestore_checkout.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/models/checkout_model.dart';
 import 'package:untitled/modules/control_view.dart';
+import 'package:untitled/modules/home/home_screen.dart';
 import '../../shared/constants/constants.dart';
 import '../../shared/styles/color.dart';
 
@@ -53,8 +54,8 @@ class CheckOutViewModel extends GetxController{
     }else if(i==3){
       Get.to(ControlView());
       _pages = Pages.deliveryTime;
-
       _index=0;
+      Get.find<CartViewModel>().removeAllProducts();
     }
     update();
   }
@@ -97,8 +98,8 @@ class CheckOutViewModel extends GetxController{
       date: DateFormat.yMMMd().add_jm().format(DateTime.now()),
     ));
     totalPrice = Get.find<CartViewModel>().totalPrice.toString();
-    Get.find<CartViewModel>().removeAllProducts();
-    Get.back();
+    //Get.find<CartViewModel>().removeAllProducts();
+   // Get.back();
     _getCheckoutsFromFireStore();
   }
 

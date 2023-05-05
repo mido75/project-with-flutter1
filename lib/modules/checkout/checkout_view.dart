@@ -199,7 +199,7 @@ class CheckOutView extends StatelessWidget {
                                             padding: EdgeInsets.symmetric(vertical: 16),
                                           ),
                                           onPressed: (){
-                                            Get.to(CheckOutView());
+                                            Get.back();
                                             },
                                           child: CustomText(
                                             text: 'done',
