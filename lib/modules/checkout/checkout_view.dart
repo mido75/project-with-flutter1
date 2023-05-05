@@ -194,10 +194,13 @@ class CheckOutView extends StatelessWidget {
                                         ),
                                         ElevatedButton(
                                           style: ElevatedButton.styleFrom(
+                                            backgroundColor: defualtColor,
                                             elevation: 0,
                                             padding: EdgeInsets.symmetric(vertical: 16),
                                           ),
-                                          onPressed: (){Get.back();},
+                                          onPressed: (){
+                                            Get.to(CheckOutView());
+                                            },
                                           child: CustomText(
                                             text: 'done',
                                             fontSize: 14,
