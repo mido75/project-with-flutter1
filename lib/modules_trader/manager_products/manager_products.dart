@@ -321,27 +321,7 @@ class _ManageProductsState extends State<ManageProducts> {
           );
         }
         return Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'imagies/undraw_empty_cart_co35.svg',
-                width: 150,
-                height: 150,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                'Products Empty',
-                style: TextStyle(
-                  fontSize: 32,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+          child: CircularProgressIndicator(),
         );
       },
     );

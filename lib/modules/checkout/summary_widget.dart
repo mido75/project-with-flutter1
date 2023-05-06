@@ -42,8 +42,6 @@ class CheckOutSummary extends StatelessWidget {
                             CustomText(text:'\$${controller.cartProductModel[index].price.toString()}',maxLine:2,color:defualtColor,
                               alignment: Alignment.bottomLeft,
                             ),
-
-
                           ],
                         ),
                       ),

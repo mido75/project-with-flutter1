@@ -53,7 +53,11 @@ class HomeScreen extends StatelessWidget {
                       : '',
                   category: doc.data().toString().contains('category')
                       ? doc.get('category')
-                      : ''));
+                      : '',
+                user_id: doc.data().toString().contains('user_id')
+                    ? doc.get('user_id') : '',
+              ));
+
               _firestore.collection('products').doc(Pid).update({'id': Pid});
             }
             return GetBuilder<HomeViewModel>(
@@ -352,6 +356,7 @@ class HomeScreen extends StatelessWidget {
                                   price: model[index].price,
                                   quantity: 1,
                                   id: model[index].id,
+                                  user_id: model[index].user_id,
                                 ),
                               );
                             },

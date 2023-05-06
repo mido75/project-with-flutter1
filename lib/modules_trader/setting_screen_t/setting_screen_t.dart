@@ -8,6 +8,7 @@ import 'package:untitled/modules/language_screen/language_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
 import 'package:untitled/modules_trader/manager_products/manager_products.dart';
 import 'package:untitled/modules_trader/my_products_screen/my_products_screen.dart';
+import 'package:untitled/modules_trader/orders_screen/orders_screen.dart';
 
 class SettingScreen_T extends StatelessWidget {
   @override
@@ -125,6 +126,23 @@ class SettingScreen_T extends StatelessWidget {
                     ),
                     onPressed: () {
                       Get.to(ManageProducts());
+                    },
+                  ),
+                ),
+                Container(
+                  child: MaterialButton(
+                    child: ListTile(
+                      title: Text('Orders'),
+                      leading: Image.asset(
+                        'imagies/icons8-in-transit-24.png',
+                      ),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onPressed: () {
+                      Get.to(OrdersScreen());
                     },
                   ),
                 ),

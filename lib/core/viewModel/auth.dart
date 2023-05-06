@@ -15,6 +15,7 @@ import 'package:untitled/modules/begin/begin_screen.dart';
 import 'package:untitled/modules/control_view.dart';
 import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/who%20are%20you/Users.dart';
+import 'package:untitled/shared/constants/constants.dart';
 
 class AuthViewModel extends GetxController {
   GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);

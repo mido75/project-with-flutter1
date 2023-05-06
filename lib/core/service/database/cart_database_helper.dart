@@ -32,6 +32,7 @@ class CartDatabaseHelper{
     $columnImage TEXT NOT NULL,
     $columnPrice TEXT NOT NULL,
     $columnQuantity INTEGER NOT NULL,
+    $columnUserId TEXT NOT NULL,
     $columnId TEXT NOT NULL)
     ''');
   });

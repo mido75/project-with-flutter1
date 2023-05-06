@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProductModel {
-  String? name, image, description, sized, price,id,category;
+  String? name, image, description, sized, price,id,category,user_id;
   //Color color;
 
   ProductModel(
@@ -9,6 +9,7 @@ class ProductModel {
          this.name,
          this.image,
          this.description,
+        this.user_id,
          //required this.color,
         this.category,
          this.sized,
@@ -26,6 +27,7 @@ class ProductModel {
     //color = HexColor.fromHex(map['color']);
     sized = map['sized'];
     id = map['id'];
+    user_id = map['user_id'];
     price = map['price'];
     category = map['category'];
 
@@ -39,6 +41,7 @@ class ProductModel {
       //'color': color,
       'sized': sized,
       'id':id,
+      'user_id':user_id,
       'price': price,
       'category':category,
     };

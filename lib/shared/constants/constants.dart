@@ -1,6 +1,9 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/auth.dart';
+import 'package:untitled/models/user_model.dart';
 
 final String tableCartProduct ='cartProduct';
 final String columnName ='name';
@@ -8,6 +11,8 @@ final String columnImage ='image';
 final String columnQuantity ='quantity';
 final String columnPrice ='price';
 final String columnId ='id';
+final String columnUserId = 'user_id';
+
 
 
 const CACHED_USER_DATA = 'CACHED_USER_DATA';
@@ -41,3 +46,4 @@ enum Delivery{
   NextDayDelivery,
   NominatedDelivery,
 }
+

@@ -48,9 +48,6 @@ class Address{
     this.city,
     this.state,
     this.country,
-
-
-
 });
   factory Address.fromMap(Map<String, dynamic> map){
     return new Address(
@@ -72,3 +69,4 @@ class Address{
     }as Map<String,dynamic>;
   }
 }
+

@@ -1,7 +1,8 @@
 class CheckoutModel {
-   String? street1, city, state, country, phone, totalPrice, date,street2;
+   String? street1, city, state, country, phone, totalPrice, date,street2 ,documentId;
   CheckoutModel({
     required this.street1,
+    this.documentId,
     required this.street2,
     required this.city,
     required this.state,
@@ -18,6 +19,7 @@ class CheckoutModel {
     state = map['state'];
     country = map['country'];
     phone = map['phone'];
+    documentId = map['documentId'];
     totalPrice = map['totalPrice'];
     date = map['date'];
   }
@@ -30,6 +32,7 @@ class CheckoutModel {
       'state': state,
       'country': country,
       'phone': phone,
+      'documentId': documentId,
       'totalPrice': totalPrice,
       'date': date,
     };

@@ -157,6 +157,7 @@ class ProductScreen extends StatelessWidget {
                           child: MaterialButton(
                             onPressed: (){
                               controller.addProduct(CartProductModel(
+                                user_id: model.user_id,
                                 name: model.name,
                                 image: model.image,
                                 price: model.price,

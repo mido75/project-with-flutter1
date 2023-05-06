@@ -276,6 +276,7 @@ class CateogriesScreen extends StatelessWidget {
                                         price: products[index].price,
                                         quantity: 1,
                                         id: products[index].id,
+                                        user_id: products[index].user_id,
                                       ),
                                     );
                                   },

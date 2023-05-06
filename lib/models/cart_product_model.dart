@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CartProductModel {
-  String? name, image, price,id;
+  String? name, image, price,id,user_id;
   int? quantity;
 
   CartProductModel(
@@ -10,6 +10,7 @@ class CartProductModel {
         this.image,
         this.quantity,
         this.id,
+        this.user_id,
         this.price});
 
   CartProductModel.fromJson(Map<dynamic, dynamic> map) {
@@ -22,6 +23,7 @@ class CartProductModel {
     quantity = map['quantity'];
     price = map['price'];
     id = map['id'];
+    user_id = map['user_id'];
 
   }
 
@@ -32,6 +34,7 @@ class CartProductModel {
       'quantity': quantity,
       'price': price,
       'id':id,
+      'user_id':user_id
     };
   }
 }

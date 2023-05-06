@@ -4,12 +4,15 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/core/viewModel/profile_image_upload_view_model.dart';
 import 'package:untitled/core_trader/service/store.dart';
 import 'package:untitled/models/product_model.dart';
 import 'package:untitled/models/setting_model.dart';
+import 'package:untitled/models/user_model.dart';
 import 'package:untitled/modules_trader/manager_products/manager_products.dart';
 import 'package:untitled/modules_trader/my_products_screen/my_products_screen.dart';
+import 'package:untitled/shared/constants/constants.dart';
 import 'package:untitled/shared/styles/color.dart';
 
 class addProductScreen extends StatefulWidget {
@@ -30,7 +33,8 @@ class _addProductScreenState extends State<addProductScreen> {
   Widget build(BuildContext context) {
     return GetBuilder<SelectImageViewModel>(
       init: SelectImageViewModel(),
-      builder:(controller) => Scaffold(
+      builder:(controller) { 
+        return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.white,
@@ -361,6 +365,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                   print(e.toString());
                                 }
                                 _store.addProduct(ProductModel(
+                                  user_id:  Get.find<SettingModel>().currentUser!.userId,
                                   id: '',
                                   name: prodectcontroller.text,
                                   description: descriptioncontroller.text,
@@ -392,7 +397,8 @@ class _addProductScreenState extends State<addProductScreen> {
             ),
           ),
         ),
-      ),
+      );
+        },
     );
   }
 }

@@ -12,6 +12,7 @@ class Store {
 
   addProduct(ProductModel product) {
     _firestore.collection('products').add({
+      'user_id': product.user_id,
       'name': product.name,
       'description': product.description,
       'sized': product.sized,
@@ -22,6 +23,7 @@ class Store {
     });
 
     _myProductCollection.add({
+      'user_id': product.user_id,
       'name': product.name,
       'description': product.description,
       'sized': product.sized,
@@ -73,20 +75,6 @@ class Store {
         .doc(documentId)
         .update(data);
   }
-/*
-  storeOrders(data, List<Product> products) {
-    var documentRef = _firestore.collection(kOrders).document();
-    documentRef.setData(data);
-    for (var product in products) {
-      documentRef.collection(kOrderDetails).document().setData({
-        kProductName: product.pName,
-        kProductPrice: product.pPrice,
-        kProductQuantity: product.pQuantity,
-        kProductLocation: product.pLocation,
-        kProductCategory: product.pCategory
-      });
-    }
-  }
 
- */
+
 }

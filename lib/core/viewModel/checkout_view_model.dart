@@ -96,7 +96,17 @@ class CheckOutViewModel extends GetxController{
       phone: phone!,
       totalPrice: Get.find<CartViewModel>().totalPrice.toString(),
       date: DateFormat.yMMMd().add_jm().format(DateTime.now()),
-    ));
+    ),Get.find<CartViewModel>().cartProductModel!.toList());
+    await FirestoreCheckout().addAllOrderToFirestore(CheckoutModel(
+      street1: street1!,
+      street2: street2!,
+      city: city!,
+      state: state!,
+      country: country!,
+      phone: phone!,
+      totalPrice: Get.find<CartViewModel>().totalPrice.toString(),
+      date: DateFormat.yMMMd().add_jm().format(DateTime.now()),
+    ),Get.find<CartViewModel>().cartProductModel!.toList());
     totalPrice = Get.find<CartViewModel>().totalPrice.toString();
     //Get.find<CartViewModel>().removeAllProducts();
    // Get.back();
