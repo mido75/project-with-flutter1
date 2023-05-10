@@ -82,7 +82,7 @@ class HomeScreen_T extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GetBuilder<SettingModel>(
-              init: SettingModel(),
+              init: Get.find<SettingModel>(),
               builder:(controller) => Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Text(
