@@ -86,7 +86,7 @@ class OrdersScreen extends StatelessWidget {
                   Expanded(
                     child: ListView.separated(
                       itemBuilder: (context, index) {
-                         // FirebaseFirestore.instance.collection('ِallOrders').doc(orders[index].documentId).collection('OrderDetails').doc().get();
+                        // FirebaseFirestore.instance.collection('ِallOrders').doc(orders[index].documentId).collection('OrderDetails').doc().get(user_id);
                         print(Get.find<SettingModel>().currentUser!.userId);
                           return Padding(
                             padding:

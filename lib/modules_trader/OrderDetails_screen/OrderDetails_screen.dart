@@ -73,53 +73,55 @@ class OrderDetails extends StatelessWidget {
                       itemBuilder: (context, index) {
                         print(products[index].user_id);
                         print(Get.find<SettingModel>().currentUser!.userId);
-                        return Padding(
-                          padding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-                          child: Card(
-                            child: Padding(
-                              padding: EdgeInsets.all(16),
-                              child: Container(
-                                child: Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          child: Text(
-                                            'Pending',
-                                            style: TextStyle(
-                                              color: Colors.red.shade300,
+
+                      //  if(products[index].user_id == Get.find<SettingModel>().currentUser!.userId){
+                          return Padding(
+                            padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                            child: Card(
+                              child: Padding(
+                                padding: EdgeInsets.all(16),
+                                child: Container(
+                                  child: Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            child: Text(
+                                              'Pending',
+                                              style: TextStyle(
+                                                color: Colors.red.shade300,
+                                              ),
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                      Divider(
+                                        thickness: 1,
+                                        color: Colors.grey.shade200,
+                                      ),
+                                      Container(
+                                        child: Text(
+                                          '${products[index].name}',
                                         ),
-                                      ],
-                                    ),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.grey.shade200,
-                                    ),
-                                    Container(
-                                      child: Text(
-                                        '${products[index].name}',
                                       ),
-                                    ),
-                                    Container(
-                                      child: Text(
-                                        '${products[index].price}',
+                                      Container(
+                                        child: Text(
+                                          '${products[index].price}',
+                                        ),
                                       ),
-                                    ),
-                                    Divider(
-                                      thickness: 1,
-                                      color: Colors.grey.shade200,
-                                    ),
-                                  ],
+                                      Divider(
+                                        thickness: 1,
+                                        color: Colors.grey.shade200,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
+                          );
                       },
                       separatorBuilder: (context, index) => Divider(
                         thickness: 1,

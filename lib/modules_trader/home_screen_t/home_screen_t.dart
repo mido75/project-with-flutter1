@@ -64,14 +64,6 @@ class HomeScreen_T extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            onPressed: (){},
-            icon: const Icon(
-              Icons.favorite_border,
-              size: 20.0,
-              color: defualtColor,
-
-            ),),
-          IconButton(
               onPressed: () {
                 Get.to(NotificationsScreen());
               },
@@ -81,29 +73,30 @@ class HomeScreen_T extends StatelessWidget {
               )),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              'Welcome name!',
-              style: TextStyle(
-                fontSize:20.0,
-                fontWeight:  FontWeight.w700,
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Text(
+                'Welcome name!',
+                style: TextStyle(
+                  fontSize:20.0,
+                  fontWeight:  FontWeight.w700,
+                ),
               ),
             ),
-          ),
-
-          Expanded(
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(15.0),
-                      child: Container(
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -139,21 +132,24 @@ class HomeScreen_T extends StatelessWidget {
                             ),
                           ],
                         ),
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            color: defualtColor
-                        ),
+                      ),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: defualtColor
                       ),
                     ),
                   ),
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.0),
-                            border: Border.all(color: defualtColor)
-                        ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(color: defualtColor)
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -192,322 +188,335 @@ class HomeScreen_T extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
-              )
-          ),
-          Container(
-            color: Color(0xFFDFEEF4),
-            child: Column(
-              children: [
-                Padding(
-                  padding:EdgeInsets.all(15.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
-                      Text(
-                        'March stats',style: TextStyle(
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
+                ),
+              ],
+            ),
+            Container(
+              color: Color(0xFFDFEEF4),
+              child: Column(
+                children: [
+                  Padding(
+                    padding:EdgeInsets.all(12.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children:  [
+                        Text(
+                          'March stats',style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
 
-                      ),
-                      ),
-                      Text(
-                        'Orders placed between 1st Feb - 31st Feb',style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20.0,
-                      ),),
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        ),
+                        ),
+                        Text(
+                          'Orders placed between 1st Feb - 31st Feb',style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16.0,
+                        ),),
+                        Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: SingleChildScrollView(
+                            scrollDirection: Axis.horizontal,
+                            child: Row(
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 120,
+                                  child: Center(
+                                    child: Text(
+                                      'This month',
+                                      style: TextStyle(
+                                        fontSize:17.0,
+                                        color: Colors.white,
+
+                                      ),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      color: defualtColor
+                                  ),
+                                ),
+                                SizedBox(width: 20.0,),
+                                Container(
+                                  height: 30,
+                                  width: 120,
+                                  child: Center(
+                                    child: Text(
+                                      'Last month',
+                                      style: TextStyle(
+                                        fontSize: 17.0,
+                                        color: defualtColor,
+
+                                      ),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      border: Border.all(color: defualtColor)
+                                  ),
+                                ),
+                                SizedBox(width: 20.0,),
+                                Container(
+                                  height: 30,
+                                  width: 120,
+                                  child: Center(
+                                    child: Text(
+                                      'This 3 months',
+                                      style: TextStyle(
+                                        fontSize:  17.0,
+                                        color: defualtColor,
+
+                                      ),
+                                    ),
+                                  ),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                      border: Border.all(color:defualtColor)
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Container(
+                      color: Colors.white,
+                      child: IntrinsicHeight(
                         child: Row(
                           children: [
                             Expanded(
-                              child: Container(
-                                child: Center(
-                                  child: Text(
-                                    'This month',
-                                    style: TextStyle(
-                                      fontSize:20.0,
-                                      color: Colors.white,
-
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Placed',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.list_alt,
+                                              color: defualtColor,),
+                                            // ImageIcon(
+                                            //   AssetImage("assets/order.png"),
+                                            //   size: 10.0,
+                                            //   color: Colors.cyanAccent,
+                                            // ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    color: defualtColor
-                                ),
+                                  Divider(
+                                    color: BColor,
+                                    thickness: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Deliveries in Progress',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              AssetImage("imagies/delivery-status.png"),
+                                              size: 17.0,
+                                              color: Colors.cyanAccent,
+                                            ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Divider(
+                                    color: BColor,
+                                    thickness: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Order Delivered',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              AssetImage("imagies/order-delivery.png"),
+                                              size: 17.0,
+                                              color:defualtColor,
+                                            ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            SizedBox(width: 20.0,),
+                            // SizedBox(width: 40.0,),
+                            VerticalDivider(
+                              color: BColor,
+                              thickness:3,
+
+                            ),
                             Expanded(
-                              child: Container(
-                                child: Center(
-                                  child: Text(
-                                    'Last month',
-                                    style: TextStyle(
-                                      fontSize: 20.0,
-                                      color: defualtColor,
-
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Confirmed',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.shopping_bag,
+                                              color: defualtColor,),
+                                            // ImageIcon(
+                                            //   AssetImage("assets/ConfirmBag.png"),
+                                            //   size: 10.0,
+                                            //   color: Colors.cyanAccent,
+                                            // ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(color: defualtColor)
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 20.0,),
-                            Expanded(
-                              child: Container(
-                                child: Center(
-                                  child: Text(
-                                    'This 3 months',
-                                    style: TextStyle(
-                                      fontSize:  20.0,
-                                      color: defualtColor,
-
+                                  Divider(
+                                    color: BColor,
+                                    thickness: 3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Suspended',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.shopping_bag,
+                                              color: Colors.red,),
+                                            // ImageIcon(
+                                            //   AssetImage("imagies/ConfirmBag.png"),
+                                            //   size: 20.0,
+                                            //   color: Colors.red,
+                                            // ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                ),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(color:defualtColor)
-                                ),
+                                  Divider(
+                                    color: BColor,
+                                    thickness:3,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Deliveries with Refunds',style: TextStyle(
+                                          fontSize: 17.0,
+                                          fontWeight: FontWeight.w400,
+                                        ),),
+                                        SizedBox(height: 10.0,),
+                                        Row(
+                                          children: [
+                                            ImageIcon(
+                                              AssetImage("imagies/refund.png"),
+                                              size: 17.0,
+                                              color: defualtColor,
+                                            ),
+                                            SizedBox(width: 15.0,),
+                                            Text('0',style: TextStyle(
+                                              fontSize: 17.0,
+                                              fontWeight:FontWeight.w700,
+                                            ),),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-
                           ],
                         ),
                       ),
-
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Container(
-                    color: Colors.white,
-                    child: IntrinsicHeight(
-                      child: Row(
-                        children: [
-                          IntrinsicWidth(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Placed',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.list_alt,
-                                          color: defualtColor,),
-                                        // ImageIcon(
-                                        //   AssetImage("assets/order.png"),
-                                        //   size: 10.0,
-                                        //   color: Colors.cyanAccent,
-                                        // ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  color: BColor,
-                                  thickness: 3,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Deliveries in Progress',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        ImageIcon(
-                                          AssetImage("imagies/delivery-status.png"),
-                                          size: 30.0,
-                                          color: Colors.cyanAccent,
-                                        ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  color: BColor,
-                                  thickness: 3,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Order Delivered',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        ImageIcon(
-                                          AssetImage("imagies/order-delivery.png"),
-                                          size: 20.0,
-                                          color:defualtColor,
-                                        ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-
-                              ],
-                            ),
-                          ),
-                          // SizedBox(width: 40.0,),
-                          VerticalDivider(
-                            color: BColor,
-                            thickness:3,
-
-                          ),
-                          IntrinsicWidth(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Confirmed',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.shopping_bag,
-                                        color: defualtColor,),
-                                        // ImageIcon(
-                                        //   AssetImage("assets/ConfirmBag.png"),
-                                        //   size: 10.0,
-                                        //   color: Colors.cyanAccent,
-                                        // ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  color: BColor,
-                                  thickness: 3,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Suspended',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        Icon(Icons.shopping_bag,
-                                          color: Colors.red,),
-                                        // ImageIcon(
-                                        //   AssetImage("imagies/ConfirmBag.png"),
-                                        //   size: 20.0,
-                                        //   color: Colors.red,
-                                        // ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  color: BColor,
-                                  thickness:3,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Deliveries with Refunds',style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.w400,
-                                    ),),
-                                    SizedBox(height: 10.0,),
-                                    Row(
-                                      children: [
-                                        ImageIcon(
-                                          AssetImage("imagies/refund.png"),
-                                          size: 20.0,
-                                          color: defualtColor,
-                                        ),
-                                        SizedBox(width: 15.0,),
-                                        Text('0',style: TextStyle(
-                                          fontSize: 20.0,
-                                          fontWeight:FontWeight.w700,
-                                        ),),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-
-                              ],
-                            ),
-                          ),
-
-
-                        ],
-                      ),
                     ),
                   ),
-                ),
-
-              ],
-            ),
-          ),
-
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: charts.BarChart(
-                series,
+                ],
               ),
             ),
-          ),
-
-
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                height: 250,
+                child: charts.BarChart(
+                  series,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
 
     );
