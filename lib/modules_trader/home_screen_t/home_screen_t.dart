@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/core/viewModel/home_view_model.dart';
+import 'package:untitled/models/setting_model.dart';
 import 'package:untitled/modules/notifications_screen/notifications_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
@@ -79,13 +81,16 @@ class HomeScreen_T extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Text(
-                'Welcome name!',
-                style: TextStyle(
-                  fontSize:20.0,
-                  fontWeight:  FontWeight.w700,
+            GetBuilder<SettingModel>(
+              init: SettingModel(),
+              builder:(controller) => Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  'Welcome ${controller.currentUser!.name}',
+                  style: TextStyle(
+                    fontSize:20.0,
+                    fontWeight:  FontWeight.w700,
+                  ),
                 ),
               ),
             ),
