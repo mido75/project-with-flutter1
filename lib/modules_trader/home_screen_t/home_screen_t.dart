@@ -381,8 +381,8 @@ class HomeScreen_T extends StatelessWidget {
                                                     ImageIcon(
                                                       AssetImage(
                                                           "imagies/delivery-status.png"),
-                                                      size: 17.0,
-                                                      color: Colors.cyanAccent,
+                                                      size: 20.0,
+                                                      color: defualtColor,
                                                     ),
                                                     SizedBox(
                                                       width: 15.0,
