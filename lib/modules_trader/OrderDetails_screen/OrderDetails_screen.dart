@@ -71,8 +71,8 @@ class OrderDetails extends StatelessWidget {
                   Expanded(
                     child: ListView.separated(
                       itemBuilder: (context, index) {
-                        print(products[index].user_id);
-                        print(Get.find<SettingModel>().currentUser!.userId);
+                      //  print(products[index].user_id);
+                       // print(Get.find<SettingModel>().currentUser!.userId);
 
                       //  if(products[index].user_id == Get.find<SettingModel>().currentUser!.userId){
                           return Padding(
