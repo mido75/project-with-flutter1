@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:status_change/status_change.dart';
 import 'package:untitled/models/checkout_model.dart';
 import 'package:untitled/modules/checkout/add_address_widget.dart';
 import 'package:untitled/modules/checkout/summary_widget.dart';

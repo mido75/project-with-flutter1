@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/home_view_model.dart';
 import 'package:untitled/models/setting_model.dart';
-import 'package:untitled/modules/notifications_screen/notifications_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import '../../models/chart_model.dart';
+import '../../modules/notifications_screen/notificationList.dart';
 
 class HomeScreen_T extends StatelessWidget {
   final List<BarChartModel> data = [
@@ -78,7 +78,7 @@ class HomeScreen_T extends StatelessWidget {
                 actions: [
                   IconButton(
                       onPressed: () {
-                        Get.to(NotificationsScreen());
+                        Get.to(NotificationList());
                       },
                       icon: Icon(
                         Icons.notifications,

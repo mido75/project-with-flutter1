@@ -33,7 +33,7 @@ class CheckOutViewModel extends GetxController{
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  GlobalKey<FormState> formState =GlobalKey();
+  GlobalKey<FormState> formState = GlobalKey();
 
   void channgeIndex(int i){
     if(i==0 || i<0 ){

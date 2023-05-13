@@ -14,6 +14,7 @@ import 'package:untitled/modules/search_screen/search_screen.dart';
 import 'package:untitled/shared/styles/color.dart';
 import '../../core/viewModel/home_view_model.dart';
 import '../cateogries_screen/cateogries_screen.dart';
+import '../notifications_screen/notificationList.dart';
 import '../product_screen/product_screen.dart';
 import 'package:untitled/helper/building.dart';
 
@@ -84,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   actions: [
                     IconButton(
                         onPressed: () {
-                          Get.to(NotificationsScreen());
+                          Get.to(NotificationList());
                         },
                         icon: Icon(
                           Icons.notifications,

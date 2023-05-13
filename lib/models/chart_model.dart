@@ -5,7 +5,6 @@ class BarChartModel{
   int financial;
   final charts.Color color;
 
-
   BarChartModel({
     required this.week,
     required this.financial,
