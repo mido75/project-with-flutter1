@@ -262,123 +262,125 @@ class HomeScreen extends StatelessWidget {
     //init: HomeViewModel(),
     builder: (controller) => Container(
       color: Colors.white,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0).w,
-            child: Stack(
-              alignment: AlignmentDirectional.bottomStart,
-              children: [
-                Image(
-                  image: NetworkImage(
-                      '${model[index].image}'),
-                  width: double.infinity,
-                  height: 150.0.h,
-                ),
-              ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0).w,
+              child: Stack(
+                alignment: AlignmentDirectional.bottomStart,
+                children: [
+                  Image(
+                    image: NetworkImage(
+                        '${model[index].image}'),
+                    width: double.infinity,
+                    height: 150.0.h,
+                  ),
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(
-              bottom: 5.0,
-              left: 5.0,
-              right: 5.0,
-            ).r,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '${model[index].name}',
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    height: 1.1.h,
+            Padding(
+              padding: const EdgeInsets.only(
+                bottom: 5.0,
+                left: 5.0,
+                right: 5.0,
+              ).r,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    '${model[index].name}',
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      height: 1.1.h,
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 1.0.h,
-                ),
-                Text(
-                  '${model[index].description}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    height: 1.1.h,
+                  SizedBox(
+                    height: 1.0.h,
                   ),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      '${model[index].price}\$',
-                      style: TextStyle(
-                        fontSize: 12.0.sp,
-                        color: defualtColor,
+                  Text(
+                    '${model[index].description}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      height: 1.1.h,
+                    ),
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        '${model[index].price}\$',
+                        style: TextStyle(
+                          fontSize: 12.0.sp,
+                          color: defualtColor,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 0.5.w,
-                    ),
-                    Spacer(),
-                    GetBuilder<FavViewModel>(
-                      init: FavViewModel(),
-                      builder: (controller) => IconButton(
-                        onPressed: () {
-                          print(model[index].id);
-                          print('ffffffffffffffff');
-                          controller.addFavProduct(
-                            FavProductModel(
-                              name: model[index].name,
-                              image: model[index].image,
-                              price: model[index].price,
-                              description: model[index].description,
-                              id: model[index].id,
+                      SizedBox(
+                        width: 0.5.w,
+                      ),
+                      Spacer(),
+                      GetBuilder<FavViewModel>(
+                        init: FavViewModel(),
+                        builder: (controller) => IconButton(
+                          onPressed: () {
+                            print(model[index].id);
+                            print('ffffffffffffffff');
+                            controller.addFavProduct(
+                              FavProductModel(
+                                name: model[index].name,
+                                image: model[index].image,
+                                price: model[index].price,
+                                description: model[index].description,
+                                id: model[index].id,
+                              ),
+                            );
+                          },
+                          icon: CircleAvatar(
+                            radius: 15.0.r,
+                            backgroundColor: defualtColor,
+                            child: Icon(
+                              Icons.favorite_border,
+                              size: 20.0,
+                              color: Colors.white,
                             ),
-                          );
-                        },
-                        icon: CircleAvatar(
-                          radius: 15.0.r,
-                          backgroundColor: defualtColor,
-                          child: Icon(
-                            Icons.favorite_border,
-                            size: 20.0,
-                            color: Colors.white,
                           ),
                         ),
                       ),
-                    ),
-                    GetBuilder<CartViewModel>(
-                      init: CartViewModel(),
-                      builder: (controller) => IconButton(
-                        onPressed: () {
-                          controller.addProduct(
-                            CartProductModel(
-                              name: model[index].name,
-                              image: model[index].image,
-                              price: model[index].price,
-                              quantity: 1,
-                              id: model[index].id,
-                              user_id: model[index].user_id,
+                      GetBuilder<CartViewModel>(
+                        init: CartViewModel(),
+                        builder: (controller) => IconButton(
+                          onPressed: () {
+                            controller.addProduct(
+                              CartProductModel(
+                                name: model[index].name,
+                                image: model[index].image,
+                                price: model[index].price,
+                                quantity: 1,
+                                id: model[index].id,
+                                user_id: model[index].user_id,
+                              ),
+                            );
+                          },
+                          icon: CircleAvatar(
+                            radius: 15.0.r,
+                            backgroundColor: defualtColor,
+                            child: Icon(
+                              Icons.shopping_cart,
+                              size: 20.0,
+                              color: Colors.white,
                             ),
-                          );
-                        },
-                        icon: CircleAvatar(
-                          radius: 15.0.r,
-                          backgroundColor: defualtColor,
-                          child: Icon(
-                            Icons.shopping_cart,
-                            size: 20.0,
-                            color: Colors.white,
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     ),
   );
