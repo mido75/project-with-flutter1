@@ -40,22 +40,22 @@ class HomeScreen extends StatelessWidget {
               Pid = doc.id;
               print(doc.id);
               products.add(ProductModel(
-                  id: doc.id,
-                  price: doc.data().toString().contains('price')
-                      ? doc.get('price')
-                      : '',
-                  name: doc.data().toString().contains('name')
-                      ? doc.get('name')
-                      : '',
-                  description: doc.data().toString().contains('description')
-                      ? doc.get('description')
-                      : '',
-                  image: doc.data().toString().contains('image')
-                      ? doc.get('image')
-                      : '',
-                  category: doc.data().toString().contains('category')
-                      ? doc.get('category')
-                      : '',
+                id: doc.id,
+                price: doc.data().toString().contains('price')
+                    ? doc.get('price')
+                    : '',
+                name: doc.data().toString().contains('name')
+                    ? doc.get('name')
+                    : '',
+                description: doc.data().toString().contains('description')
+                    ? doc.get('description')
+                    : '',
+                image: doc.data().toString().contains('image')
+                    ? doc.get('image')
+                    : '',
+                category: doc.data().toString().contains('category')
+                    ? doc.get('category')
+                    : '',
                 user_id: doc.data().toString().contains('user_id')
                     ? doc.get('user_id') : '',
               ));
@@ -71,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.white10,
                   elevation: 0.0,
                   leading: Padding(
-                    padding: EdgeInsets.all(8.0.r),
+                    padding: const EdgeInsets.all(8.0).w,
                     child: Container(
                       height: 80.h,
                       width: 80.w,
@@ -97,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                 body: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   child: Padding(
-                    padding:  EdgeInsets.all(8.0.r),
+                    padding: const EdgeInsets.all(8.0).w,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -109,7 +109,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10).w,
+                              borderRadius: BorderRadius.circular(20).w,
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
@@ -133,12 +133,12 @@ class HomeScreen extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height/20,
+                          height: 20.0.h,
                         ),
                         Padding(
-                          padding:  EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 10.0,
-                          ).r,
+                          ).w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -153,7 +153,7 @@ class HomeScreen extends StatelessWidget {
                                 height: 10.0.h,
                               ),
                               Container(
-                                height: 80.0,
+                                height: 80.0.h,
                                 width: double.infinity,
                                 child: ListView.separated(
                                   physics: BouncingScrollPhysics(),
@@ -180,13 +180,13 @@ class HomeScreen extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding:
-                                           EdgeInsets.all(8.0).w,
+                                          const EdgeInsets.all(8.0).w,
                                           child: Row(
                                             children: [
                                               Text(
                                                   '${controller.categoryModel![index].name}'),
                                               SizedBox(
-                                                width: MediaQuery.of(context).size.width/17,
+                                                width: 40.0.w,
                                               ),
                                               Image(
                                                 image: NetworkImage(
@@ -201,14 +201,14 @@ class HomeScreen extends StatelessWidget {
                                   },
                                   separatorBuilder: (context, index) =>
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width/30,
+                                        width: 10.0.w,
                                       ),
                                   itemCount:
                                   controller.categoryModel!.length,
                                 ),
                               ),
                               SizedBox(
-                                height: MediaQuery.of(context).size.height/30,
+                                height: 20.0.h,
                               ),
                               Text(
                                 'New Products',
@@ -221,7 +221,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: MediaQuery.of(context).size.height/30,
+                          height: 10.0.h,
                         ),
                         Container(
                           color: Colors.grey[300],
@@ -259,127 +259,127 @@ class HomeScreen extends StatelessWidget {
   }
 
   Widget GridProduct(context, index, model) => GetBuilder<HomeViewModel>(
-        //init: HomeViewModel(),
-        builder: (controller) => Container(
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0).w,
-                child: Stack(
-                  alignment: AlignmentDirectional.bottomStart,
-                  children: [
-                    Image(
-                      image: NetworkImage(
-                          '${model[index].image}'),
-                      width: double.infinity,
-                      height: 150.0.h,
-                    ),
-                  ],
+    //init: HomeViewModel(),
+    builder: (controller) => Container(
+      color: Colors.white,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0).w,
+            child: Stack(
+              alignment: AlignmentDirectional.bottomStart,
+              children: [
+                Image(
+                  image: NetworkImage(
+                      '${model[index].image}'),
+                  width: double.infinity,
+                  height: 150.0.h,
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 5.0,
-                  left: 5.0,
-                  right: 5.0,
-                ).r,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              bottom: 5.0,
+              left: 5.0,
+              right: 5.0,
+            ).r,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '${model[index].name}',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    height: 1.1.h,
+                  ),
+                ),
+                SizedBox(
+                  height: 1.0.h,
+                ),
+                Text(
+                  '${model[index].description}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    height: 1.1.h,
+                  ),
+                ),
+                Row(
                   children: [
                     Text(
-                      '${model[index].name}',
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
+                      '${model[index].price}\$',
                       style: TextStyle(
-                        height: 1.1.h,
+                        fontSize: 12.0.sp,
+                        color: defualtColor,
                       ),
                     ),
                     SizedBox(
-                      height: 1.0.h,
+                      width: 0.5.w,
                     ),
-                    Text(
-                      '${model[index].description}',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        height: 1.1.h,
+                    Spacer(),
+                    GetBuilder<FavViewModel>(
+                      init: FavViewModel(),
+                      builder: (controller) => IconButton(
+                        onPressed: () {
+                          print(model[index].id);
+                          print('ffffffffffffffff');
+                          controller.addFavProduct(
+                            FavProductModel(
+                              name: model[index].name,
+                              image: model[index].image,
+                              price: model[index].price,
+                              description: model[index].description,
+                              id: model[index].id,
+                            ),
+                          );
+                        },
+                        icon: CircleAvatar(
+                          radius: 15.0.r,
+                          backgroundColor: defualtColor,
+                          child: Icon(
+                            Icons.favorite_border,
+                            size: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          '${model[index].price}\$',
-                          style: TextStyle(
-                            fontSize: 12.0.sp,
-                            color: defualtColor,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 0.5.w,
-                        ),
-                        Spacer(),
-                        GetBuilder<FavViewModel>(
-                          init: FavViewModel(),
-                          builder: (controller) => IconButton(
-                            onPressed: () {
-                              print(model[index].id);
-                              print('ffffffffffffffff');
-                              controller.addFavProduct(
-                                FavProductModel(
-                                  name: model[index].name,
-                                  image: model[index].image,
-                                  price: model[index].price,
-                                  description: model[index].description,
-                                  id: model[index].id,
-                                ),
-                              );
-                            },
-                            icon: CircleAvatar(
-                              radius: 15.0.r,
-                              backgroundColor: defualtColor,
-                              child: Icon(
-                                Icons.favorite_border,
-                                size: 20.0,
-                                color: Colors.white,
-                              ),
+                    GetBuilder<CartViewModel>(
+                      init: CartViewModel(),
+                      builder: (controller) => IconButton(
+                        onPressed: () {
+                          controller.addProduct(
+                            CartProductModel(
+                              name: model[index].name,
+                              image: model[index].image,
+                              price: model[index].price,
+                              quantity: 1,
+                              id: model[index].id,
+                              user_id: model[index].user_id,
                             ),
+                          );
+                        },
+                        icon: CircleAvatar(
+                          radius: 15.0.r,
+                          backgroundColor: defualtColor,
+                          child: Icon(
+                            Icons.shopping_cart,
+                            size: 20.0,
+                            color: Colors.white,
                           ),
                         ),
-                        GetBuilder<CartViewModel>(
-                          init: CartViewModel(),
-                          builder: (controller) => IconButton(
-                            onPressed: () {
-                              controller.addProduct(
-                                CartProductModel(
-                                  name: model[index].name,
-                                  image: model[index].image,
-                                  price: model[index].price,
-                                  quantity: 1,
-                                  id: model[index].id,
-                                  user_id: model[index].user_id,
-                                ),
-                              );
-                            },
-                            icon: CircleAvatar(
-                              radius: 15.0.r,
-                              backgroundColor: defualtColor,
-                              child: Icon(
-                                Icons.shopping_cart,
-                                size: 20.0,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-      );
+        ],
+      ),
+    ),
+  );
 }
