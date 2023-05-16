@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/profile_image_upload_view_model.dart';
 import 'package:untitled/models/setting_model.dart';
@@ -403,16 +404,16 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         },
                       ),
                 SizedBox(
-                  width: 15.0,
+                  width: 15.0.w,
                 ),
               ]),
           body: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0).w,
               child: Column(
                 children: [
                   Container(
-                    height: 190.0,
+                    height: 190.0.h,
                     child: Stack(
                       alignment: AlignmentDirectional.bottomCenter,
                       children: [
@@ -421,12 +422,12 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               alignment: AlignmentDirectional.topEnd,
                               children: [
                                 Container(
-                                  height: 140.0,
+                                  height: 140.0.h,
                                   width: double.infinity,
                                   decoration: controller.imageCoverFile != null ?  BoxDecoration(
                                     borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
+                                      topLeft: Radius.circular(4.0).w,
+                                      topRight: Radius.circular(4.0).w,
                                     ),
                                     image: DecorationImage(
                                       image: FileImage(controller.imageCoverFile!),
@@ -434,8 +435,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     ),
                                   ) :  BoxDecoration(
                                     borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
+                                      topLeft: Radius.circular(4.0).w,
+                                      topRight: Radius.circular(4.0).w,
                                     ),
                                     image: DecorationImage(
                                       image: NetworkImage(
@@ -452,7 +453,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                           child: Text(
                                             'Choose option',
                                             style: TextStyle(
-                                              fontSize: 20,
+                                              fontSize: 20.sp,
                                               color: defualtColor,
                                             ),
                                           ),
@@ -461,7 +462,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
                                             Divider(
-                                              height: 1,
+                                              height: 1.h,
                                             ),
                                             ListTile(
                                               onTap: () async {
@@ -483,7 +484,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                               ),
                                             ),
                                             Divider(
-                                              height: 1,
+                                              height: 1.h,
                                             ),
                                             ListTile(
                                               onTap: () async {
@@ -511,7 +512,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   },
                                   icon: CircleAvatar(
                                     backgroundColor: defualtColor,
-                                    radius: 20.0,
+                                    radius: 20.0.r,
                                     child: Icon(
                                       Icons.camera,
                                       color: Colors.white,
@@ -526,11 +527,11 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           alignment: AlignmentDirectional.bottomEnd,
                           children: [
                             CircleAvatar(
-                              radius: 63.0,
+                              radius: 63.0.r,
                               backgroundColor:
                                   Theme.of(context).scaffoldBackgroundColor,
                               child: CircleAvatar(
-                                radius: 60.0,
+                                radius: 60.0.r,
                                 backgroundImage: NetworkImage(
                                     'https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
                                 foregroundImage: controller.imageFile != null
@@ -546,7 +547,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                       child: Text(
                                         'Choose option',
                                         style: TextStyle(
-                                          fontSize: 20,
+                                          fontSize: 20.sp,
                                           color: defualtColor,
                                         ),
                                       ),
@@ -555,7 +556,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         Divider(
-                                          height: 1,
+                                          height: 1.h,
                                         ),
                                         ListTile(
                                           onTap: () async {
@@ -577,7 +578,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                           ),
                                         ),
                                         Divider(
-                                          height: 1,
+                                          height: 1.h,
                                         ),
                                         ListTile(
                                           onTap: () async {
@@ -605,7 +606,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                               },
                               icon: CircleAvatar(
                                 backgroundColor: defualtColor,
-                                radius: 20.0,
+                                radius: 20.0.r,
                                 child: Icon(
                                   Icons.camera,
                                   color: Colors.white,
@@ -619,7 +620,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 20.0.h,
                   ),
                   Row(
                     children: [
@@ -656,7 +657,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
 
                               //  onPressed: (){},
-                                height: 40.0,
+                                height: 40.0.h,
                                 child: Text(
                                   'upload profile',
                                   style: TextStyle(
@@ -669,7 +670,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                       ),
                       SizedBox(
-                        width: 5.0,
+                        width: 5.0.w,
                       ),
                       Expanded(
                         child: Column(
@@ -680,7 +681,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                 color: defualtColor,
                                 borderRadius: BorderRadius.circular(
                                   10.0,
-                                ),
+                                ).w,
                               ),
                               child: MaterialButton(
                                 onPressed: () async{
@@ -700,7 +701,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                     _isLoading = false;
                                   });
                                 },
-                                height: 40.0,
+                                height: 40.0.h,
                                 child: Text(
                                   'upload cover',
                                   style: TextStyle(
@@ -715,7 +716,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     ],
                   ),
                   SizedBox(
-                    height: 20.0,
+                    height: 20.0.h,
                   ),
                   TextFormField(
                     controller: nameController,
@@ -723,7 +724,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     decoration: InputDecoration(
                       border: const OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: 'Name',
                       hintText: Get.find<SettingModel>().currentUser!.name,
@@ -741,15 +742,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     },
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 10.0.h,
                   ),
                   TextFormField(
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                      focusedBorder:  OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       hintText: Get.find<SettingModel>().currentUser!.email,
                       labelText: 'Email',
@@ -768,15 +769,15 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     },
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 10.0.h,
                   ),
                   TextFormField(
                     controller: phoneController,
                     keyboardType: TextInputType.phone,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: 'Phone',
                       // hintText: hintText,

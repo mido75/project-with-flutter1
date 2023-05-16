@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/shared/constants/constants.dart';
 
 import '../../shared/styles/color.dart';
@@ -21,7 +22,7 @@ class _DeliveryTimeState extends State<DeliveryTime> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children:  [
               SizedBox(
-              height:50,
+              height:50.h,
             ),
               RadioListTile<Delivery>(value:Delivery.StandardDerlivery,
                 groupValue: delivery,
@@ -32,17 +33,17 @@ class _DeliveryTimeState extends State<DeliveryTime> {
                 },
                 title: Text("Standard Delivery",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ) ,
-                subtitle: Text('Order Will Be Deliverd Between 3-5 Business Days',
-                  style: TextStyle(fontSize: 14,)
+                subtitle: Text('Order Will Be Delivered Between 3-5 Business Days',
+                  style: TextStyle(fontSize: 14.sp,)
                 ),
                 activeColor: defualtColor,
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               RadioListTile<Delivery>(value:Delivery.NextDayDelivery,
                 groupValue: delivery,
@@ -54,17 +55,17 @@ class _DeliveryTimeState extends State<DeliveryTime> {
                 },
                 title: Text("Next Day Delivery",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ) ,
-                subtitle: Text('Place Your Order Before 6pm and Your Order Will Be Deliverd Next Day',
-                    style: TextStyle(fontSize: 14,)
+                subtitle: Text('Place Your Order Before 6pm and Your Order Will Be Delivered Next Day',
+                    style: TextStyle(fontSize: 14.sp,)
                 ),
                 activeColor: defualtColor,
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               RadioListTile<Delivery>(value:Delivery.NominatedDelivery,
                 groupValue: delivery,
@@ -74,14 +75,14 @@ class _DeliveryTimeState extends State<DeliveryTime> {
                   });
 
                 },
-                title: Text("Nomiated Delivery",
+                title: Text("Nominated Delivery",
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ) ,
                 subtitle: Text('Place Your Order on particular Date and Your Order Will Be Deliverd on the Selected Day',
-                    style: TextStyle(fontSize: 14,)
+                    style: TextStyle(fontSize: 14.sp,)
                 ),
                 activeColor: defualtColor,
               ),

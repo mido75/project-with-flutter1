@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/profile_image_upload_view_model.dart';
 import 'package:untitled/core_trader/service/store.dart';
@@ -23,13 +24,13 @@ class EditProductScreen extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: Colors.white,
           leading: Padding(
-            padding:  EdgeInsets.only(top: 20),
+            padding:  EdgeInsets.only(top: 20).r,
             child: IconButton(onPressed: (){
               Get.back();
             },icon: Icon(Icons.arrow_back_ios,color: Colors.black,),),
           ),
           title: Padding(
-            padding:  EdgeInsets.only(left: 20,top: 20),
+            padding:  EdgeInsets.only(left: 20,top: 20).r,
             child: Text('Edit Product',style: TextStyle(color: Colors.black),),
           ),
         ),
@@ -38,13 +39,13 @@ class EditProductScreen extends StatelessWidget {
           child: ListView(
             children: <Widget>[
               SizedBox(
-                height: 30,
+                height: 30.h,
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: 13,
+                    height: 13.h,
                   ),
                   Align(
                     child: Stack(
@@ -80,12 +81,12 @@ class EditProductScreen extends StatelessWidget {
 
                            */
                           Container(
-                            height: 140.0,
+                            height: 140.0.h,
                             width: double.infinity,
                             decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(4.0),
-                                      topRight: Radius.circular(4.0),
+                                      topLeft: Radius.circular(4.0).w,
+                                      topRight: Radius.circular(4.0).w,
                                     ),
                                     image: DecorationImage(
                                       image: AssetImage(
@@ -102,7 +103,7 @@ class EditProductScreen extends StatelessWidget {
                                     child: Text(
                                       'Choose option',
                                       style: TextStyle(
-                                        fontSize: 20,
+                                        fontSize: 20.sp,
                                         color: defualtColor,
                                       ),
                                     ),
@@ -111,7 +112,7 @@ class EditProductScreen extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       Divider(
-                                        height: 1,
+                                        height: 1.h,
                                       ),
                                       ListTile(
                                         onTap: () async {
@@ -133,7 +134,7 @@ class EditProductScreen extends StatelessWidget {
                                         ),
                                       ),
                                       Divider(
-                                        height: 1,
+                                        height: 1.h,
                                       ),
                                       ListTile(
                                         onTap: () async {
@@ -161,7 +162,7 @@ class EditProductScreen extends StatelessWidget {
                             },
                             icon: CircleAvatar(
                               backgroundColor: defualtColor,
-                              radius: 20.0,
+                              radius: 20.0.r,
                               child: Icon(
                                 Icons.camera,
                                 color: Colors.white,
@@ -173,7 +174,7 @@ class EditProductScreen extends StatelessWidget {
                     alignment: AlignmentDirectional.topCenter,
                   ),
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.text,
@@ -188,7 +189,7 @@ class EditProductScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: 'Product Name',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -198,7 +199,7 @@ class EditProductScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.text,
@@ -213,7 +214,7 @@ class EditProductScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: 'Description',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -223,7 +224,7 @@ class EditProductScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.text,
@@ -238,7 +239,7 @@ class EditProductScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: 'category',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -248,7 +249,7 @@ class EditProductScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   TextFormField(
                     keyboardType: TextInputType.number,
@@ -263,7 +264,7 @@ class EditProductScreen extends StatelessWidget {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor, width: 2.0),
+                        borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                       ),
                       labelText: '0.0',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -276,7 +277,7 @@ class EditProductScreen extends StatelessWidget {
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.all(15.0).w,
                     child: Container(
                       width: double.infinity,
                       decoration: BoxDecoration(

@@ -1,6 +1,7 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:untitled/shared/styles/color.dart';
 
@@ -22,7 +23,7 @@ class SocialMediaButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(16.0).w,
           color: Colors.white,
         ),
         child: Row(
@@ -30,11 +31,11 @@ class SocialMediaButton extends StatelessWidget {
           children: [
             SvgPicture.asset(
               iconName,
-              width: 20.0,
-              height: 20.0,
+              width: 20.0.w,
+              height: 20.0.h,
             ),
             SizedBox(
-              width: 15.0,
+              width: 15.0.w,
             ),
             Text(text,),
           ],

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:conditional_builder_null_safety/example/example.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/modules/control_view.dart';
@@ -37,8 +38,8 @@ class _BeginScreenState extends State<BeginScreen> {
     return Scaffold(
       body: Center(
         child: Container(
-          height: 250,
-          width: 250,
+          height: 300.h,
+          width: 300.w,
           decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("imagies/269969424_655870578924985_1432197706298581466_nn.png"),

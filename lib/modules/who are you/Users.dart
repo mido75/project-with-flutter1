@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/layout/shop_layout.dart';
 import 'package:untitled/layout/shop_layout_t.dart';
@@ -22,8 +23,8 @@ class Users extends StatelessWidget {
           children:
           [
             Container(
-              height: 250,
-              width: 250,
+              height: 250.h,
+              width: 250.w,
               decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("imagies/269969424_655870578924985_1432197706298581466_nn.png"),
@@ -31,36 +32,36 @@ class Users extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 30,
+              height: MediaQuery.of(context).size.height/17,
             ),
             Text(
               'Start With',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Color(0xff0CC095),
-                fontSize: 35.0,
+                fontSize: 35.0.sp,
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: 30,
+              height: MediaQuery.of(context).size.height/18,
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0.r),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: Color(0xff0CC095),
                   borderRadius: BorderRadius.circular(
                     10.0,
-                  ),
+                  ).w,
                 ),
                 child: MaterialButton(
                   onPressed: (){
                     trader =0;
                     Get.to(ShopLayout());
                   },
-                  height: 40.0,
+                  height: 40.0.h,
                   child: Text(
                     'User',
                     style: TextStyle(
@@ -71,7 +72,7 @@ class Users extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: EdgeInsets.all(15.0.r),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -85,7 +86,7 @@ class Users extends StatelessWidget {
                     trader = 1;
                     Get.to(ShopLayout_T());
                   },
-                  height: 40.0,
+                  height: 40.0.h,
                   child: Text(
                     'Trader',
                     style: TextStyle(

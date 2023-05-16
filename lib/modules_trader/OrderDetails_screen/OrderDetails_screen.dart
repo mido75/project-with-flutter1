@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/service/database/firestore_checkout.dart';
 import 'package:untitled/models/product_model.dart';
@@ -36,7 +37,7 @@ class OrderDetails extends StatelessWidget {
                   Container(
                     height: 130,
                     child: Padding(
-                      padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+                      padding: EdgeInsets.only(bottom: 24, left: 16, right: 16).r,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -57,12 +58,12 @@ class OrderDetails extends StatelessWidget {
                             child: Text(
                               'OrderDetails',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                               ),
                             ),
                           ),
                           Container(
-                            width: 24,
+                            width: 24.w,
                           ),
                         ],
                       ),
@@ -77,10 +78,10 @@ class OrderDetails extends StatelessWidget {
                       //  if(products[index].user_id == Get.find<SettingModel>().currentUser!.userId){
                           return Padding(
                             padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 6).w,
                             child: Card(
                               child: Padding(
-                                padding: EdgeInsets.all(16),
+                                padding: EdgeInsets.all(16).w,
                                 child: Container(
                                   child: Column(
                                     children: [

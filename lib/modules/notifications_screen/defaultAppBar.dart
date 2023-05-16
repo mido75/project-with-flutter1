@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../shared/styles/color.dart';
 
 
@@ -12,7 +13,7 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget{
   }) : super(key: key);
 
   @override
-  Size get preferredSize => Size.fromHeight(56.0);
+  Size get preferredSize => Size.fromHeight(56.0.h);
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(title, style: TextStyle(color: defualtColor)),

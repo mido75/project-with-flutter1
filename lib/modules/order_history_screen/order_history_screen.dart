@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/checkout_view_model.dart';
 
@@ -11,9 +12,9 @@ class OrderHistoryScreen extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              height: 130,
+              height: 130.h,
               child: Padding(
-                padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+                padding: EdgeInsets.only(bottom: 24, left: 16, right: 16).r,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -34,12 +35,12 @@ class OrderHistoryScreen extends StatelessWidget {
                       child: Text(
                         'Order History',
                         style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 20.sp,
                         ),
                       ),
                     ),
                     Container(
-                      width: 24,
+                      width: 24.w,
                     ),
                   ],
                 ),
@@ -49,10 +50,10 @@ class OrderHistoryScreen extends StatelessWidget {
               child: ListView.separated(
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6).w,
                     child: Card(
                       child: Padding(
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.all(16).w,
                         child: Container(
                           child: Column(
                             children: [

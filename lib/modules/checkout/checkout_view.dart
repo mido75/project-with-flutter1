@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/models/checkout_model.dart';
 import 'package:untitled/modules/checkout/add_address_widget.dart';
@@ -28,7 +29,7 @@ class CheckOutView extends StatelessWidget {
                 child: Text(
               'Check Out',
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 30.sp,
                 color: defualtColor,
               ),
             )),
@@ -133,11 +134,11 @@ class CheckOutView extends StatelessWidget {
                           alignment: Alignment.bottomLeft,
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
+                              borderRadius: BorderRadius.circular(10.0).w,
                             ),
                             width: 150,
                             height: 80,
-                            padding: EdgeInsets.all(15.0),
+                            padding: EdgeInsets.all(15.0).w,
                             child: MaterialButton(
                               onPressed: () {
                                 controller.channgeIndex(controller.index - 1);
@@ -159,11 +160,11 @@ class CheckOutView extends StatelessWidget {
                     alignment: Alignment.bottomRight,
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(10.0).r,
                       ),
-                      width: 150,
-                      height: 80,
-                      padding: EdgeInsets.all(15.0),
+                      width: 150.w,
+                      height: 80.h,
+                      padding: EdgeInsets.all(15.0).w,
                       child: MaterialButton(
                         onPressed: () async {
                           controller.channgeIndex(controller.index + 1);
@@ -189,7 +190,7 @@ class CheckOutView extends StatelessWidget {
                                             style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: defualtColor),),
                                         ),
                                         SizedBox(
-                                          height: 40,
+                                          height: 40.h,
                                         ),
                                         ElevatedButton(
                                           style: ElevatedButton.styleFrom(
@@ -202,7 +203,7 @@ class CheckOutView extends StatelessWidget {
                                             },
                                           child: CustomText(
                                             text: 'done',
-                                            fontSize: 14,
+                                            fontSize: 14.sp,
                                             color: Colors.white,
                                             alignment: Alignment.center, maxLine: 1,
                                           ),

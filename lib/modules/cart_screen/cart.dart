@@ -1,6 +1,7 @@
 import 'dart:core';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/parser.dart';
 import 'package:get/get.dart';
@@ -23,11 +24,11 @@ class CartScreen extends StatelessWidget {
                mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SvgPicture.asset('imagies/undraw_empty_cart_co35.svg',width: 150,height: 150,),
-                SizedBox(height: 20,),
+                SvgPicture.asset('imagies/undraw_empty_cart_co35.svg',width: 150.w,height: 150.h,),
+                SizedBox(height: 20.h,),
                 Text(
                   'Cart Empty',
-                  style: TextStyle(fontSize: 32,),
+                  style: TextStyle(fontSize: 32.sp,),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -35,7 +36,7 @@ class CartScreen extends StatelessWidget {
           )
           : Scaffold(
        body: Padding(
-         padding: const EdgeInsets.only(top: 30.0),
+         padding: const EdgeInsets.only(top: 30.0).r,
          child: Column(
            children: [
            Expanded(
@@ -49,21 +50,21 @@ class CartScreen extends StatelessWidget {
                      child:  Row(
                        children: [
                          Container(
-                           width: 140 ,
+                           width: 140.w ,
                            child: Image.network('${controller.cartProductModel[index].image}',
                              fit: BoxFit.fill,
                            ),
                          ),
                          Flexible(
                            child: Padding(
-                             padding: EdgeInsets.only(left: 30.0,),
+                             padding: EdgeInsets.only(left: 30.0,).r,
                              child: Column(
                                crossAxisAlignment: CrossAxisAlignment.start,
                                children: [
                                  Row(
                                    children: [
                                      Text('${controller.cartProductModel[index].name}',
-                                       style: TextStyle(fontSize: 20,),
+                                       style: TextStyle(fontSize: 20.sp,),
                                      ),
                                      Spacer(),
                                      GestureDetector(

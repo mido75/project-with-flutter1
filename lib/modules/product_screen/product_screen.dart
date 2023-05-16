@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/models/cart_product_model.dart';
@@ -16,7 +17,7 @@ class ProductScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0).w,
           child: Container(
             child: Column(
               children: [
@@ -29,31 +30,31 @@ class ProductScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 15.h,
                 ),
                 Expanded(
                   child: SingleChildScrollView(
                     child: Container(
-                      padding: EdgeInsets.all(18),
+                      padding: EdgeInsets.all(18).w,
                       child: Column(
                         children: [
                           Text(
                             '${model.name}',
                             style: TextStyle(
-                              fontSize: 26,
+                              fontSize: 26.sp,
                             ),
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 15.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Container(
-                                padding: EdgeInsets.all(16),
+                                padding: EdgeInsets.all(16).w,
                                 width: MediaQuery.of(context).size.width * .4,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20).w,
                                     border: Border.all(
                                       color: Colors.grey,
                                     )),
@@ -71,10 +72,10 @@ class ProductScreen extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                padding: EdgeInsets.all(16),
+                                padding: EdgeInsets.all(16).w,
                                 width: MediaQuery.of(context).size.width * .44,
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
+                                    borderRadius: BorderRadius.circular(20).w,
                                     border: Border.all(
                                       color: Colors.grey,
                                     )),
@@ -88,10 +89,10 @@ class ProductScreen extends StatelessWidget {
                                     Container(
                                       width: 30,
                                       height: 20,
-                                      padding: EdgeInsets.all(12),
+                                      padding: EdgeInsets.all(12).w,
                                       decoration: BoxDecoration(
                                         border: Border.all(color: Colors.grey),
-                                        borderRadius: BorderRadius.circular(20),
+                                        borderRadius: BorderRadius.circular(20).w,
                                         //color: model.color,
                                       ),
                                     )
@@ -101,22 +102,22 @@ class ProductScreen extends StatelessWidget {
                             ],
                           ),
                           SizedBox(
-                            height: 15,
+                            height: 15.h,
                           ),
                           Text(
                             'Details',
                             style: TextStyle(
-                              fontSize: 18,
+                              fontSize: 18.sp,
                             ),
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 20.h,
                           ),
                           Text(
                             '${model.description}',
                             style: TextStyle(
-                              fontSize: 18,
-                              height: 2.5,
+                              fontSize: 18.sp,
+                              height: 2.5.h,
                             ),
                           )
                         ],
@@ -126,7 +127,7 @@ class ProductScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(
-                      left: 20, right: 20, bottom: 15, top: 0),
+                      left: 20, right: 20, bottom: 15, top: 0).r,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -135,7 +136,7 @@ class ProductScreen extends StatelessWidget {
                           Text(
                             "PRICE ",
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 15.sp,
                               color: Colors.grey,
                             ),
                           ),
@@ -143,7 +144,7 @@ class ProductScreen extends StatelessWidget {
                             '${model.price}\$',
                             style: TextStyle(
                               color: defualtColor,
-                              fontSize: 18,
+                              fontSize: 18.sp,
                             ),
                           ),
                         ],
@@ -151,9 +152,9 @@ class ProductScreen extends StatelessWidget {
                       GetBuilder<CartViewModel>(
                         init: CartViewModel(),
                         builder: (controller) => Container(
-                          padding: EdgeInsets.all(20),
-                          width: 180,
-                          height: 80,
+                          padding: EdgeInsets.all(20).w,
+                          width: 180.w,
+                          height: 80.h,
                           child: MaterialButton(
                             onPressed: (){
                               controller.addProduct(CartProductModel(

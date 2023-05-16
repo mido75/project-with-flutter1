@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'custom_text.dart';
 
@@ -23,7 +24,7 @@ class CustomTextFormField extends StatelessWidget {
         children: [
           CustomText(
             text: text,
-            fontSize: 14,
+            fontSize: 14.sp,
             color: Colors.grey.shade900, maxLine: 2,
           ),
           TextFormField(

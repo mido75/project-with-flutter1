@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/service/database/firestore_checkout.dart';
 import 'package:untitled/core/viewModel/checkout_view_model.dart';
@@ -49,9 +50,9 @@ class OrdersScreen extends StatelessWidget {
               return Column(
                 children: [
                   Container(
-                    height: 130,
+                    height: 130.h,
                     child: Padding(
-                      padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+                      padding: EdgeInsets.only(bottom: 24, left: 16, right: 16).r,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -72,12 +73,12 @@ class OrdersScreen extends StatelessWidget {
                             child: Text(
                               'Orders',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                               ),
                             ),
                           ),
                           Container(
-                            width: 24,
+                            width: 24.w,
                           ),
                         ],
                       ),
@@ -90,14 +91,14 @@ class OrdersScreen extends StatelessWidget {
                         //print(Get.find<SettingModel>().currentUser!.userId);
                           return Padding(
                             padding:
-                            EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 6).w,
                             child: GestureDetector(
                               onTap: () {
                                 Get.to(OrderDetails(documentId: '${orders[index].documentId}',));
                               },
                               child: Card(
                                 child: Padding(
-                                  padding: EdgeInsets.all(16),
+                                  padding: EdgeInsets.all(16).w,
                                   child: Container(
                                     child: Column(
                                       children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
@@ -155,7 +156,7 @@ class CateogriesScreen extends StatelessWidget {
           Container(
             height: 130,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+              padding: EdgeInsets.only(bottom: 24, left: 16, right: 16).r,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -173,11 +174,11 @@ class CateogriesScreen extends StatelessWidget {
                   ),
                   CustomText(
                     text: categoryName,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                     alignment: Alignment.bottomCenter,
                   ),
                   Container(
-                    width: 24,
+                    width: 24.w,
                   ),
                 ],
               ),
@@ -185,9 +186,9 @@ class CateogriesScreen extends StatelessWidget {
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(right: 16, left: 16, bottom: 24),
+              padding: EdgeInsets.only(right: 16, left: 16, bottom: 24).r,
               child: GridView.builder(
-                padding: const EdgeInsets.all(0),
+                padding: const EdgeInsets.all(0).w,
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
@@ -203,18 +204,18 @@ class CateogriesScreen extends StatelessWidget {
                       );
                     },
                     child: Container(
-                      width: 164,
+                      width: 164.w,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
+                              borderRadius: BorderRadius.circular(4).w,
                               color: Colors.white,
                             ),
-                            height: 240,
-                            width: 164,
+                            height: 240.h,
+                            width: 164.w,
                             child: Image.network(
                               '${products[index].image}',
                               fit: BoxFit.cover,
@@ -222,11 +223,11 @@ class CateogriesScreen extends StatelessWidget {
                           ),
                           CustomText(
                             text: '${products[index].name}',
-                            fontSize: 16,
+                            fontSize: 16.sp,
                           ),
                           CustomText(
                             text: '${products[index].description}',
-                            fontSize: 12,
+                            fontSize: 12.sp,
                             color: Colors.grey,
                             maxLine: 1,
                           ),
@@ -234,7 +235,7 @@ class CateogriesScreen extends StatelessWidget {
                             children: [
                               CustomText(
                                 text: '\$${products[index].price}',
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 color: defualtColor,
                               ),
                               Spacer(),
@@ -255,7 +256,7 @@ class CateogriesScreen extends StatelessWidget {
                                     );
                                   },
                                   icon: CircleAvatar(
-                                    radius: 15.0,
+                                    radius: 15.0.r,
                                     backgroundColor: defualtColor,
                                     child: Icon(
                                       Icons.favorite_border,
@@ -281,7 +282,7 @@ class CateogriesScreen extends StatelessWidget {
                                     );
                                   },
                                   icon: CircleAvatar(
-                                    radius: 15.0,
+                                    radius: 15.0.r,
                                     backgroundColor: defualtColor,
                                     child: Icon(
                                       Icons.shopping_cart,

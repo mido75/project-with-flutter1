@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/core/viewModel/auth.dart';
@@ -25,7 +26,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
           key: _formKey,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0).w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:
@@ -34,7 +35,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     'Welcome , ',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25.0,
+                      fontSize: 25.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -42,7 +43,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     'Enter your creditials',
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Center(
                     child: Text(
@@ -50,7 +51,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xff0CC095),
-                        fontSize: 35.0,
+                        fontSize: 35.0.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -72,7 +73,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border:OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       labelText: 'E-mail',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -82,7 +83,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: passcontroller,
@@ -98,7 +99,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border:OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
@@ -108,7 +109,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Align(
                     alignment: Alignment.topRight,
@@ -120,7 +121,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Container(
                     width: double.infinity,
@@ -128,7 +129,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                       color: Color(0xff0CC095),
                       borderRadius: BorderRadius.circular(
                         10.0,
-                      ),
+                      ).w,
                     ),
                     child: MaterialButton(
                       onPressed: (){
@@ -137,7 +138,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                           controller.signInWithEmailAndPassword();
                         }
                       },
-                      height: 40.0,
+                      height: 40.0.h,
                       child: Text(
                         'LOGIN',
                         style: TextStyle(
@@ -147,35 +148,35 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        padding: EdgeInsets.symmetric(horizontal: 10.0).w,
                         child: Container(
-                          height: 1.0,
-                          width: 130.0,
+                          height: 1.0.h,
+                          width: 130.0.w,
                           color: Colors.black87,
                         ),
                       ),
                       Text(
                         'or',
-                        style: TextStyle(fontSize: 22.0),
+                        style: TextStyle(fontSize: 22.0.sp),
                       ),
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10.0),
+                        padding: EdgeInsets.symmetric(horizontal: 10.0).w,
                         child: Container(
-                          height: 1.0,
-                          width: 130.0,
+                          height: 1.0.h,
+                          width: 130.0.w,
                           color: Colors.black87,
                         ),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 20.h,
                   ),
                   SocialMediaButton(
                     text: 'sign in with facebook',
@@ -185,7 +186,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                     },
                   ),
                   SizedBox(
-                    height: 10.0,
+                    height: 10.0.h,
                   ),
                   SocialMediaButton(
                     text: 'sign in with google',
@@ -194,7 +195,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                       controller.googleSignInMethod();
                     },
                   ),
-                  SizedBox(height: 15,),
+                  SizedBox(height: 15.h,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children:
@@ -218,7 +219,7 @@ class LoginScreen_T extends GetWidget<AuthViewModel> {
                         child: Text(
                           "Sign Up",
                           style : TextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             color: Color(0xff0CC095),
                           ),
                         ),

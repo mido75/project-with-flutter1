@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/auth.dart';
 import 'package:untitled/core_trader/viewModel_trader/auth_trader.dart';
@@ -24,7 +25,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
           key: _formKey,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0).w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -32,7 +33,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     'Welcome , ',
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25.0,
+                      fontSize: 25.0.sp,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -40,7 +41,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     'Enter your creditials',
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Center(
                     child: Text(
@@ -48,13 +49,13 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color(0xff0CC095),
-                        fontSize: 35.0,
+                        fontSize: 35.0.sp,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: usercontroller,
@@ -75,7 +76,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: emailcontroller,
@@ -86,7 +87,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       labelText: 'E-mail',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -96,7 +97,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: phonecontroller,
@@ -107,7 +108,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       labelText: 'PhoneNumber',
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -117,7 +118,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: passcontroller,
@@ -128,7 +129,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder:  OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
@@ -138,7 +139,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   TextFormField(
                     controller: passComcontroller,
@@ -149,7 +150,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       focusedBorder:  OutlineInputBorder(
-                        borderSide: BorderSide(color: defualtColor,width: 2.0),
+                        borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Confirm Password',
@@ -159,7 +160,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Container(
                     width: double.infinity,
@@ -167,7 +168,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                       color: Color(0xff0CC095),
                       borderRadius: BorderRadius.circular(
                         10.0,
-                      ),
+                      ).w,
                     ),
                     child: MaterialButton(
                       onPressed: () {
@@ -177,7 +178,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                           controller.createAccountWithEmailAndPassword();
                         }
                       },
-                      height: 40.0,
+                      height: 40.0.h,
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
@@ -187,7 +188,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   SizedBox(
-                    height: 30,
+                    height: 30.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +203,7 @@ class RegisterScreen_T extends GetWidget<AuthViewModel> {
                         child: Text(
                           "Sign In",
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 15.sp,
                             color: Color(0xff0CC095),
                           ),
                         ),

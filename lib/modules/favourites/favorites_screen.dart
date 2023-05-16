@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/fav_view_model.dart';
@@ -15,11 +16,11 @@ class FavoriteScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset('imagies/undraw_wishlist_re_m7tv.svg',width: 150,height: 150,),
-            SizedBox(height: 20,),
+            SvgPicture.asset('imagies/undraw_wishlist_re_m7tv.svg',width: 150.w,height: 150.h,),
+            SizedBox(height: 20.h,),
             Text(
               'Wishlist Empty',
-              style: TextStyle(fontSize: 32,),
+              style: TextStyle(fontSize: 32.sp,),
               textAlign: TextAlign.center,
             ),
           ],
@@ -31,12 +32,12 @@ class FavoriteScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Center(
               child: Padding(
-            padding: const EdgeInsets.all(30.0),
+            padding: const EdgeInsets.all(30.0).w,
             child: Text('My Wishlist'),
           )),
         ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0).w,
           child: ListView.separated(
             physics: BouncingScrollPhysics(),
             itemBuilder: (context, index) => Container(
@@ -45,7 +46,7 @@ class FavoriteScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0).w,
                     child: Stack(
                       alignment: AlignmentDirectional.bottomStart,
                       children: [
@@ -53,7 +54,7 @@ class FavoriteScreen extends StatelessWidget {
                           image: NetworkImage(
                               '${controller.favProductModel[index].image}'),
                           width: double.infinity,
-                          height: 150.0,
+                          height: 150.0.h,
                         ),
                       ],
                     ),
@@ -63,7 +64,7 @@ class FavoriteScreen extends StatelessWidget {
                       bottom: 5.0,
                       left: 5.0,
                       right: 5.0,
-                    ),
+                    ).r,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -72,18 +73,18 @@ class FavoriteScreen extends StatelessWidget {
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            height: 1.1,
+                            height: 1.1.h,
                           ),
                         ),
                         SizedBox(
-                          height: 1.0,
+                          height: 1.0.h,
                         ),
                         Text(
                           '${controller.favProductModel[index].description}',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            height: 1.1,
+                            height: 1.1.h,
                           ),
                         ),
                         Row(
@@ -91,12 +92,12 @@ class FavoriteScreen extends StatelessWidget {
                             Text(
                               '${controller.favProductModel[index].price}\$',
                               style: TextStyle(
-                                fontSize: 12.0,
+                                fontSize: 12.0.sp,
                                 color: defualtColor,
                               ),
                             ),
                             SizedBox(
-                              width: 0.5,
+                              width: 0.5.w,
                             ),
                             Spacer(),
                             IconButton(
@@ -111,7 +112,7 @@ class FavoriteScreen extends StatelessWidget {
                             IconButton(
                               onPressed: () {},
                               icon: CircleAvatar(
-                                radius: 15.0,
+                                radius: 15.0.r,
                                 backgroundColor: defualtColor,
                                 child: Icon(
                                   Icons.favorite_border,
@@ -130,7 +131,7 @@ class FavoriteScreen extends StatelessWidget {
             ),
             separatorBuilder: (context, index) => Container(
               width: double.infinity,
-              height: 1.0,
+              height: 1.0.h,
               color: Colors.grey[300],
             ),
             itemCount: controller.favProductModel.length,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:untitled/shared/components/custom_text.dart';
@@ -17,24 +18,24 @@ class AddAddress extends StatelessWidget {
           child: Form(
             key: controller.formState,
             child: Padding(
-              padding:  EdgeInsets.all(30.0),
+              padding:  EdgeInsets.all(30.0).w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children:  [
                   Center(
                     child: Text('Billing Address Is Same As Delivery',
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 20.0.sp,
                       ),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10.h,),
                   Container(
                     child: Column(
                       children: [
                         CustomText(
                           text: 'Street 1',
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Colors.grey.shade900, maxLine: 2,
                         ),
                         TextFormField(
@@ -86,13 +87,13 @@ class AddAddress extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10.h,),
                   Container(
                     child: Column(
                       children: [
                         CustomText(
                           text: 'City',
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Colors.grey.shade900, maxLine: 2,
                         ),
                         TextFormField(
@@ -115,19 +116,19 @@ class AddAddress extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10.h,),
                   Container(
                     width: Get.width,
                     child: Row(
                       children: [
                         Expanded(child: Padding(
-                          padding:EdgeInsets.only(right: 20,),
+                          padding:EdgeInsets.only(right: 20,).r,
                           child: Container(
                             child: Column(
                               children: [
                                 CustomText(
                                   text: 'State',
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   color: Colors.grey.shade900, maxLine: 2,
                                 ),
                                 TextFormField(
@@ -158,7 +159,7 @@ class AddAddress extends StatelessWidget {
                               children: [
                                 CustomText(
                                   text: 'Country',
-                                  fontSize: 14,
+                                  fontSize: 14.sp,
                                   color: Colors.grey.shade900, maxLine: 2,
                                 ),
                                 TextFormField(
@@ -187,13 +188,13 @@ class AddAddress extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height: 10.h,),
                   Container(
                     child: Column(
                       children: [
                         CustomText(
                           text: 'phone',
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Colors.grey.shade900, maxLine: 2,
                         ),
                         TextFormField(

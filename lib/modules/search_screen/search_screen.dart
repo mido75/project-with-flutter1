@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/home_view_model.dart';
 import 'package:untitled/models/product_model.dart';
@@ -36,9 +37,9 @@ class _SearchViewState extends State<SearchScreen> {
       body: Column(
         children: [
           Container(
-            height: 130,
+            height: 130.h,
             child: Padding(
-              padding: EdgeInsets.only(bottom: 24, left: 16, right: 16),
+              padding: EdgeInsets.only(bottom: 24, left: 16, right: 16).r,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -58,7 +59,7 @@ class _SearchViewState extends State<SearchScreen> {
                     alignment: Alignment.bottomCenter,
                     child: Text(
                       'Search',
-                      style: TextStyle(fontSize: 20,),
+                      style: TextStyle(fontSize: 20.sp,),
                     ),
                   ),
                   Container(
@@ -69,12 +70,12 @@ class _SearchViewState extends State<SearchScreen> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16).w,
             child: Container(
-              height: 49,
+              height: 49.h,
               decoration: BoxDecoration(
                 color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(45),
+                borderRadius: BorderRadius.circular(45).w,
               ),
               child: TextFormField(
                 decoration: InputDecoration(
@@ -94,15 +95,15 @@ class _SearchViewState extends State<SearchScreen> {
             ),
           ),
           SizedBox(
-            height: 24,
+            height: 24.h,
           ),
           Expanded(
             child: Padding(
-              padding: EdgeInsets.only(right: 16, left: 16, bottom: 24),
+              padding: EdgeInsets.only(right: 16, left: 16, bottom: 24).r,
               child: GetBuilder<HomeViewModel>(
                 init: Get.find<HomeViewModel>(),
                 builder: (controller) => GridView.builder(
-                  padding: const EdgeInsets.all(0),
+                  padding: const EdgeInsets.all(0).w,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
@@ -116,18 +117,18 @@ class _SearchViewState extends State<SearchScreen> {
                         Get.to(ProductScreen(model:_searchProducts[index]));
                       },
                       child: Container(
-                        width: 164,
+                        width: 164.w,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
+                                borderRadius: BorderRadius.circular(4).w,
                                 color: Colors.white,
                               ),
-                              height: 240,
-                              width: 164,
+                              height: 240.h,
+                              width: 164.w,
                               child: Image.network(
                                 '${_searchProducts[index].image}',
                                 fit: BoxFit.cover,
@@ -136,20 +137,20 @@ class _SearchViewState extends State<SearchScreen> {
                             Container(
                               child: Text(
                                 '${_searchProducts[index].name}',
-                                style: TextStyle(fontSize: 16,),
+                                style: TextStyle(fontSize: 16.sp,),
                               ),
                             ),
                             Container(
                               child: Text(
                                 '${_searchProducts[index].description}',
-                                style: TextStyle(fontSize: 12,color:Colors.grey, ),
+                                style: TextStyle(fontSize: 12.sp,color:Colors.grey, ),
                                 maxLines: 1,
                               ),
                             ),
                             Container(
                               child: Text(
                                 '${_searchProducts[index].price}\$',
-                                style: TextStyle(fontSize: 16,color: defualtColor),
+                                style: TextStyle(fontSize: 16.sp,color: defualtColor),
                               ),
                             ),
                           ],

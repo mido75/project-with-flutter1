@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/home_view_model.dart';
 import 'package:untitled/models/setting_model.dart';
@@ -63,10 +64,10 @@ class HomeScreen_T extends StatelessWidget {
                 backgroundColor: Colors.white10,
                 elevation: 0.0,
                 leading: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0).w,
                   child: Container(
-                    height: 80,
-                    width: 80,
+                    height: 80.h,
+                    width: 80.w,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage(
@@ -93,11 +94,11 @@ class HomeScreen_T extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(15.0),
+                      padding: EdgeInsets.all(15.0).w,
                       child: Text(
                         'Welcome ${controller.currentUser!.name}',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 20.0.sp,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
@@ -106,23 +107,23 @@ class HomeScreen_T extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Padding(
-                            padding: EdgeInsets.all(10.0),
+                            padding: EdgeInsets.all(10.0).w,
                             child: Container(
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0).w,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text('Earnings',
                                         style: TextStyle(
-                                          fontSize: 20.0,
+                                          fontSize: 20.0.sp,
                                           fontWeight: FontWeight.w700,
                                           color: Colors.white,
                                         )),
                                     Text(
                                       '30.28',
                                       style: TextStyle(
-                                        fontSize: 40.0,
+                                        fontSize: 40.0.sp,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.white,
                                       ),
@@ -139,7 +140,7 @@ class HomeScreen_T extends StatelessWidget {
                                         ),
                                         Text('+0.21%',
                                             style: TextStyle(
-                                              fontSize: 20.0,
+                                              fontSize: 20.0.sp,
                                               fontWeight: FontWeight.w700,
                                               color: Colors.white,
                                             )),
@@ -149,33 +150,33 @@ class HomeScreen_T extends StatelessWidget {
                                 ),
                               ),
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderRadius: BorderRadius.circular(10.0).w,
                                   color: defualtColor),
                             ),
                           ),
                         ),
                         Expanded(
                           child: Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0).w,
                             child: Container(
                               decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10.0),
+                                  borderRadius: BorderRadius.circular(10.0).w,
                                   border: Border.all(color: defualtColor)),
                               child: Padding(
-                                padding: const EdgeInsets.all(8.0),
+                                padding: const EdgeInsets.all(8.0).w,
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    const Text('Total gross',
+                                     Text('Total gross',
                                         style: TextStyle(
-                                          fontSize: 20.0,
+                                          fontSize: 20.sp,
                                           fontWeight: FontWeight.w700,
                                           color: defualtColor,
                                         )),
-                                    const Text(
+                                     Text(
                                       '50.21',
                                       style: TextStyle(
-                                        fontSize: 40.0,
+                                        fontSize: 40.0.sp,
                                         fontWeight: FontWeight.w700,
                                         color: defualtColor,
                                       ),
@@ -192,7 +193,7 @@ class HomeScreen_T extends StatelessWidget {
                                         ),
                                         Text('+0.21%',
                                             style: TextStyle(
-                                              fontSize: 20.0,
+                                              fontSize: 20.0.sp,
                                               fontWeight: FontWeight.w700,
                                               color: defualtColor,
                                             )),
@@ -211,14 +212,14 @@ class HomeScreen_T extends StatelessWidget {
                       child: Column(
                         children: [
                           Padding(
-                            padding: EdgeInsets.all(12.0),
+                            padding: EdgeInsets.all(12.0).w,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'March stats',
                                   style: TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: 20.0.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -226,71 +227,71 @@ class HomeScreen_T extends StatelessWidget {
                                   'Orders placed between 1st Feb - 31st Feb',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w400,
-                                    fontSize: 16.0,
+                                    fontSize: 16.0.sp,
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(15.0),
+                                  padding: const EdgeInsets.all(15.0).w,
                                   child: SingleChildScrollView(
                                     scrollDirection: Axis.horizontal,
                                     child: Row(
                                       children: [
                                         Container(
-                                          height: 30,
-                                          width: 120,
+                                          height: 30.h,
+                                          width: 120.w,
                                           child: Center(
                                             child: Text(
                                               'This month',
                                               style: TextStyle(
-                                                fontSize: 17.0,
+                                                fontSize: 17.0.sp,
                                                 color: Colors.white,
                                               ),
                                             ),
                                           ),
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10.0).w,
                                               color: defualtColor),
                                         ),
                                         SizedBox(
-                                          width: 20.0,
+                                          width: 20.0.w,
                                         ),
                                         Container(
-                                          height: 30,
-                                          width: 120,
+                                          height: 30.h,
+                                          width: 120.w,
                                           child: Center(
                                             child: Text(
                                               'Last month',
                                               style: TextStyle(
-                                                fontSize: 17.0,
+                                                fontSize: 17.0.sp,
                                                 color: defualtColor,
                                               ),
                                             ),
                                           ),
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10.0).w,
                                               border: Border.all(
                                                   color: defualtColor)),
                                         ),
                                         SizedBox(
-                                          width: 20.0,
+                                          width: 20.0.w,
                                         ),
                                         Container(
-                                          height: 30,
-                                          width: 120,
+                                          height: 30.h,
+                                          width: 120.w,
                                           child: Center(
                                             child: Text(
                                               'This 3 months',
                                               style: TextStyle(
-                                                fontSize: 17.0,
+                                                fontSize: 17.0.sp,
                                                 color: defualtColor,
                                               ),
                                             ),
                                           ),
                                           decoration: BoxDecoration(
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(10.0).w,
                                               border: Border.all(
                                                   color: defualtColor)),
                                         ),
@@ -302,7 +303,7 @@ class HomeScreen_T extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(10.0),
+                            padding: const EdgeInsets.all(10.0).w,
                             child: Container(
                               color: Colors.white,
                               child: IntrinsicHeight(
@@ -314,7 +315,7 @@ class HomeScreen_T extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -322,12 +323,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Placed',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -341,12 +342,12 @@ class HomeScreen_T extends StatelessWidget {
                                                     //   color: Colors.cyanAccent,
                                                     // ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -361,7 +362,7 @@ class HomeScreen_T extends StatelessWidget {
                                             thickness: 3,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -369,12 +370,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Deliveries in Progress',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -385,12 +386,12 @@ class HomeScreen_T extends StatelessWidget {
                                                       color: defualtColor,
                                                     ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -405,7 +406,7 @@ class HomeScreen_T extends StatelessWidget {
                                             thickness: 3,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -413,12 +414,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Order Delivered',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -429,12 +430,12 @@ class HomeScreen_T extends StatelessWidget {
                                                       color: defualtColor,
                                                     ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -458,7 +459,7 @@ class HomeScreen_T extends StatelessWidget {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -466,12 +467,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Confirmed',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -485,12 +486,12 @@ class HomeScreen_T extends StatelessWidget {
                                                     //   color: Colors.cyanAccent,
                                                     // ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -505,7 +506,7 @@ class HomeScreen_T extends StatelessWidget {
                                             thickness: 3,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -513,12 +514,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Suspended',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -532,12 +533,12 @@ class HomeScreen_T extends StatelessWidget {
                                                     //   color: Colors.red,
                                                     // ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -552,7 +553,7 @@ class HomeScreen_T extends StatelessWidget {
                                             thickness: 3,
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.all(8.0),
+                                            padding: const EdgeInsets.all(8.0).w,
                                             child: Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
@@ -560,12 +561,12 @@ class HomeScreen_T extends StatelessWidget {
                                                 Text(
                                                   'Deliveries with Refunds',
                                                   style: TextStyle(
-                                                    fontSize: 17.0,
+                                                    fontSize: 17.0.sp,
                                                     fontWeight: FontWeight.w400,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: 10.0,
+                                                  height: 10.0.h,
                                                 ),
                                                 Row(
                                                   children: [
@@ -576,12 +577,12 @@ class HomeScreen_T extends StatelessWidget {
                                                       color: defualtColor,
                                                     ),
                                                     SizedBox(
-                                                      width: 15.0,
+                                                      width: 15.0.w,
                                                     ),
                                                     Text(
                                                       '0',
                                                       style: TextStyle(
-                                                        fontSize: 17.0,
+                                                        fontSize: 17.0.sp,
                                                         fontWeight:
                                                             FontWeight.w700,
                                                       ),
@@ -603,9 +604,9 @@ class HomeScreen_T extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: const EdgeInsets.all(8.0).w,
                       child: Container(
-                        height: 250,
+                        height: 250.h,
                         child: charts.BarChart(
                           series,
                         ),

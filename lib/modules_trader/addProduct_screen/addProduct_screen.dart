@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:untitled/core/viewModel/auth.dart';
@@ -39,13 +40,13 @@ class _addProductScreenState extends State<addProductScreen> {
           elevation: 0.0,
           backgroundColor: Colors.white,
           leading: Padding(
-            padding:  EdgeInsets.only(top: 20),
+            padding:  EdgeInsets.only(top: 20).r,
             child: IconButton(onPressed: (){
               Get.back();
             },icon: Icon(Icons.arrow_back_ios,color: Colors.black,),),
           ),
           title: Padding(
-            padding:  EdgeInsets.only(left: 20,top: 20),
+            padding:  EdgeInsets.only(left: 20,top: 20).r,
             child: Text('Add Your Product',style: TextStyle(color: Colors.black),),
           ),
         ),
@@ -54,7 +55,7 @@ class _addProductScreenState extends State<addProductScreen> {
           child: Form(
             key: _formKey,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0).w,
               child: Column(
                 children: [
                   /*
@@ -97,7 +98,7 @@ class _addProductScreenState extends State<addProductScreen> {
                     children:
                     [
                       SizedBox(
-                        height: 23,
+                        height: 23.h,
                       ),
                       Align(
                         child: Stack(
@@ -134,13 +135,13 @@ class _addProductScreenState extends State<addProductScreen> {
 
                            */
                               Container(
-                                height: 140.0,
+                                height: 140.0.h,
                                 width: double.infinity,
                                 decoration: controller.imageProductFile != null
                                     ? BoxDecoration(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
+                                    topLeft: Radius.circular(4.0).w,
+                                    topRight: Radius.circular(4.0).w,
                                   ),
                                   image: DecorationImage(
                                     image: FileImage(controller.imageProductFile!),
@@ -149,8 +150,8 @@ class _addProductScreenState extends State<addProductScreen> {
                                 )
                                     : BoxDecoration(
                                   borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
+                                    topLeft: Radius.circular(4.0).w,
+                                    topRight: Radius.circular(4.0).w,
                                   ),
                                   image: DecorationImage(
                                     image: AssetImage('imagies/undraw_Image_upload_re_w7pm.png'),
@@ -166,7 +167,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                         child: Text(
                                           'Choose option',
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 20.sp,
                                             color: defualtColor,
                                           ),
                                         ),
@@ -175,7 +176,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Divider(
-                                            height: 1,
+                                            height: 1.h,
                                           ),
                                           ListTile(
                                             onTap: () async {
@@ -197,7 +198,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                             ),
                                           ),
                                           Divider(
-                                            height: 1,
+                                            height: 1.h,
                                           ),
                                           ListTile(
                                             onTap: () async{
@@ -225,7 +226,7 @@ class _addProductScreenState extends State<addProductScreen> {
                                 },
                                 icon: CircleAvatar(
                                   backgroundColor: defualtColor,
-                                  radius: 20.0,
+                                  radius: 20.0.r,
                                   child: Icon(
                                     Icons.camera,
                                     color: Colors.white,
@@ -237,7 +238,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         alignment: AlignmentDirectional.topCenter,
                       ),
                       SizedBox(
-                        height: 13,
+                        height: 13.h,
                       ),
                       TextFormField(
                         controller: prodectcontroller,
@@ -253,7 +254,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: defualtColor, width: 2.0),
+                            borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'Prodect Title',
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -263,7 +264,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 10.h,
                       ),
                       TextFormField(
                         controller: descriptioncontroller,
@@ -279,7 +280,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: defualtColor, width: 2.0),
+                            borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'Description',
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -289,7 +290,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 10.h,
                       ),
                       TextFormField(
                         controller: categorycontroller,
@@ -305,7 +306,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: defualtColor, width: 2.0),
+                            borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'category',
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -315,7 +316,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 10.h,
                       ),
                       TextFormField(
                         controller: moneycontroller,
@@ -331,7 +332,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: defualtColor, width: 2.0),
+                            borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: '0.0',
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
@@ -341,10 +342,10 @@ class _addProductScreenState extends State<addProductScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 15,
+                        height: 15.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(15.0),
+                        padding: const EdgeInsets.all(15.0).w,
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -380,7 +381,7 @@ class _addProductScreenState extends State<addProductScreen> {
                               }
                               Get.to(ManageProducts());
                             },
-                            height: 40.0,
+                            height: 40.0.h,
                             child: Text(
                               'SAVE',
                               style: TextStyle(

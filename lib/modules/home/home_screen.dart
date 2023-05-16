@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
@@ -70,10 +71,10 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.white10,
                   elevation: 0.0,
                   leading: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(8.0.r),
                     child: Container(
-                      height: 80,
-                      width: 80,
+                      height: 80.h,
+                      width: 80.w,
                       decoration: BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage(
@@ -96,7 +97,7 @@ class HomeScreen extends StatelessWidget {
                 body: SingleChildScrollView(
                   physics: BouncingScrollPhysics(),
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding:  EdgeInsets.all(8.0.r),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -108,11 +109,11 @@ class HomeScreen extends StatelessWidget {
                           ),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(20),
+                              borderRadius: BorderRadius.circular(10).w,
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color: defualtColor, width: 2.0),
+                                  color: defualtColor, width: 2.0.w),
                             ),
                             labelText: 'Search',
                             /*
@@ -132,24 +133,24 @@ class HomeScreen extends StatelessWidget {
                           },
                         ),
                         SizedBox(
-                          height: 20.0,
+                          height: MediaQuery.of(context).size.height/20,
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(
+                          padding:  EdgeInsets.symmetric(
                             horizontal: 10.0,
-                          ),
+                          ).r,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'Categories',
                                 style: TextStyle(
-                                  fontSize: 24.0,
+                                  fontSize: 24.0.sp,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
                               SizedBox(
-                                height: 10.0,
+                                height: 10.0.h,
                               ),
                               Container(
                                 height: 80.0,
@@ -173,19 +174,19 @@ class HomeScreen extends StatelessWidget {
                                         decoration: BoxDecoration(
                                           border: Border.all(
                                             color: defualtColor,
-                                            width: 2.0,
+                                            width: 2.0.w,
                                             style: BorderStyle.solid,
                                           ),
                                         ),
                                         child: Padding(
                                           padding:
-                                          const EdgeInsets.all(8.0),
+                                           EdgeInsets.all(8.0).w,
                                           child: Row(
                                             children: [
                                               Text(
                                                   '${controller.categoryModel![index].name}'),
                                               SizedBox(
-                                                width: 40.0,
+                                                width: MediaQuery.of(context).size.width/17,
                                               ),
                                               Image(
                                                 image: NetworkImage(
@@ -200,19 +201,19 @@ class HomeScreen extends StatelessWidget {
                                   },
                                   separatorBuilder: (context, index) =>
                                       SizedBox(
-                                        width: 10.0,
+                                        width: MediaQuery.of(context).size.width/30,
                                       ),
                                   itemCount:
                                   controller.categoryModel!.length,
                                 ),
                               ),
                               SizedBox(
-                                height: 20.0,
+                                height: MediaQuery.of(context).size.height/30,
                               ),
                               Text(
                                 'New Products',
                                 style: TextStyle(
-                                  fontSize: 24.0,
+                                  fontSize: 24.0.sp,
                                   fontWeight: FontWeight.w800,
                                 ),
                               ),
@@ -220,7 +221,7 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: 10.0,
+                          height: MediaQuery.of(context).size.height/30,
                         ),
                         Container(
                           color: Colors.grey[300],
@@ -265,7 +266,7 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0).w,
                 child: Stack(
                   alignment: AlignmentDirectional.bottomStart,
                   children: [
@@ -273,7 +274,7 @@ class HomeScreen extends StatelessWidget {
                       image: NetworkImage(
                           '${model[index].image}'),
                       width: double.infinity,
-                      height: 150.0,
+                      height: 150.0.h,
                     ),
                   ],
                 ),
@@ -283,7 +284,7 @@ class HomeScreen extends StatelessWidget {
                   bottom: 5.0,
                   left: 5.0,
                   right: 5.0,
-                ),
+                ).r,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -292,18 +293,18 @@ class HomeScreen extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        height: 1.1,
+                        height: 1.1.h,
                       ),
                     ),
                     SizedBox(
-                      height: 1.0,
+                      height: 1.0.h,
                     ),
                     Text(
                       '${model[index].description}',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        height: 1.1,
+                        height: 1.1.h,
                       ),
                     ),
                     Row(
@@ -311,12 +312,12 @@ class HomeScreen extends StatelessWidget {
                         Text(
                           '${model[index].price}\$',
                           style: TextStyle(
-                            fontSize: 12.0,
+                            fontSize: 12.0.sp,
                             color: defualtColor,
                           ),
                         ),
                         SizedBox(
-                          width: 0.5,
+                          width: 0.5.w,
                         ),
                         Spacer(),
                         GetBuilder<FavViewModel>(
@@ -336,7 +337,7 @@ class HomeScreen extends StatelessWidget {
                               );
                             },
                             icon: CircleAvatar(
-                              radius: 15.0,
+                              radius: 15.0.r,
                               backgroundColor: defualtColor,
                               child: Icon(
                                 Icons.favorite_border,
@@ -362,7 +363,7 @@ class HomeScreen extends StatelessWidget {
                               );
                             },
                             icon: CircleAvatar(
-                              radius: 15.0,
+                              radius: 15.0.r,
                               backgroundColor: defualtColor,
                               child: Icon(
                                 Icons.shopping_cart,

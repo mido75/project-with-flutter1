@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/models/setting_model.dart';
 import 'package:untitled/modules/control_view.dart';
@@ -21,24 +22,24 @@ class SettingScreen_T extends StatelessWidget {
       )
           : Scaffold(
         body: Container(
-          padding: EdgeInsets.only(top: 30),
+          padding: EdgeInsets.only(top: 30).r,
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  height: 190.0,
+                  height: 190.0.h,
                   child: Stack(
                     alignment: AlignmentDirectional.bottomCenter,
                     children: [
                       Align(
                         child: Container(
-                          height: 140.0,
+                          height: 140.0.h,
                           width: double.infinity,
                           decoration: controller.currentUser!.cover != null ?  BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                              topLeft: Radius.circular(4.0).w,
+                              topRight: Radius.circular(4.0).w,
                             ),
                             image: DecorationImage(
                               image: NetworkImage('${controller.currentUser!.cover}'),
@@ -46,8 +47,8 @@ class SettingScreen_T extends StatelessWidget {
                             ),
                           ) : BoxDecoration(
                             borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(4.0),
-                              topRight: Radius.circular(4.0),
+                              topLeft: Radius.circular(4.0).w,
+                              topRight: Radius.circular(4.0).w,
                             ),
                             image: DecorationImage(
                               image: NetworkImage(
@@ -59,11 +60,11 @@ class SettingScreen_T extends StatelessWidget {
                         alignment: AlignmentDirectional.topCenter,
                       ),
                       CircleAvatar(
-                        radius: 63.0,
+                        radius: 63.0.r,
                         backgroundColor:
                         Theme.of(context).scaffoldBackgroundColor,
                         child: CircleAvatar(
-                          radius: 60.0,
+                          radius: 60.0.r,
                           backgroundImage: NetworkImage('https://t4.ftcdn.net/jpg/02/14/74/61/240_F_214746128_31JkeaP6rU0NzzzdFC4khGkmqc8noe6h.jpg'),
                           foregroundImage: controller.currentUser!.pic != null
                               ? NetworkImage('${controller.currentUser!.pic}')
@@ -74,27 +75,27 @@ class SettingScreen_T extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 5.0,
+                  height: 5.0.h,
                 ),
                 Text(
                   '${controller.currentUser!.name}',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 20.sp,
                   ),
                 ),
                 SizedBox(
-                  height: 1.0,
+                  height: 1.0.h,
                 ),
                 Text(
                   '${controller.currentUser!.email}',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 12,
+                    fontSize: 12.sp,
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: 50.h,
                 ),
                 Container(
                   child: MaterialButton(

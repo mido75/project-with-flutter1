@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core_trader/service/store.dart';
@@ -191,16 +192,16 @@ class _ManageProductsState extends State<ManageProducts> {
               children: [
                 SvgPicture.asset(
                   'imagies/undraw_empty_cart_co35.svg',
-                  width: 150,
-                  height: 150,
+                  width: 150.w,
+                  height: 150.h,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Text(
                   'Products Empty',
                   style: TextStyle(
-                    fontSize: 32,
+                    fontSize: 32.sp,
                   ),
                   textAlign: TextAlign.center,
                 ),
@@ -222,12 +223,12 @@ class _ManageProductsState extends State<ManageProducts> {
               ),
               elevation: 0.0,
               title: Padding(
-                padding: const EdgeInsets.only(left: 60),
+                padding: const EdgeInsets.only(left: 60).r,
                 child: Text(
                   'Products',
                   style: TextStyle(
                       color: Colors.black,
-                      fontSize: 25,
+                      fontSize: 25.sp,
                       fontWeight: FontWeight.bold),
                 ),
               ),
@@ -238,7 +239,7 @@ class _ManageProductsState extends State<ManageProducts> {
                 childAspectRatio: .8,
               ),
               itemBuilder: (context, index) => Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10).w,
                 child: GestureDetector(
                   onTapUp: (details) async {
                     double dx = details.globalPosition.dx;
@@ -285,11 +286,11 @@ class _ManageProductsState extends State<ManageProducts> {
                           opacity: .6,
                           child: Container(
                             width: MediaQuery.of(context).size.width,
-                            height: 60,
+                            height: 60.h,
                             color: Colors.white,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
-                                  horizontal: 10, vertical: 5),
+                                  horizontal: 10, vertical: 5).w,
                               child: Column(
                                 crossAxisAlignment:
                                 CrossAxisAlignment.start,
