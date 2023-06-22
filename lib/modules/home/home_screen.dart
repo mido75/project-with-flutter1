@@ -25,9 +25,9 @@ class HomeScreen extends StatelessWidget {
   final _store = Store();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   var Pid;
-
   // FirebaseAuth _auth = FirebaseAuth.instance;
-//Get.find<HomeViewModel>()
+  //Get.find<HomeViewModel>()
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -161,12 +161,15 @@ class HomeScreen extends StatelessWidget {
                                   itemBuilder: (context, index) {
                                     return GestureDetector(
                                       onTap: () {
+                                        /*
                                         CateogriesScreen(
                                           categoryName: 'load',
                                           products: controller.productModel!.toList(),
                                         );
+
+                                         */
                                         Get.to(CateogriesScreen(
-                                          products: controller.productModel!.where((product) => product.category == controller.categoryModel![index].name!.toLowerCase()).toList(),
+                                          products: controller.productModel!.where((product) => product.category == controller.categoryModel![index].name!).toList(),
                                           categoryName: '${controller.categoryModel![index].name}',
                                         ));
                                       },

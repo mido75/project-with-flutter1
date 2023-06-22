@@ -193,7 +193,7 @@ class CateogriesScreen extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: 16,
                   crossAxisSpacing: 15,
-                  mainAxisExtent: 320,
+                  mainAxisExtent: 350,
                 ),
                 itemCount: products.length,
                 itemBuilder: (context, index) {
