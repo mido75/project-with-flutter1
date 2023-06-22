@@ -25,7 +25,6 @@ import 'modules/login_screen/login_screen.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   Future.delayed(Duration(seconds: 1)).then((value) => {
     FlutterNativeSplash.remove()
   });
