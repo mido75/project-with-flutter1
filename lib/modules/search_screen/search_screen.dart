@@ -108,7 +108,7 @@ class _SearchViewState extends State<SearchScreen> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 16,
                     crossAxisSpacing: 15,
-                    mainAxisExtent: 320,
+                    mainAxisExtent: 350,
                   ),
                   itemCount: _searchProducts.length,
                   itemBuilder: (context, index) {

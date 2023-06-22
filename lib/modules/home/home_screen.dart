@@ -293,7 +293,7 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Text(
                   '${model[index].name}',
-                  maxLines: 2,
+                  maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     height: 1.1.h,
