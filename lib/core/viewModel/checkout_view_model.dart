@@ -1,4 +1,4 @@
-import 'dart:ui';
+import 'package:charts_flutter/flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -60,13 +60,13 @@ class CheckOutViewModel extends GetxController{
     update();
   }
 
-  Color getColor(int i ) {
+  Object getColor(int i ) {
     if (i == _index) {
       return defualtColor;
     } else if (i < _index) {
-      return Colors.teal;
-    } else {
       return defualtColor;
+    } else {
+      return Color.fromHex(code: '0xff0CC095');
     }
   }
 
