@@ -9,35 +9,36 @@ import '../../models/chart_model.dart';
 import '../../modules/notifications_screen/notificationList.dart';
 
 class HomeScreen_T extends StatelessWidget {
+
   final List<BarChartModel> data = [
     BarChartModel(
       week: 'week1',
-      financial: 10,
-      color: charts.ColorUtil.fromDartColor(defualtColor),
-    ),
-    BarChartModel(
-      week: 'week2',
       financial: 20,
       color: charts.ColorUtil.fromDartColor(defualtColor),
     ),
     BarChartModel(
+      week: 'week2',
+      financial: 0,
+      color: charts.ColorUtil.fromDartColor(defualtColor),
+    ),
+    BarChartModel(
       week: 'week3',
-      financial: 60,
+      financial: 0,
       color: charts.ColorUtil.fromDartColor(defualtColor),
     ),
     BarChartModel(
       week: 'week4',
-      financial: 40,
+      financial: 0,
       color: charts.ColorUtil.fromDartColor(defualtColor),
     ),
     BarChartModel(
       week: 'week5',
-      financial: 30,
+      financial: 0,
       color: charts.ColorUtil.fromDartColor(defualtColor),
     ),
     BarChartModel(
       week: 'week6',
-      financial: 60,
+      financial: 0,
       color: charts.ColorUtil.fromDartColor(defualtColor),
     ),
   ];
@@ -345,7 +346,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '7',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
@@ -389,7 +390,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '2',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
@@ -433,7 +434,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '3',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
@@ -489,7 +490,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '5',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
@@ -536,7 +537,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '4',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
@@ -580,7 +581,7 @@ class HomeScreen_T extends StatelessWidget {
                                                       width: 15.0.w,
                                                     ),
                                                     Text(
-                                                      '0',
+                                                      '1',
                                                       style: TextStyle(
                                                         fontSize: 17.0.sp,
                                                         fontWeight:
