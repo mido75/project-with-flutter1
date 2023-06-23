@@ -21,13 +21,11 @@ import 'package:untitled/helper/building.dart';
 
 class HomeScreen extends StatelessWidget {
   var searchController = TextEditingController();
-
   final _store = Store();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   var Pid;
   // FirebaseAuth _auth = FirebaseAuth.instance;
   //Get.find<HomeViewModel>()
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -59,7 +57,6 @@ class HomeScreen extends StatelessWidget {
                 user_id: doc.data().toString().contains('user_id')
                     ? doc.get('user_id') : '',
               ));
-
               _firestore.collection('products').doc(Pid).update({'id': Pid});
             }
             return GetBuilder<HomeViewModel>(
@@ -168,8 +165,8 @@ class HomeScreen extends StatelessWidget {
                                         );
 
                                          */
-                                        Get.to(CateogriesScreen(
-                                          products: controller.productModel!.where((product) => product.category == controller.categoryModel![index].name!).toList(),
+                                        Get.to(() => CateogriesScreen(
+                                         // products: controller.productModel!.where((product) => product.category == controller.categoryModel![index].name!).toList(),
                                           categoryName: '${controller.categoryModel![index].name}',
                                         ));
                                       },
@@ -206,8 +203,7 @@ class HomeScreen extends StatelessWidget {
                                       SizedBox(
                                         width: 10.0.w,
                                       ),
-                                  itemCount:
-                                  controller.categoryModel!.length,
+                                  itemCount: controller.categoryModel!.length,
                                 ),
                               ),
                               SizedBox(

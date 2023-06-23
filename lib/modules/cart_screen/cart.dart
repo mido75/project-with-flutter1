@@ -3,7 +3,7 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_svg/parser.dart';
+//import 'package:flutter_svg/parser.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
 import 'package:untitled/modules/checkout/checkout_view.dart';
