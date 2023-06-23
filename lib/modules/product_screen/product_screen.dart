@@ -44,63 +44,63 @@ class ProductScreen extends StatelessWidget {
                               fontSize: 26.sp,
                             ),
                           ),
-                          SizedBox(
-                            height: 15.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                padding: EdgeInsets.all(16).w,
-                                width: MediaQuery.of(context).size.width * .4,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20).w,
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                    )),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text(
-                                      'Size',
-                                    ),
-                                    Text(
-                                      '${model.sized}',
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(16).w,
-                                width: MediaQuery.of(context).size.width * .44,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20).w,
-                                    border: Border.all(
-                                      color: Colors.grey,
-                                    )),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  children: [
-                                    Text(
-                                      'Color',
-                                    ),
-                                    Container(
-                                      width: 30,
-                                      height: 20,
-                                      padding: EdgeInsets.all(12).w,
-                                      decoration: BoxDecoration(
-                                        border: Border.all(color: Colors.grey),
-                                        borderRadius: BorderRadius.circular(20).w,
-                                        //color: model.color,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                          // SizedBox(
+                          //   height: 15.h,
+                          // ),
+                          // Row(
+                          //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          //   children: [
+                          //     Container(
+                          //       padding: EdgeInsets.all(16).w,
+                          //       width: MediaQuery.of(context).size.width * .4,
+                          //       decoration: BoxDecoration(
+                          //           borderRadius: BorderRadius.circular(20).w,
+                          //           border: Border.all(
+                          //             color: Colors.grey,
+                          //           )),
+                          //       // child: Row(
+                          //       //   mainAxisAlignment:
+                          //       //       MainAxisAlignment.spaceAround,
+                          //       //   children: [
+                          //       //     Text(
+                          //       //       'Size',
+                          //       //     ),
+                          //       //     Text(
+                          //       //       '${model.sized}',
+                          //       //     ),
+                          //       //   ],
+                          //       // ),
+                          //     ),
+                          //     Container(
+                          //       padding: EdgeInsets.all(16).w,
+                          //       width: MediaQuery.of(context).size.width * .44,
+                          //       decoration: BoxDecoration(
+                          //           borderRadius: BorderRadius.circular(20).w,
+                          //           border: Border.all(
+                          //             color: Colors.grey,
+                          //           )),
+                          //       // child: Row(
+                          //       //   mainAxisAlignment:
+                          //       //       MainAxisAlignment.spaceAround,
+                          //       //   children: [
+                          //       //     Text(
+                          //       //       'Color',
+                          //       //     ),
+                          //       //     Container(
+                          //       //       width: 30,
+                          //       //       height: 20,
+                          //       //       padding: EdgeInsets.all(12).w,
+                          //       //       decoration: BoxDecoration(
+                          //       //         border: Border.all(color: Colors.grey),
+                          //       //         borderRadius: BorderRadius.circular(20).w,
+                          //       //         //color: model.color,
+                          //       //       ),
+                          //       //     )
+                          //       //   ],
+                          //       // ),
+                          //     ),
+                          //   ],
+                          // ),
                           SizedBox(
                             height: 15.h,
                           ),
@@ -117,7 +117,7 @@ class ProductScreen extends StatelessWidget {
                             '${model.description}',
                             style: TextStyle(
                               fontSize: 18.sp,
-                              height: 2.5.h,
+                              height: 1.5.h,
                             ),
                           )
                         ],

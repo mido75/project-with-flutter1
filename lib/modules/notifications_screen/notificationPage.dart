@@ -31,7 +31,7 @@ class _NotificationPageState extends State<NotificationPage> {
           child: Column(
             children: [
               Text(
-                  'HandMade App is for helping small busineses to expand and reach out more customers .',
+                'HandMade App is for helping small businesses to expand and reach out to more customers. This app was designed especially for handmade and home-made products' ,
                   style: TextStyle(
                     fontWeight:FontWeight.bold ,
                   )),
