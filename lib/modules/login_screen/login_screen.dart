@@ -8,12 +8,18 @@ import 'package:untitled/modules/register_screen/register_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 import 'package:untitled/shared/styles/color.dart';
 
-
 class LoginScreen extends GetWidget<AuthViewModel> {
 
   var emailcontroller = TextEditingController();
   var passcontroller = TextEditingController();
   var _formKey = GlobalKey<FormState>();
+  bool isPasswordVisible = false;
+  void togglePasswordVisibility() {
+      isPasswordVisible = !isPasswordVisible;
+
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +32,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
               padding: const EdgeInsets.all(20.0).w,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children:
-                [
+                children: [
                   Text(
                     'Welcome , ',
                     style: TextStyle(
@@ -37,7 +42,7 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     ),
                   ),
                   Text(
-                    'Enter your creditials',
+                    'Enter your credentials',
                   ),
                   SizedBox(
                     height: 30.h,
@@ -57,25 +62,35 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     height: 50.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: emailcontroller,
                     keyboardType: TextInputType.emailAddress,
-                    onSaved: (value){
+                    onSaved: (value) {
                       controller.email= value!;
+                      Get.find<AuthViewModel>().password = value!;
+
                     },
-                    validator: (value){
+                    validator: (value) {
                       if (value == null) {
                         print("ERROR");
                       }
                     },
+                    obscureText:false,
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       labelText: 'E-mail',
-                    //  labelStyle: TextStyle(color: Color(0xff0CC095)),
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       prefixIcon: Icon(
-                          Icons.email_outlined,
+                        Icons.email_outlined,
+                        color: defualtColor,
                       ),
                     ),
                   ),
@@ -83,25 +98,42 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                     height: 30.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: passcontroller,
                     keyboardType: TextInputType.visiblePassword,
-                    onSaved: (value){
+                    onSaved: (value) {
                       controller.password = value!;
                     },
-                    validator: (value){
+                    validator: (value) {
                       if (value == null) {
                         print("ERROR");
                       }
                     },
+                    obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
-                      //labelStyle: TextStyle(color: Color(0xff0CC095)),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       labelText: 'Password',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       prefixIcon: Icon(
                         Icons.lock_outlined,
+                        color: defualtColor,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                          color: defualtColor,
+                        ),
+                        onPressed: () {
+                        togglePasswordVisibility();
+                        },
                       ),
                     ),
                   ),
@@ -123,13 +155,14 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                   Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                      color: Color(0xff0CC095),
+
+                      color: defualtColor,
                       borderRadius: BorderRadius.circular(
                         10.0,
                       ).w,
                     ),
                     child: MaterialButton(
-                      onPressed: (){
+                      onPressed: () {
                         _formKey.currentState!.save();
                         if (_formKey.currentState!.validate()) {
                           controller.signInWithEmailAndPassword();
@@ -140,10 +173,10 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                         'LOGIN',
                         style: TextStyle(
                           color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
                   SizedBox(
                     height: 30.h,
                   ),
@@ -195,26 +228,14 @@ class LoginScreen extends GetWidget<AuthViewModel> {
                   SizedBox(height: 15.h,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children:
-                    [
+                    children: [
                       Text('Don\'t have an account?',),
-                      /*TextButton(
-                          onPressed: (){
-                          //  Get.to(RegisterScreen());
-                          },
-                          child: Text(
-                            'sign up',
-                            style: TextStyle(color: Color(0xff0CC095)),
-                          ),
-                      ),
-
-                       */
                       GestureDetector(
                         onTap: () {
                           Get.to(RegisterScreen());
                         },
                         child: Text(
-                           "Sign Up",
+                          "Sign Up",
                           style : TextStyle(
                             fontSize: 15.sp,
                             color: Color(0xff0CC095),

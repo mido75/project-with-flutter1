@@ -167,4 +167,8 @@ class AuthViewModel extends GetxController {
     await localStorageData.setUser(userModel);
   }
 
+
+
+
+
 }

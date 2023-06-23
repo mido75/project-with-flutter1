@@ -14,6 +14,13 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
   var usercontroller = TextEditingController();
   var passComcontroller = TextEditingController();
   var _formKey = GlobalKey<FormState>();
+  bool isPasswordVisible = false;
+  void togglePasswordVisibility() {
+    isPasswordVisible = !isPasswordVisible;
+
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -56,20 +63,29 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     height: 30,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: usercontroller,
                     keyboardType: TextInputType.text,
                     onSaved: (value){
                       controller.name= value!;
                     },
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       labelText: 'UserName',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
                         Icons.account_circle_outlined,
+                        color: defualtColor,
                       ),
                     ),
                   ),
@@ -77,20 +93,28 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     height: 30.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: emailcontroller,
                     keyboardType: TextInputType.emailAddress,
                     onSaved: (value){
                       controller.email=value!;
                     },
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       labelText: 'E-mail',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
                         Icons.email_outlined,
+                        color: defualtColor,
                       ),
                     ),
                   ),
@@ -98,20 +122,28 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     height: 30.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: phonecontroller,
                     keyboardType: TextInputType.number,
                     onSaved: (value){
                       controller.phone=value!;
                     },
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       labelText: 'PhoneNumber',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                       prefixIcon: Icon(
                         Icons.phone,
+                        color: defualtColor,
                       ),
                     ),
                   ),
@@ -119,20 +151,39 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     height: 30.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: passcontroller,
                     keyboardType: TextInputType.visiblePassword,
                     onSaved: (value){
                       controller.password=value!;
                     },
+                    obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+
                       focusedBorder:  OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Password',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       prefixIcon: Icon(
                         Icons.lock_outlined,
+                        color: defualtColor,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                          color: defualtColor,
+                        ),
+                        onPressed: () {
+                          togglePasswordVisibility();
+                        },
                       ),
                     ),
                   ),
@@ -140,20 +191,38 @@ class RegisterScreen extends GetWidget<AuthViewModel> {
                     height: 30.h,
                   ),
                   TextFormField(
+                    cursorColor: defualtColor,
                     controller: passComcontroller,
                     keyboardType: TextInputType.visiblePassword,
                     onSaved: (value){
                       controller.passwordCon=value!;
                     },
+                    obscureText: !isPasswordVisible,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(),
+                      ),
                       focusedBorder:  OutlineInputBorder(
                         borderSide: BorderSide(color: defualtColor,width: 2.0.w),
                       ),
                       //labelStyle: TextStyle(color: Color(0xff0CC095)),
                       labelText: 'Confirm Password',
+                      labelStyle: TextStyle(
+                        color: defualtColor,
+                      ),
+                      fillColor: defualtColor,
                       prefixIcon: Icon(
                         Icons.lock_outlined,
+                        color: defualtColor,
+                      ),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                          color: defualtColor,
+                        ),
+                        onPressed: () {
+                          togglePasswordVisibility();
+                        },
                       ),
                     ),
                   ),
