@@ -78,8 +78,24 @@ class CartScreen extends StatelessWidget {
                                               children: [
                                                 Text(
                                                   '${controller.cartProductModel[index].name}',
+                                                  overflow: TextOverflow.ellipsis,
+                                                  maxLines: 1,
                                                   style: TextStyle(
-                                                    fontSize: 20.sp,
+                                                    fontWeight: FontWeight.normal,
+                                                    fontSize: 15.sp,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            SizedBox(
+                                              height: 20.0,
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'quantity :',
+                                                  style: TextStyle(
+                                                    color: Colors.grey,
                                                   ),
                                                 ),
                                                 Spacer(),
@@ -91,21 +107,12 @@ class CartScreen extends StatelessWidget {
                                                   onTap: () {
                                                     controller
                                                         .deleteCartProduct(
-                                                            index);
+                                                        index);
                                                     controller.decreaseQuantity(
                                                         index);
                                                   },
                                                 ),
                                               ],
-                                            ),
-                                            SizedBox(
-                                              height: 20.0,
-                                            ),
-                                            Text(
-                                              'quantity :',
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
                                             ),
                                             SizedBox(
                                               height: 10,

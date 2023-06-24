@@ -70,7 +70,7 @@ class FavoriteScreen extends StatelessWidget {
                       children: [
                         Text(
                           '${controller.favProductModel[index].name}',
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             height: 1.1.h,
