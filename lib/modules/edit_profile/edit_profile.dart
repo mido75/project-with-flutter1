@@ -724,7 +724,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       height: 20.0.h,
                     ),
                     TextFormField(
-                        controller: nameController,
+                      cursorColor: defualtColor,
+                      controller: nameController,
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           border: const OutlineInputBorder(),
@@ -732,9 +733,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'Name',
+                          labelStyle: TextStyle(
+                            color: defualtColor,
+                          ),
                           hintText: controller6.currentUser!.name,
                           prefixIcon: Icon(
                             Icons.account_circle_outlined,
+                            color: defualtColor,
                           ),
                         ),
                         validator: (value) {
@@ -750,6 +755,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       height: 10.0.h,
                     ),
                     TextFormField(
+                      cursorColor: defualtColor,
                       controller: emailController,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -759,9 +765,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         ),
                         hintText: controller6.currentUser!.email,
                         labelText: 'Email',
+                        labelStyle: TextStyle(
+                          color: defualtColor,
+                        ),
                         // hintText: hintText,
                         prefixIcon: Icon(
                           Icons.email,
+                          color: defualtColor,
                         ),
                       ),
                       // initialValue: Get.find<SettingModel>().currentUser!.email,
@@ -777,6 +787,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                       height: 10.0.h,
                     ),
                     TextFormField(
+                      cursorColor: defualtColor,
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       decoration: InputDecoration(
@@ -785,9 +796,13 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                           borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                         ),
                         labelText: 'Phone',
+                        labelStyle: TextStyle(
+                          color: defualtColor,
+                        ),
                         // hintText: hintText,
                         prefixIcon: Icon(
                           Icons.call,
+                          color: defualtColor,
                         ),
                       ),
                       validator: (value) {

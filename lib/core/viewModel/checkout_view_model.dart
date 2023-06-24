@@ -1,4 +1,3 @@
-import 'package:charts_flutter/flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -66,7 +65,7 @@ class CheckOutViewModel extends GetxController{
     } else if (i < _index) {
       return defualtColor;
     } else {
-      return Color.fromHex(code: '0xff0CC095');
+      return defualtColor;
     }
   }
 
@@ -85,8 +84,8 @@ class CheckOutViewModel extends GetxController{
   }
 
   addCheckoutToFireStore() async {
-    print(street2);
-    print('fffffffffffffffff');
+    //print(street2);
+    //print('fffffffffffffffff');
     await FirestoreCheckout().addOrderToFirestore(CheckoutModel(
       street1: street1!,
       street2: street2!,

@@ -99,6 +99,7 @@ class HomeScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         TextFormField(
+                          cursorColor: defualtColor,
                           controller: searchController,
                           keyboardType: TextInputType.text,
                           style: TextStyle(
@@ -121,8 +122,12 @@ class HomeScreen extends StatelessWidget {
                             icon: Icon(Icons.search,),
                           ),
                            */
+                            labelStyle: TextStyle(
+                              color: defualtColor,
+                            ),
                             prefixIcon: Icon(
                               Icons.search,
+                              color: defualtColor,
                             ),
                           ),
                           onFieldSubmitted: (value) {

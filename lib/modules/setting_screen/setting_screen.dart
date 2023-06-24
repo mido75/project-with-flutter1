@@ -146,6 +146,7 @@ class SettingScreen extends StatelessWidget {
                           },
                         ),
                       ),
+                      /*
                       Container(
                         child: MaterialButton(
                           child: ListTile(
@@ -161,6 +162,8 @@ class SettingScreen extends StatelessWidget {
                           onPressed: () {},
                         ),
                       ),
+                      
+                       */
                       Container(
                         child: MaterialButton(
                           child: ListTile(

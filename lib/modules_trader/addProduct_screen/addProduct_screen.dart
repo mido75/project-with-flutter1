@@ -241,6 +241,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         height: 13.h,
                       ),
                       TextFormField(
+                        cursorColor: defualtColor,
                         controller: prodectcontroller,
                         keyboardType: TextInputType.text,
                         onSaved: (value) {
@@ -257,9 +258,13 @@ class _addProductScreenState extends State<addProductScreen> {
                             borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'Prodect Title',
+                          labelStyle: TextStyle(
+                            color: defualtColor,
+                          ),
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                           prefixIcon: Icon(
                             Icons.edit,
+                            color: defualtColor,
                           ),
                         ),
                       ),
@@ -267,6 +272,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         height: 10.h,
                       ),
                       TextFormField(
+                        cursorColor: defualtColor,
                         controller: descriptioncontroller,
                         keyboardType: TextInputType.text,
                         onSaved: (value) {
@@ -283,9 +289,13 @@ class _addProductScreenState extends State<addProductScreen> {
                             borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'Description',
+                          labelStyle: TextStyle(
+                            color: defualtColor,
+                          ),
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                           prefixIcon: Icon(
                             Icons.description,
+                            color: defualtColor,
                           ),
                         ),
                       ),
@@ -293,6 +303,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         height: 10.h,
                       ),
                       TextFormField(
+                        cursorColor: defualtColor,
                         controller: categorycontroller,
                         keyboardType: TextInputType.text,
                         onSaved: (value) {
@@ -309,9 +320,13 @@ class _addProductScreenState extends State<addProductScreen> {
                             borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: 'category',
+                          labelStyle: TextStyle(
+                            color: defualtColor,
+                          ),
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                           prefixIcon: Icon(
                             Icons.category,
+                            color: defualtColor,
                           ),
                         ),
                       ),
@@ -319,6 +334,7 @@ class _addProductScreenState extends State<addProductScreen> {
                         height: 10.h,
                       ),
                       TextFormField(
+                        cursorColor: defualtColor,
                         controller: moneycontroller,
                         keyboardType: TextInputType.number,
                         onSaved: (value) {
@@ -335,9 +351,13 @@ class _addProductScreenState extends State<addProductScreen> {
                             borderSide: BorderSide(color: defualtColor, width: 2.0.w),
                           ),
                           labelText: '0.0',
+                          labelStyle: TextStyle(
+                            color: defualtColor,
+                          ),
                           //  labelStyle: TextStyle(color: Color(0xff0CC095)),
                           prefixIcon: Icon(
                             Icons.monetization_on_outlined,
+                            color: defualtColor,
                           ),
                         ),
                       ),

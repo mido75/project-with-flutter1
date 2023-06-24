@@ -1,3 +1,4 @@
+/*
 import 'package:charts_flutter/flutter.dart' as charts;
 class BarChartModel{
 
@@ -10,3 +11,5 @@ class BarChartModel{
     required this.financial,
     required this.color});
 }
+
+ */

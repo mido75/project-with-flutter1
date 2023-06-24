@@ -6,6 +6,8 @@ import 'package:untitled/modules/home/home_screen.dart';
 import 'package:untitled/modules/setting_screen/setting_screen.dart';
 import 'package:untitled/modules_trader/addProduct_screen/addProduct_screen.dart';
 import 'package:untitled/modules_trader/home_screen_t/home_screen_t.dart';
+import 'package:untitled/modules_trader/manager_products/manager_products.dart';
+import 'package:untitled/modules_trader/my_products_screen/my_products_screen.dart';
 import 'package:untitled/modules_trader/setting_screen_t/setting_screen_t.dart';
 
 import '../../modules/favourites/favorites_screen.dart';
@@ -16,7 +18,7 @@ class ControlViewModel_T extends GetxController {
 
   get navigatorValue => _navigatorValue;
 
-  Widget _currentScreen = HomeScreen_T();
+  Widget _currentScreen = ManageProducts();
 
   get currentScreen => _currentScreen;
 
@@ -25,7 +27,7 @@ class ControlViewModel_T extends GetxController {
     switch (selectedValue) {
       case 0:
         {
-          _currentScreen = HomeScreen_T();
+          _currentScreen =ManageProducts();
           break;
         }
       case 1:

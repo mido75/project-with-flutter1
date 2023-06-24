@@ -10,6 +10,7 @@ import 'package:untitled/modules/product_screen/product_screen.dart';
 import 'package:untitled/modules_trader/EditProduct_screen/EditProduct_screen.dart';
 import 'package:untitled/shared/components/components.dart';
 import 'package:untitled/shared/constants/constants.dart';
+import 'package:untitled/shared/styles/color.dart';
 
 class ManageProducts extends StatefulWidget {
   //static String id = 'ManageProducts';
@@ -174,7 +175,7 @@ class _ManageProductsState extends State<ManageProducts> {
           for (var doc in snapshot.data!.docs) {
             var data = doc.data;
             Pid=doc.id;
-            print(doc.id);
+            //print(doc.id);
             products.add(ProductModel(
                 id: doc.id,
                 price: doc.data().toString().contains('price') ? doc.get('price') : '',
@@ -210,24 +211,14 @@ class _ManageProductsState extends State<ManageProducts> {
           )
               : Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.white,
+              backgroundColor: defualtColor,
               automaticallyImplyLeading: false,
-              leading: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.black,
-                ),
-              ),
               elevation: 0.0,
-              title: Padding(
-                padding: const EdgeInsets.only(left: 60).r,
+              title: Center(
                 child: Text(
                   'Products',
                   style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontSize: 25.sp,
                       fontWeight: FontWeight.bold),
                 ),

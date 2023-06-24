@@ -36,6 +36,7 @@ void main() async{
   //Get.put(SettingModel());
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
 
   @override

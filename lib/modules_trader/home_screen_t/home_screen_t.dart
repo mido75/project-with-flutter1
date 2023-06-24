@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -45,6 +46,7 @@ class HomeScreen_T extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     List<charts.Series<BarChartModel, String>> series = [
       charts.Series(
         id: "financial",
@@ -54,6 +56,8 @@ class HomeScreen_T extends StatelessWidget {
         colorFn: (BarChartModel series, _) => series.color,
       ),
     ];
+
+
     return GetBuilder<SettingModel>(
       init: SettingModel(),
       builder: (controller) => controller.loading == true
@@ -620,3 +624,6 @@ class HomeScreen_T extends StatelessWidget {
     );
   }
 }
+
+
+ */

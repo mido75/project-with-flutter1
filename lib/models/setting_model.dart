@@ -54,7 +54,7 @@ class SettingModel extends GetxController {
     _loading = true;
     _currentUser = await LocalStorageData.getUserData();
     _loading = false;
-    print(_currentUser);
+    //print(_currentUser);
     update();
   }
   updateCurrentUser() async

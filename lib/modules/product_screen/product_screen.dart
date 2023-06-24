@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:untitled/core/viewModel/cart_view_model.dart';
@@ -6,6 +7,7 @@ import 'package:untitled/models/cart_product_model.dart';
 import 'package:untitled/shared/styles/color.dart';
 
 import '../../models/product_model.dart';
+
 
 class ProductScreen extends StatelessWidget {
 
@@ -37,11 +39,14 @@ class ProductScreen extends StatelessWidget {
                     child: Container(
                       padding: EdgeInsets.all(18).w,
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            '${model.name}',
-                            style: TextStyle(
-                              fontSize: 26.sp,
+                          Center(
+                            child: Text(
+                              '${model.name}',
+                              style: TextStyle(
+                                fontSize: 26.sp,
+                              ),
                             ),
                           ),
                           // SizedBox(
@@ -104,9 +109,45 @@ class ProductScreen extends StatelessWidget {
                           SizedBox(
                             height: 15.h,
                           ),
+                          Container(
+                            width: double.infinity,
+                            height: 50,
+                            color: Colors.grey[100],
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(5.0),
+                                      child: RatingBar.builder(
+                                        initialRating: 3,
+                                        minRating: 1,
+                                        direction: Axis.horizontal,
+                                        allowHalfRating: true,
+                                        itemCount: 5,
+                                        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                                        itemBuilder: (context, _) => Icon(
+                                          Icons.star,
+                                          color: Colors.amber,
+                                        ),
+                                        onRatingUpdate: (rating) {
+                                          print(rating);
+                                        },
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
                           Text(
                             'Details',
                             style: TextStyle(
+                              fontWeight: FontWeight.bold,
                               fontSize: 18.sp,
                             ),
                           ),
@@ -119,7 +160,7 @@ class ProductScreen extends StatelessWidget {
                               fontSize: 18.sp,
                               height: 1.5.h,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
