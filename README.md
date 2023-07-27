@@ -4,3 +4,7 @@ In our complete e-commerce app. we show you how you can create a nice clean arch
 
 
 
+# video
+
+https://github.com/mido75/project-with-flutter1/assets/107117465/80e31b0b-4d66-413c-96c1-87d2cc02d6bf
+
